@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:orientation="vertical"
+    android:background="@drawable/bg_fragment_d_b_b_take_photo_button" >
+    <TextView
+        android:id="@+id/fragment_d_b_b_camera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="@dimen/mainTitle"
+        android:padding="@dimen/componentSelfMargin"
+        android:textColor="@color/dialog_confirm"
+        android:text="@string/fragment_d_b_b_take_photo_camera"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="@drawable/selector_dialog_button"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/dialog_line"/>
+    <TextView
+        android:id="@+id/fragment_d_b_b_album"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="@dimen/mainTitle"
+        android:padding="@dimen/componentSelfMargin"
+        android:textColor="@color/dialog_confirm"
+        android:text="@string/fragment_d_b_b_take_photo_album"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="@drawable/selector_dialog_button" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/dialog_line"/>
+    <TextView
+        android:id="@+id/fragment_d_b_b_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="@dimen/mainTitle"
+        android:padding="@dimen/componentSelfMargin"
+        android:textColor="@color/dialog_cancel"
+        android:text="@string/fragment_d_b_b_take_photo_cancel"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="@drawable/selector_dialog_button" />
+</LinearLayout>

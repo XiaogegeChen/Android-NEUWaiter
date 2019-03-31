@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_nv_left_first"
+        android:title="@string/menu_nv_left_first"
+        android:icon="@drawable/ic_me"
+        >
+    </item>
+
+    <item
+        android:id="@+id/menu_nv_left_second"
+        android:title="@string/menu_nv_left_second"
+        android:icon="@drawable/ic_me"
+        >
+    </item>
+
+    <item
+        android:id="@+id/menu_nv_left_third"
+        android:title="@string/menu_nv_left_third"
+        android:icon="@drawable/ic_me"
+        >
+    </item>
+
+    <item
+        android:id="@+id/menu_nv_left_fourth"
+        android:title="@string/menu_nv_left_fourth"
+        android:icon="@drawable/ic_me"
+        >
+    </item>
+
+    <item
+        android:id="@+id/menu_nv_left_fifth"
+        android:title="@string/menu_nv_left_fifth"
+        android:icon="@drawable/ic_me"
+        >
+    </item>
+
+    <item
+        android:id="@+id/menu_nv_left_sixth"
+        android:title="@string/menu_nv_left_sixth"
+        android:icon="@drawable/ic_me"
+        >
+    </item>
+
+</menu>

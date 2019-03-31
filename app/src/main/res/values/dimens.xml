@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 主页面底部导航栏高度 -->
+    <dimen name="bottomNavigationViewHeight">56dp</dimen>
+
+    <!-- 主页面底部导航栏加号背景直径 -->
+    <dimen name="floatingActionButtonBackgroundSize">64dp</dimen>
+
+    <!-- 主页面底部导航栏加号背景距底部高度 -->
+    <dimen name="floatingActionButtonBackgroundMargin">16dp</dimen>
+
+    <!-- 失物招领顶部导航栏高度 -->
+    <dimen name="fragmentDTabLayoutHeight">48dp</dimen>
+
+    <!-- 失物招领输入框高度 -->
+    <dimen name="fragmentDEditTextHeight">280dp</dimen>
+
+    <!-- 失物招领图标尺寸 -->
+    <dimen name="fragmentDIconSize">56dp</dimen>
+
+    <!-- 圆形头像尺寸 -->
+    <dimen name="headImageSize">64dp</dimen>
+
+    <!-- 失物招领照片尺寸 -->
+    <dimen name="fragmentDPhotoSize">112dp</dimen>
+
+    <!-- 小图标尺寸 -->
+    <dimen name="iconSize">24dp</dimen>
+
+    <!-- 卡片圆角 -->
+    <dimen name="cornerRadius">4dp</dimen>
+
+    <!-- 物品类型尺寸 -->
+    <dimen name="lostItemSize">96dp</dimen>
+
+    <!-- 大多数组件留白 -->
+    <dimen name="componentMarginLeft">16dp</dimen>
+    <dimen name="componentMarginRight">16dp</dimen>
+    <dimen name="componentMarginTop">8dp</dimen>
+    <dimen name="componentMarginBottom">8dp</dimen>
+    <dimen name="componentSelfMargin">8dp</dimen>
+
+    <!-- 字号 -->
+    <dimen name="text">14sp</dimen>
+    <dimen name="subTitle">16sp</dimen>
+    <dimen name="appBar">20sp</dimen>
+    <dimen name="mainTitle">20sp</dimen>
+    <dimen name="superLarge">34sp</dimen>
+
+</resources>

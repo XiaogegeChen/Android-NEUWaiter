@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#2EA9DF</color>
+
+    <color name="windowBackground">#FFFFFF</color>
+
+    <!-- Toolbar颜色 -->
+    <color name="colorToolbar">#2EA9DF</color>
+
+    <!-- 底部导航栏按钮颜色 -->
+    <color name="colorBottomNormal">#a4a4a4</color>
+    <color name="colorBottomPressed">#2EA9DF</color>
+
+    <!-- 字体默认颜色 -->
+    <color name="colorTextNormal">#000000</color>
+    <color name="colorTextWhite">#ffffff</color>
+
+    <!-- 按钮按压时的颜色 -->
+    <color name="colorButtonPressed">#32A3D5</color>
+    <!-- 按钮禁用时的颜色 -->
+    <color name="colorButtonDisable">#DDDDDD</color>
+    <color name="colorButtonDefault">#2EA9DF</color>
+
+    <!-- 分割线的颜色 -->
+    <color name="colorLine">#ECECEC</color>
+
+    <!-- 可点击的文本的颜色 -->
+    <color name="colorTextClickable">#4B97F3</color>
+
+    <!-- dialog相关颜色 -->
+    <color name="dialog_bg">#ffffff</color>
+    <color name="dialog_bg_press">#f0f0f0</color>
+    <color name="dialog_confirm">#007aff</color>
+    <color name="dialog_cancel">#f44336</color>
+    <color name="dialog_line">#2c000000</color>
+
+</resources>
