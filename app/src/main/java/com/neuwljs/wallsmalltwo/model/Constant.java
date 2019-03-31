@@ -27,4 +27,5 @@ public class Constant {
      * 从SharedPreferences中字符串,如果没取到默认是null
      */
     public static final String XML_DEFAULT_VALUE = null;
+
 }

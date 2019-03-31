@@ -92,7 +92,10 @@ public class PresenterContract {
      * FragmentDBC的业务逻辑接口
      */
     public interface FragmentDBCPresenter extends BasePresenter<ViewContract.FragmentDBCView>{
-
+        /**
+         * 请求网络拿到识别得到的结果
+         */
+        void load();
     }
 
     /**

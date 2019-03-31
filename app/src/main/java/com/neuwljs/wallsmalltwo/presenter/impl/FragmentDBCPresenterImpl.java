@@ -16,4 +16,9 @@ public class FragmentDBCPresenterImpl implements PresenterContract.FragmentDBCPr
     public void detach() {
         mFragmentDBCView = null;
     }
+
+    @Override
+    public void load() {
+
+    }
 }

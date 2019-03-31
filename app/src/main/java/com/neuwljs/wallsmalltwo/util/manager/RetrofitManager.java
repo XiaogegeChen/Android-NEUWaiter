@@ -22,6 +22,8 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 import static com.neuwljs.wallsmalltwo.common.ApiService.OKHTTP_CONNECT_TIME_OUT;
 import static com.neuwljs.wallsmalltwo.common.ApiService.OKHTTP_HEAD_MAP;
 import static com.neuwljs.wallsmalltwo.common.ApiService.OKHTTP_HEAD_NAME;
+import static com.neuwljs.wallsmalltwo.common.ApiService.OKHTTP_READ_TIME_OUT;
+import static com.neuwljs.wallsmalltwo.common.ApiService.OKHTTP_WRITE_TIME_OUT;
 import static com.neuwljs.wallsmalltwo.common.ApiService.WEATHER_BASE_URL;
 
 /**
@@ -37,20 +39,27 @@ public class RetrofitManager {
         //通过okhttp拦截器动态更改baseurl
         OkHttpClient client = new OkHttpClient.Builder ()
                 .connectTimeout (OKHTTP_CONNECT_TIME_OUT, TimeUnit.SECONDS)
+                .readTimeout (OKHTTP_READ_TIME_OUT, TimeUnit.SECONDS)
+                .writeTimeout (OKHTTP_WRITE_TIME_OUT, TimeUnit.SECONDS)
+                .retryOnConnectionFailure (true)
                 .addInterceptor (new Interceptor () {
                     @NotNull
                     @Override
                     public Response intercept(@NotNull Chain chain) throws IOException {
                         Request request = chain.request ();
                         Request.Builder builder = request.newBuilder();
+
+                        // 拿到设置的head
                         List<String> headList = request.headers (OKHTTP_HEAD_NAME);
                         HttpUrl oldHttpUrl = request.url();
                         if(headList.size () > 0){
+
+                            // 移除设置的head
                             builder.removeHeader (OKHTTP_HEAD_NAME);
                             String head = headList.get (0);
                             HttpUrl newBaseUrl = null;
 
-                            //根据头更改baseurl
+                            //根据head的值更改baseUrl
                             Map<String, String> map = OKHTTP_HEAD_MAP;
                             for(String key : map.keySet ()){
                                 if(key.equals (head)){
@@ -60,6 +69,7 @@ public class RetrofitManager {
                                 newBaseUrl = oldHttpUrl;
                             }
 
+                            // 生成新的url
                             HttpUrl newUrl = oldHttpUrl
                                     .newBuilder()
                                     .scheme(newBaseUrl.scheme())

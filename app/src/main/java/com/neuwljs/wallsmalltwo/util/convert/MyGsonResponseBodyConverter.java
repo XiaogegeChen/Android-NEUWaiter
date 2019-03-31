@@ -35,6 +35,7 @@ public class MyGsonResponseBodyConverter<T> implements Converter<ResponseBody, T
         ByteArrayInputStream bis = new ByteArrayInputStream (result.getBytes());
         InputStreamReader reader = new InputStreamReader (bis,charset);
 
+        // 不是json格式就不做处理
         if(!isJsonFormat (result)){
             responseBody.close ();
             return (T)result;

@@ -3,6 +3,7 @@ package com.neuwljs.wallsmalltwo.view.fragment;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,8 @@ import android.widget.ScrollView;
 import com.neuwljs.wallsmalltwo.R;
 import com.neuwljs.wallsmalltwo.common.BaseFragment;
 import com.neuwljs.wallsmalltwo.common.IndicatorFragment;
+import com.neuwljs.wallsmalltwo.model.base.Owner;
+import com.neuwljs.wallsmalltwo.model.base.Publisher;
 import com.neuwljs.wallsmalltwo.view.ViewContract;
 import com.neuwljs.wallsmalltwo.view.widget.NoSlideViewPager;
 
@@ -23,7 +26,7 @@ public class FragmentDBC
     //控件
     private Button mSubmitButton;
     private FrameLayout mProgressPage;
-    private ScrollView mScrollView;
+    private CardView mCardView;
 
     //当前的ViewPager实例
     private NoSlideViewPager mNoSlideViewPager;
@@ -52,7 +55,7 @@ public class FragmentDBC
     public void initView(View view) {
         mSubmitButton = view.findViewById (R.id.fragment_d_b_c_submit);
         mProgressPage = view.findViewById (R.id.fragment_d_b_c_progress_page);
-        mScrollView = view.findViewById (R.id.fragment_d_b_c_content_page);
+        mCardView = view.findViewById (R.id.fragment_d_b_c_content_page);
     }
 
     @Override
@@ -83,7 +86,7 @@ public class FragmentDBC
 
     @Override
     public void showProgressPage() {
-        mScrollView.setVisibility (View.INVISIBLE);
+        mCardView.setVisibility (View.INVISIBLE);
         mProgressPage.setVisibility (View.VISIBLE);
     }
 
@@ -94,13 +97,6 @@ public class FragmentDBC
     @Override
     public void showToast(String message) {
 
-    }
-
-
-    @Override
-    public void showScrollView() {
-        mProgressPage.setVisibility (View.INVISIBLE);
-        mScrollView.setVisibility (View.VISIBLE);
     }
 
     /**
@@ -114,5 +110,15 @@ public class FragmentDBC
 
     @Override
     public void onRightClick() {
+    }
+
+    @Override
+    public void showOwner(Owner owner) {
+
+    }
+
+    @Override
+    public void showPublisher(Publisher publisher) {
+
     }
 }
