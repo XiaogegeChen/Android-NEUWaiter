@@ -68,4 +68,5 @@ dependencies {
 
     //权限请求
     implementation 'com.hjq:xxpermissions:5.5'
+    implementation 'androidx.exifinterface:exifinterface:1.1.0-alpha01'
 }

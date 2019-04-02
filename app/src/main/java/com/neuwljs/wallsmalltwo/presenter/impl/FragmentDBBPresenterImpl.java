@@ -28,11 +28,11 @@ import java.util.List;
 
 import static android.app.Activity.RESULT_OK;
 import static com.neuwljs.wallsmalltwo.model.Constant.NO_PERMISSION;
+import static com.neuwljs.wallsmalltwo.model.Constant.PHOTO_FILE_NAME;
 
 public class FragmentDBBPresenterImpl
         implements PresenterContract.FragmentDBBPresenter, OnPermission {
 
-    private static final String PHOTO_FILE_NAME = "fragment_d_b_b_image.jpg";
     private static final int TAKE_PHOTO = 1;
     private static final int CHOOSE_PHOTO = 2;
 

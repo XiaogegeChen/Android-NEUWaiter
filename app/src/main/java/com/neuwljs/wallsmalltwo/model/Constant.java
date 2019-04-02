@@ -28,4 +28,10 @@ public class Constant {
      */
     public static final String XML_DEFAULT_VALUE = null;
 
+    /**
+     * 拍照之后图片存放位置的文件名
+     * 具体位置为  sdcard/Android/data/com.neuwljs.wallsmalltwo/cache/fragment_d_b_b_image.jpg"
+     */
+    public static final String PHOTO_FILE_NAME = "fragment_d_b_b_image.jpg";
+
 }

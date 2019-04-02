@@ -16,6 +16,7 @@ import com.neuwljs.wallsmalltwo.common.BaseFragment;
 import com.neuwljs.wallsmalltwo.common.IndicatorFragment;
 import com.neuwljs.wallsmalltwo.model.base.Owner;
 import com.neuwljs.wallsmalltwo.model.base.Publisher;
+import com.neuwljs.wallsmalltwo.presenter.impl.FragmentDBCPresenterImpl;
 import com.neuwljs.wallsmalltwo.view.ViewContract;
 import com.neuwljs.wallsmalltwo.view.widget.NoSlideViewPager;
 
@@ -31,6 +32,8 @@ public class FragmentDBC
     //当前的ViewPager实例
     private NoSlideViewPager mNoSlideViewPager;
 
+    private FragmentDBCPresenterImpl mFragmentDBCPresenter;
+
     public void setNoSlideViewPager(NoSlideViewPager noSlideViewPager) {
         mNoSlideViewPager = noSlideViewPager;
     }
@@ -40,7 +43,14 @@ public class FragmentDBC
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = super.onCreateView (inflater, container, savedInstanceState);
+        mFragmentDBCPresenter.attach (this);
         return view;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy ();
+        mFragmentDBCPresenter.detach ();
     }
 
     public FragmentDBC() {
@@ -61,6 +71,7 @@ public class FragmentDBC
     @Override
     public void initData() {
         mSubmitButton.setOnClickListener (this);
+        mFragmentDBCPresenter = new FragmentDBCPresenterImpl (this);
     }
 
     @Override
@@ -77,6 +88,7 @@ public class FragmentDBC
             case R.id.fragment_d_b_c_submit:
                 if(mNoSlideViewPager != null){
                     mNoSlideViewPager.setCurrentItem (3, true);
+                    mFragmentDBCPresenter.load ();
                 }
                 break;
             default:
