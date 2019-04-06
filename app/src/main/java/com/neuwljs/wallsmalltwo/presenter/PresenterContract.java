@@ -80,6 +80,11 @@ public class PresenterContract {
         void notifyFragmentDBCLoad();
 
         /**
+         * 通知第三页刷新UI
+         */
+        void notifyFragmentDBCRefreshUI(String information);
+
+        /**
          * 开启相机或者开启相册之后onActivityResult()方法的实现
          * @param requestCode 请求码
          * @param resultCode 结果码
@@ -93,9 +98,14 @@ public class PresenterContract {
      */
     public interface FragmentDBCPresenter extends BasePresenter<ViewContract.FragmentDBCView>{
         /**
-         * 请求网络拿到识别得到的结果
+         * 请求网络拿到识别得到的结果并显示
          */
-        void load();
+        void loadOwner();
+
+        /**
+         * 从本地拿到Publisher的实例并显示
+         */
+        void loadPublisher();
     }
 
     /**
@@ -111,6 +121,6 @@ public class PresenterContract {
         /**
          * 通知填写信息的第一页更新
          */
-        void notifyFragmentDBARefresh();
+        void notifyFragmentDBRefresh();
     }
 }

@@ -61,7 +61,7 @@ public class ViewContract {
 
         /**
          * 显示发布者的信息
-         * @param publisher 发布者的bean
+         * @param publisher 访问数据库拿到的Publisher实例
          */
         void showPublisher(Publisher publisher);
     }

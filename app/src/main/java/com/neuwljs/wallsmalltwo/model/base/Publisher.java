@@ -20,12 +20,7 @@ public class Publisher {
     /**
      * 时间
      */
-    private String time;
-
-    /**
-     * 详细内容，描述
-     */
-    private String content;
+    private long time;
 
     public Bitmap getHeadImage() {
         return headImage;
@@ -43,19 +38,11 @@ public class Publisher {
         this.name = name;
     }
 
-    public String getTime() {
+    public long getTime() {
         return time;
     }
 
-    public void setTime(String time) {
+    public void setTime(long time) {
         this.time = time;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
     }
 }

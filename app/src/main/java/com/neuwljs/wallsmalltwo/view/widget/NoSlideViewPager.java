@@ -8,6 +8,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 
 public class NoSlideViewPager extends ViewPager {
+
     public NoSlideViewPager(@NonNull Context context) {
         super (context);
     }

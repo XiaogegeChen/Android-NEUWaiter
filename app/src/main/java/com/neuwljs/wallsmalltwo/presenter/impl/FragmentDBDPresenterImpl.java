@@ -1,7 +1,10 @@
 package com.neuwljs.wallsmalltwo.presenter.impl;
 
+import com.neuwljs.wallsmalltwo.common.IndicatorFragment;
 import com.neuwljs.wallsmalltwo.presenter.PresenterContract;
 import com.neuwljs.wallsmalltwo.view.ViewContract;
+
+import org.greenrobot.eventbus.EventBus;
 
 public class FragmentDBDPresenterImpl implements PresenterContract.FragmentDBDPresenter {
 
@@ -19,10 +22,14 @@ public class FragmentDBDPresenterImpl implements PresenterContract.FragmentDBDPr
 
     @Override
     public void notifyFragmentDARefresh() {
+        // TODO
     }
 
     @Override
-    public void notifyFragmentDBARefresh() {
-
+    public void notifyFragmentDBRefresh() {
+        // 前三个页面刷新
+        IndicatorFragment.RefreshEvent event = new IndicatorFragment.RefreshEvent ();
+        event.setBegin (true);
+        EventBus.getDefault ().post (event);
     }
 }

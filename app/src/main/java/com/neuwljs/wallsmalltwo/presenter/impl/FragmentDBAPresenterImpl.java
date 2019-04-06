@@ -2,6 +2,9 @@ package com.neuwljs.wallsmalltwo.presenter.impl;
 
 import com.neuwljs.wallsmalltwo.presenter.PresenterContract;
 import com.neuwljs.wallsmalltwo.view.ViewContract;
+import com.neuwljs.wallsmalltwo.view.fragment.FragmentDBC;
+
+import org.greenrobot.eventbus.EventBus;
 
 public class FragmentDBAPresenterImpl implements PresenterContract.FragmentDBAPresenter {
 
@@ -18,7 +21,9 @@ public class FragmentDBAPresenterImpl implements PresenterContract.FragmentDBAPr
     }
 
     @Override
-    public void notifyPropertyRefresh(String lostPropertyType) {
-
+    public void notifyPropertyRefresh(String propertyType) {
+        FragmentDBC.RefreshPropertyTypeEvent event = new FragmentDBC.RefreshPropertyTypeEvent ();
+        event.setPropertyType (propertyType);
+        EventBus.getDefault ().post (event);
     }
 }

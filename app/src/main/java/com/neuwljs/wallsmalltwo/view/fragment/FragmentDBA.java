@@ -231,6 +231,22 @@ public class FragmentDBA
         return this;
     }
 
+    @Override
+    public void refresh() {
+        // 所有的类型都不选中
+        mPressedStudentCardLayout.setVisibility (View.INVISIBLE);
+        mStudentCardLayout.setVisibility (View.VISIBLE);
+        mPressedIdCardLayout.setVisibility (View.INVISIBLE);
+        mIdCardLayout.setVisibility (View.VISIBLE);
+        mPressedBankCardLayout.setVisibility (View.INVISIBLE);
+        mBankCardLayout.setVisibility (View.VISIBLE);
+        mPressedElseLayout.setVisibility (View.INVISIBLE);
+        mElseLayout.setVisibility (View.VISIBLE);
+
+        // 类型置为空
+        mLostPropertyType = null;
+    }
+
     /**
      * {@link FragmentDB.OnArrowClickListener}
      */

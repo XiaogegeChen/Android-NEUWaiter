@@ -8,15 +8,18 @@ import android.view.MenuItem;
 import android.view.View;
 
 import com.neuwljs.wallsmalltwo.R;
-import com.neuwljs.wallsmalltwo.adapter.MyFragmentPagerAdapter;
+import com.neuwljs.wallsmalltwo.adapter.viewpager.MyFragmentPagerAdapter;
 import com.neuwljs.wallsmalltwo.common.BaseActivity;
 import com.neuwljs.wallsmalltwo.common.BaseFragment;
+import com.neuwljs.wallsmalltwo.model.database.User;
 import com.neuwljs.wallsmalltwo.view.fragment.FragmentA;
 import com.neuwljs.wallsmalltwo.view.fragment.FragmentB;
 import com.neuwljs.wallsmalltwo.view.fragment.FragmentC;
 import com.neuwljs.wallsmalltwo.view.fragment.FragmentD;
 import com.neuwljs.wallsmalltwo.view.fragment.FragmentE;
 import com.neuwljs.wallsmalltwo.view.widget.NoSlideViewPager;
+
+import org.litepal.LitePal;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -71,6 +74,17 @@ public class MainActivity extends BaseActivity
 
         mFloatingActionButton.setOnClickListener (this);
         mBottomNavigationView.setOnNavigationItemSelectedListener (this);
+
+        // 建表,初始化一条数据,测试用
+        LitePal.getDatabase ();
+        User user = new User ();
+        user.setCollege ("材料科学与工程学院");
+        user.setName ("haha哈哈");
+        user.setPassword ("123456");
+        user.setPhoneNumber ("18842507220");
+        user.setRealName ("蔡徐坤");
+        user.setStudentId ("20160000");
+        user.save ();
     }
 
     @Override

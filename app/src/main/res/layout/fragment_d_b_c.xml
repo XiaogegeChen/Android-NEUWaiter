@@ -12,75 +12,71 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <FrameLayout
+            <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <FrameLayout
-                    android:id="@+id/fragment_d_b_c_progress_page"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:visibility="invisible">
-                    <ProgressBar
-                        android:layout_width="@dimen/lostItemSize"
-                        android:layout_height="@dimen/lostItemSize"
-                        android:layout_gravity="center"/>
-                </FrameLayout>
-                <android.support.v7.widget.CardView
-                    android:id="@+id/fragment_d_b_c_content_page"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/componentSelfMargin"
+                app:cardCornerRadius="@dimen/cornerRadius">
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/componentSelfMargin"
-                    app:cardCornerRadius="@dimen/cornerRadius">
+                    android:orientation="vertical">
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical">
+                        android:orientation="horizontal">
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/fragment_d_b_c_publisher_head_image"
+                            android:layout_width="@dimen/headImageSize"
+                            android:layout_height="@dimen/headImageSize"
+                            android:layout_margin="@dimen/componentSelfMargin"
+                            android:src="@drawable/ic_lost_and_found"/>
                         <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal">
-                            <de.hdodenhof.circleimageview.CircleImageView
-                                android:layout_width="@dimen/headImageSize"
-                                android:layout_height="@dimen/headImageSize"
-                                android:layout_margin="@dimen/componentSelfMargin"
-                                android:src="@drawable/ic_lost_and_found"/>
-                            <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="64dp"
+                            android:layout_margin="@dimen/componentSelfMargin"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical">
+                            <TextView
+                                android:id="@+id/fragment_d_b_c_publisher_name"
                                 android:layout_width="wrap_content"
-                                android:layout_height="64dp"
-                                android:layout_margin="@dimen/componentSelfMargin"
-                                android:gravity="center_vertical"
-                                android:orientation="vertical">
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textColor="@color/colorTextNormal"
-                                    android:textSize="@dimen/subTitle"
-                                    android:text="@string/test"
-                                    android:layout_marginBottom="@dimen/componentMarginBottom"/>
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:textSize="@dimen/text"
-                                    android:text="@string/test"/>
-                            </LinearLayout>
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorTextNormal"
+                                android:textSize="@dimen/subTitle"
+                                android:text="@string/test"
+                                android:layout_marginBottom="@dimen/componentMarginBottom"/>
+                            <TextView
+                                android:id="@+id/fragment_d_b_c_publisher_time"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/text"
+                                android:text="@string/test"/>
                         </LinearLayout>
-                        <TextView
+                    </LinearLayout>
+                    <TextView
+                        android:id="@+id/fragment_d_b_c_publisher_information"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorTextNormal"
+                        android:textSize="@dimen/subTitle"
+                        android:text="@string/test"
+                        android:layout_margin="@dimen/componentSelfMargin"/>
+                    <android.support.percent.PercentFrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textColor="@color/colorTextNormal"
-                            android:textSize="@dimen/subTitle"
-                            android:text="@string/test"
+                            android:src="@drawable/ic_student_card"
+                            android:adjustViewBounds="true"
                             android:layout_margin="@dimen/componentSelfMargin"/>
-                        <android.support.percent.PercentFrameLayout
+                        <FrameLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
-                            <ImageView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:src="@drawable/ic_student_card"
-                                android:adjustViewBounds="true"
-                                android:layout_margin="@dimen/componentSelfMargin"/>
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            app:layout_marginStartPercent="40%">
                             <LinearLayout
+                                android:id="@+id/fragment_d_b_c_content_page"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:orientation="vertical"
@@ -99,6 +95,7 @@
                                         android:textColor="@color/colorTextNormal"
                                         android:textSize="@dimen/text"/>
                                     <TextView
+                                        android:id="@+id/fragment_d_b_c_owner_name"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:textColor="@color/colorTextNormal"
@@ -119,6 +116,7 @@
                                         android:textColor="@color/colorTextNormal"
                                         android:textSize="@dimen/text"/>
                                     <TextView
+                                        android:id="@+id/fragment_d_b_c_owner_id"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:textColor="@color/colorTextNormal"
@@ -139,6 +137,7 @@
                                         android:textColor="@color/colorTextNormal"
                                         android:textSize="@dimen/text"/>
                                     <TextView
+                                        android:id="@+id/fragment_d_b_c_owner_college"
                                         android:layout_width="wrap_content"
                                         android:layout_height="wrap_content"
                                         android:textColor="@color/colorTextNormal"
@@ -147,10 +146,20 @@
                                         android:layout_marginLeft="@dimen/componentMarginLeft"/>
                                 </LinearLayout>
                             </LinearLayout>
-                        </android.support.percent.PercentFrameLayout>
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
-            </FrameLayout>
+                            <FrameLayout
+                                android:id="@+id/fragment_d_b_c_progress_page"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:visibility="invisible">
+                                <ProgressBar
+                                    android:layout_width="@dimen/fragmentDIconSize"
+                                    android:layout_height="@dimen/fragmentDIconSize"
+                                    android:layout_gravity="center"/>
+                            </FrameLayout>
+                        </FrameLayout>
+                    </android.support.percent.PercentFrameLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -168,6 +177,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <EditText
+                        android:id="@+id/fragment_d_b_c_owner_name_edit"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/fragment_d_b_c_hint_name"
@@ -179,6 +189,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <EditText
+                        android:id="@+id/fragment_d_b_c_owner_id_edit"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/fragment_d_b_c_hint_id"
@@ -190,6 +201,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
                     <EditText
+                        android:id="@+id/fragment_d_b_c_owner_college_edit"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/fragment_d_b_c_hint_collage"

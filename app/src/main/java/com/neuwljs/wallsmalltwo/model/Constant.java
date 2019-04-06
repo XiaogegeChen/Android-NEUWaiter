@@ -26,7 +26,12 @@ public class Constant {
     /**
      * 从SharedPreferences中字符串,如果没取到默认是null
      */
-    public static final String XML_DEFAULT_VALUE = null;
+    public static final String XML_DEFAULT_VALUE_STRING = null;
+
+    /**
+     * 从SharedPreferences中取long,如果没取到默认是null
+     */
+    public static final long XML_DEFAULT_VALUE_LONG = 0;
 
     /**
      * 拍照之后图片存放位置的文件名
@@ -34,4 +39,16 @@ public class Constant {
      */
     public static final String PHOTO_FILE_NAME = "fragment_d_b_b_image.jpg";
 
+    /**
+     * 失物的owner和publisher信息获取失败时显示的信息
+     */
+    public static final String OWNER_NAME_DEFAULT = "获取失败";
+    public static final String OWNER_ID_DEFAULT = "0";
+    public static final String OWNER_COLLEGE_DEFAULT = "获取失败";
+    public static final String PUBLISHER_NAME_DEFAULT = "好心人";
+
+    /**
+     * 轮播图播放时间间隔
+     */
+    public static final int BANNER_INTERVAL = 4000;
 }

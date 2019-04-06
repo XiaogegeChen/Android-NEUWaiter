@@ -15,6 +15,9 @@
     <!-- 失物招领输入框高度 -->
     <dimen name="fragmentDEditTextHeight">280dp</dimen>
 
+    <!-- 轮播图高度 -->
+    <dimen name="fragmentDAPictureHeight">250dp</dimen>
+
     <!-- 失物招领图标尺寸 -->
     <dimen name="fragmentDIconSize">56dp</dimen>
 
@@ -27,11 +30,20 @@
     <!-- 小图标尺寸 -->
     <dimen name="iconSize">24dp</dimen>
 
+    <!-- 超小图标尺寸 -->
+    <dimen name="iconSizeSmall">16dp</dimen>
+
+    <!-- 小原点尺寸 -->
+    <dimen name="pointSize">8dp</dimen>
+
     <!-- 卡片圆角 -->
     <dimen name="cornerRadius">4dp</dimen>
 
     <!-- 物品类型尺寸 -->
     <dimen name="lostItemSize">96dp</dimen>
+
+    <!-- TabLayout指示器高度 -->
+    <dimen name="tabIndicatorHeight">2dp</dimen>
 
     <!-- 大多数组件留白 -->
     <dimen name="componentMarginLeft">16dp</dimen>

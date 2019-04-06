@@ -146,6 +146,9 @@ public class FragmentDBB
 
     @Override
     public void showImage(Bitmap bitmap) {
+        if(mImageView.getVisibility () != View.VISIBLE){
+            mImageView.setVisibility (View.VISIBLE);
+        }
         mImageView.setImageBitmap (bitmap);
     }
 
@@ -168,10 +171,20 @@ public class FragmentDBB
 
                 //通知加载
                 mFragmentDBBPresenter.notifyFragmentDBCLoad ();
+                mFragmentDBBPresenter.notifyFragmentDBCRefreshUI (information);
 
                 //跳转
                 mNoSlideViewPager.setCurrentItem (2, true);
             }
         };
+    }
+
+    @Override
+    public void refresh() {
+        // 图片不可见,输入框清空
+        if(mImageView.getVisibility () != View.INVISIBLE){
+            mImageView.setVisibility (View.INVISIBLE);
+        }
+        mEditText.setText (null);
     }
 }

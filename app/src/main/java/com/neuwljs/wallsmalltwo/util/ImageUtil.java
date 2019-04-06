@@ -4,6 +4,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.media.ExifInterface;
+import android.util.Base64;
 
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
@@ -161,6 +162,19 @@ public class ImageUtil {
         return to.toString();
     }
 
+    // 将字符串转换成Bitmap类型
+    public static Bitmap decode(String string) {
+        Bitmap bitmap = null;
+        try {
+            byte[] bitmapArray;
+            bitmapArray = Base64.decode (string, Base64.DEFAULT);
+            bitmap = BitmapFactory.decodeByteArray (bitmapArray, 0, bitmapArray.length);
+        } catch (Exception e) {
+            e.printStackTrace ();
+        }
+        return bitmap;
+    }
+
     // 关闭流
     private static void closeStream(Closeable c) {
         if(c != null){
@@ -171,6 +185,23 @@ public class ImageUtil {
             } finally {
                 c = null;
             }
+        }
+    }
+
+    /**
+     * 把一张图片存入指定的文件中
+     * @param bitmap 图片
+     * @param file 文件
+     */
+    public static void saveImage(Bitmap bitmap, File file){
+        FileOutputStream fileOutputStream = null;
+        try {
+            fileOutputStream = new FileOutputStream (file);
+            bitmap.compress (Bitmap.CompressFormat.JPEG, 100, fileOutputStream);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace ();
+        }finally {
+            closeStream (fileOutputStream);
         }
     }
 }

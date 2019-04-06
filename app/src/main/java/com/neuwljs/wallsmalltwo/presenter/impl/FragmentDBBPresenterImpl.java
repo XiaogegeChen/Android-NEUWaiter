@@ -17,9 +17,13 @@ import com.hjq.permissions.OnPermission;
 import com.hjq.permissions.Permission;
 import com.hjq.permissions.XXPermissions;
 import com.neuwljs.wallsmalltwo.presenter.PresenterContract;
+import com.neuwljs.wallsmalltwo.util.ImageUtil;
 import com.neuwljs.wallsmalltwo.util.ToastUtil;
 import com.neuwljs.wallsmalltwo.view.ViewContract;
 import com.neuwljs.wallsmalltwo.view.fragment.FragmentDBB;
+import com.neuwljs.wallsmalltwo.view.fragment.FragmentDBC;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -109,12 +113,23 @@ public class FragmentDBBPresenterImpl
 
     @Override
     public void notifyPropertyRefresh(String information) {
-
+        FragmentDBC.RefreshPropertyInformationEvent event = new FragmentDBC.RefreshPropertyInformationEvent ();
+        event.setInformation (information);
+        EventBus.getDefault ().post (event);
     }
 
     @Override
     public void notifyFragmentDBCLoad() {
+        FragmentDBC.LoadEvent event = new FragmentDBC.LoadEvent ();
+        event.setBegin (true);
+        EventBus.getDefault ().post (event);
+    }
 
+    @Override
+    public void notifyFragmentDBCRefreshUI(String information) {
+        FragmentDBC.DisplayInformationEvent event = new FragmentDBC.DisplayInformationEvent ();
+        event.setInformation (information);
+        EventBus.getDefault ().post (event);
     }
 
     @Override
@@ -225,10 +240,13 @@ public class FragmentDBBPresenterImpl
         return path;
     }
 
-    //显示图片
+    //显示图片并存储
     private void displayImage(String path){
         if(path != null){
             Bitmap bitmap = BitmapFactory.decodeFile (path);
+
+            // 存入文件中
+            ImageUtil.saveImage (bitmap, new File (mContext.getExternalCacheDir (), PHOTO_FILE_NAME));
             mFragmentDBBView.showImage (bitmap);
         }
     }

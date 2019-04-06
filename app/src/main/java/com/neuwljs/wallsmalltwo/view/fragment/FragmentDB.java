@@ -11,9 +11,8 @@ import android.widget.LinearLayout;
 
 import com.badoualy.stepperindicator.StepperIndicator;
 import com.neuwljs.wallsmalltwo.R;
-import com.neuwljs.wallsmalltwo.adapter.MyFragmentPagerAdapter;
+import com.neuwljs.wallsmalltwo.adapter.viewpager.MyFragmentPagerAdapter;
 import com.neuwljs.wallsmalltwo.common.BaseFragment;
-import com.neuwljs.wallsmalltwo.common.IndicatorFragment;
 import com.neuwljs.wallsmalltwo.util.LogUtil;
 import com.neuwljs.wallsmalltwo.view.widget.NoSlideViewPager;
 

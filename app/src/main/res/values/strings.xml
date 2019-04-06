@@ -27,6 +27,17 @@
         <item>个人信息</item>
     </string-array>
 
+    <!-- 失物招领首页 -->
+    <string name="fragment_d_a_catalog">类型</string>
+    <string name="fragment_d_a_search">搜索</string>
+    <string name="fragment_d_a_new">最新动态</string>
+
+    <!-- 失物招领tabLayout的标题 -->
+    <string-array name="fragment_d_a_tab_titles">
+        <item>寻物启事</item>
+        <item>招领启事</item>
+    </string-array>
+
     <!-- 失物招领登陆捡到物品 -->
     <string name="fragment_d_b_right">下一步</string>
     <string name="fragment_d_b_left">上一步</string>

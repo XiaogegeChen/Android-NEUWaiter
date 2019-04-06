@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
+import com.neuwljs.wallsmalltwo.util.LogUtil;
 
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
@@ -28,6 +29,7 @@ public class MyGsonResponseBodyConverter<T> implements Converter<ResponseBody, T
     @Override public T convert(ResponseBody responseBody) throws IOException{
         //拿到返回的字符串,responseBody.string()只能调用一次
         String result = responseBody.string ();
+        LogUtil.d ("MyJson", result);
 
         //拿到reader
         MediaType mediaType = responseBody.contentType();

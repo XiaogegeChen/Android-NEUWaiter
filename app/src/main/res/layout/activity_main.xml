@@ -8,49 +8,39 @@
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+        <android.support.design.widget.BottomNavigationView
+            android:id="@+id/bnv_main"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="@color/colorToolbar" />
+            android:layout_height="@dimen/bottomNavigationViewHeight"
+            android:layout_gravity="bottom"
+            app:itemTextColor="@drawable/bnv_main_color_selector"
+            app:labelVisibilityMode="labeled"
+            app:menu="@menu/menu_main"
+            app:itemIconTint="@drawable/bnv_main_color_selector"
+            app:itemBackground="@null" />
         <FrameLayout
-            android:layout_marginTop="?attr/actionBarSize"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <android.support.design.widget.BottomNavigationView
-                android:id="@+id/bnv_main"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="@dimen/bottomNavigationViewHeight">
+            <com.neuwljs.wallsmalltwo.view.widget.NoSlideViewPager
+                android:id="@+id/vp_no_slide_main"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/bottomNavigationViewHeight"
-                android:layout_gravity="bottom"
-                app:itemTextColor="@drawable/bnv_main_color_selector"
-                app:labelVisibilityMode="labeled"
-                app:menu="@menu/menu_main"
-                app:itemIconTint="@drawable/bnv_main_color_selector"
-                app:itemBackground="@null" />
-            <FrameLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="@dimen/bottomNavigationViewHeight">
-                <com.neuwljs.wallsmalltwo.view.widget.NoSlideViewPager
-                    android:id="@+id/vp_no_slide_main"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
-            </FrameLayout>
-            <FrameLayout
-                android:layout_width="@dimen/floatingActionButtonBackgroundSize"
-                android:layout_height="@dimen/floatingActionButtonBackgroundSize"
-                android:layout_marginBottom="@dimen/floatingActionButtonBackgroundMargin"
-                android:layout_gravity="bottom|center_horizontal"
-                android:background="@drawable/bg_main_add">
-                <android.support.design.widget.FloatingActionButton
-                    android:id="@+id/fab"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_add"
-                    android:layout_gravity="center"
-                    app:elevation="0dp"
-                    app:fabSize="normal" />
-            </FrameLayout>
+                android:layout_height="match_parent" />
+        </FrameLayout>
+        <FrameLayout
+            android:layout_width="@dimen/floatingActionButtonBackgroundSize"
+            android:layout_height="@dimen/floatingActionButtonBackgroundSize"
+            android:layout_marginBottom="@dimen/floatingActionButtonBackgroundMargin"
+            android:layout_gravity="bottom|center_horizontal"
+            android:background="@drawable/bg_main_add">
+            <android.support.design.widget.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_add"
+                android:layout_gravity="center"
+                app:elevation="0dp"
+                app:fabSize="normal" />
         </FrameLayout>
     </FrameLayout>
     <android.support.design.widget.NavigationView

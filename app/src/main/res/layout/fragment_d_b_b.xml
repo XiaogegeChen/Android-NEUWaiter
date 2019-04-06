@@ -69,7 +69,8 @@
                         android:layout_height="match_parent"
                         android:layout_margin="@dimen/componentSelfMargin"
                         android:adjustViewBounds="true"
-                        android:src="@drawable/ic_student_card"/>
+                        android:src="@drawable/ic_student_card"
+                        android:visibility="invisible"/>
                 </FrameLayout>
             </LinearLayout>
             <View

@@ -3,5 +3,6 @@
     <dbname value="wall_small_two"/>
     <version value="1"/>
     <list>
+        <mapping class="com.neuwljs.wallsmalltwo.model.database.User"/>
     </list>
 </litepal>

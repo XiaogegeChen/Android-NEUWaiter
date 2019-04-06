@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.neuwljs.wallsmalltwo.R;
-import com.neuwljs.wallsmalltwo.adapter.MyFragmentPagerAdapter;
+import com.neuwljs.wallsmalltwo.adapter.viewpager.MyFragmentPagerAdapter;
 import com.neuwljs.wallsmalltwo.common.BaseFragment;
 
 import java.util.ArrayList;
@@ -65,8 +65,7 @@ public class FragmentD extends BaseFragment {
         mFragmentList.add (new FragmentDC ());
         mFragmentList.add (new FragmentDD ());
 
-        mViewPager.setAdapter (new MyFragmentPagerAdapter (getFragmentManager (),
-                mFragmentList){
+        mViewPager.setAdapter (new MyFragmentPagerAdapter (getFragmentManager (), mFragmentList){
 
             @Override
             public List<String> getTitle() {

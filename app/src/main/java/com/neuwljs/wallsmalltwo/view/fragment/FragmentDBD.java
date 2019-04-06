@@ -85,7 +85,7 @@ public class FragmentDBD
             @Override
             public void onClick(View v) {
                 //跳转到首页
-                mOutViewPager.setCurrentItem (0,true);
+                mOutViewPager.setCurrentItem (0,false);
 
                 //通知首页刷新
                 mFragmentDBDPresenter.notifyFragmentDARefresh ();
@@ -97,10 +97,11 @@ public class FragmentDBD
             @Override
             public void onClick(View v) {
                 //跳转到第一步
-                mNoSlideViewPager.setCurrentItem (0, true);
+                mNoSlideViewPager.setCurrentItem (0, false);
 
-                //通知页面刷新
-                mFragmentDBDPresenter.notifyFragmentDBARefresh ();
+                //通知页面刷新,通知首页刷新
+                mFragmentDBDPresenter.notifyFragmentDBRefresh ();
+                mFragmentDBDPresenter.notifyFragmentDARefresh ();
             }
         }), FRAGMENT_D_B_D_TEXT_2_START, FRAGMENT_D_B_D_TEXT_2_EDN, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
@@ -127,6 +128,10 @@ public class FragmentDBD
     public FragmentDB.OnArrowClickListener getOnArrowClickListener() {
         //不处理,这一页这两个按钮不可见
         return null;
+    }
+
+    @Override
+    public void refresh() {
     }
 
     /**
