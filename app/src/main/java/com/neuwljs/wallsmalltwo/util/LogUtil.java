@@ -11,4 +11,10 @@ public class LogUtil {
             Log.d (tag,message);
         }
     }
+
+    public static void e(String tag,String message){
+        if(AppConfig.LOG){
+            Log.e (tag,message);
+        }
+    }
 }

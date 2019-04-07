@@ -4,6 +4,8 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#2EA9DF</color>
 
+    <color name="colorAccentLight">#5097EE</color>
+
     <color name="windowBackground">#FFFFFF</color>
 
     <!-- Toolbar颜色 -->

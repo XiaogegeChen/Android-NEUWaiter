@@ -1,5 +1,7 @@
 package com.neuwljs.wallsmalltwo.model;
 
+import com.neuwljs.wallsmalltwo.util.StringUtil;
+
 public class Constant {
 
     private Constant(){
@@ -45,10 +47,15 @@ public class Constant {
     public static final String OWNER_NAME_DEFAULT = "获取失败";
     public static final String OWNER_ID_DEFAULT = "0";
     public static final String OWNER_COLLEGE_DEFAULT = "获取失败";
-    public static final String PUBLISHER_NAME_DEFAULT = "好心人";
+    public static final String PUBLISHER_NAME_DEFAULT = "墙小二";
 
     /**
      * 轮播图播放时间间隔
      */
     public static final int BANNER_INTERVAL = 4000;
+
+    /**
+     * 每次请求的最大的数据量
+     */
+    public static final int LOAD_DATA_ONCE_NUM = 3;
 }

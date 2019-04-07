@@ -1,7 +1,5 @@
 package com.neuwljs.wallsmalltwo.model;
 
-import org.jetbrains.annotations.NotNull;
-
 /**
  * 自定义一个Exception,方便对用到的Exception做统一处理
  */
@@ -38,10 +36,4 @@ public class MyException extends Exception {
         this.exceptionMessage = exceptionMessage;
     }
 
-    @NotNull
-    @Override
-    public String toString() {
-        return "exceptionCode: " + exceptionCode
-                + ", exceptionMessage: " + exceptionMessage + getMessage ();
-    }
 }

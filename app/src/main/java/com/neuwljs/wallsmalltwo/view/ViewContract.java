@@ -4,6 +4,9 @@ import android.graphics.Bitmap;
 
 import com.neuwljs.wallsmalltwo.model.base.Owner;
 import com.neuwljs.wallsmalltwo.model.base.Publisher;
+import com.neuwljs.wallsmalltwo.model.gson.Found;
+
+import java.util.List;
 
 public class ViewContract {
 
@@ -25,14 +28,43 @@ public class ViewContract {
 
     }
 
+    /**
+     * FragmentDA的视图
+     */
+    public interface FragmentDAView extends BaseView{
+
+    }
+
+    /**
+     * FragmentDAA的视图
+     */
+    public interface FragmentDAAView extends BaseView{
+        /**
+         * 显示初始的recyclerView
+         * @param foundList 数据源
+         */
+        void showRecyclerView(List<Found> foundList);
+
+        /**
+         * 全部加载完成
+         */
+        void showDone();
+    }
+
     public interface FragmentDBView extends BaseView{
 
     }
 
+    /**
+     * FragmentDBA的视图
+     */
     public interface FragmentDBAView extends BaseView{
 
     }
 
+    /**
+     * FragmentDBB的视图
+     */
     public interface FragmentDBBView extends BaseView{
         /**
          * 显示拍照的dialog
@@ -51,6 +83,9 @@ public class ViewContract {
         void showImage(Bitmap bitmap);
     }
 
+    /**
+     * FragmentDBC的视图
+     */
     public interface FragmentDBCView extends BaseView{
 
         /**

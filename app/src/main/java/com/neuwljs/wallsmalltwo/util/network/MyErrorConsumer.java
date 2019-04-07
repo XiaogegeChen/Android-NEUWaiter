@@ -18,10 +18,20 @@ public class MyErrorConsumer implements Consumer<Throwable> {
 
     private static final String TAG = "MyErrorConsumer";
 
+    /**
+     * 上下文对象
+     */
     private Context mContext;
+
+    private OnErrorListener mErrorListener;
 
     public MyErrorConsumer(Context context) {
         mContext = context;
+    }
+
+    public MyErrorConsumer(Context context, OnErrorListener listener) {
+        mContext = context;
+        mErrorListener = listener;
     }
 
     @Override
@@ -29,7 +39,6 @@ public class MyErrorConsumer implements Consumer<Throwable> {
 
         // 打印原信息
         e.printStackTrace ();
-        LogUtil.d (TAG, e.getMessage ());
 
         // 显示Toast
         if(e instanceof MyException){
@@ -37,5 +46,17 @@ public class MyErrorConsumer implements Consumer<Throwable> {
         }else{
             ToastUtil.showToast (mContext, UNKNOWN_EXCEPTION);
         }
+
+        // 如果调用者有自己的处理，也要执行
+        if(mErrorListener != null){
+            mErrorListener.onError ();
+        }
+    }
+
+    /**
+     * 具体调用者对error的处理
+     */
+    public interface OnErrorListener{
+        void onError();
     }
 }

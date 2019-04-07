@@ -34,6 +34,29 @@ public class PresenterContract {
 
     }
 
+    /**
+     * FragmentDA的业务逻辑接口
+     */
+    public interface FragmentDAPresenter extends BasePresenter<ViewContract.FragmentDAAView>{
+
+    }
+
+    /**
+     * FragmentDAA的业务逻辑接口
+     */
+    public interface FragmentDAAPresenter extends BasePresenter<ViewContract.FragmentDAAView>{
+        /**
+         * 请求一页数据
+         * @param page 页码，第几页
+         */
+        void queryPage(String page);
+
+        /**
+         * 请求下一页
+         */
+        void queryNext();
+    }
+
     public interface FragmentDBPresenter extends BasePresenter<ViewContract.FragmentDBView>{
 
     }

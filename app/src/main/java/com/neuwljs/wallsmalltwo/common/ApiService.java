@@ -1,9 +1,12 @@
 package com.neuwljs.wallsmalltwo.common;
 
+import com.neuwljs.wallsmalltwo.model.base.Response;
 import com.neuwljs.wallsmalltwo.model.gson.AccessToken;
+import com.neuwljs.wallsmalltwo.model.gson.Found;
 import com.neuwljs.wallsmalltwo.model.gson.Words;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import io.reactivex.Observable;
@@ -82,6 +85,16 @@ public class ApiService {
     public static final String OCR_BASE_URL = "https://aip.baidubce.com/";
 
     /**
+     * 失物招领服务器的head的key
+     */
+    public static final String LOST_AND_FOUND_HEAD_KEY="lost_and_found";
+
+    /**
+     * 失物招领服务器的baseUrl
+     */
+    public static final String LOST_AND_FOUND_BASE_URL = "http://www.neuwljs.cn/";
+
+    /**
      * 请求头和baseUrl的映射集合
      * 每个key对应一个baseUrl,动态更改的时候使用
      */
@@ -91,6 +104,7 @@ public class ApiService {
         OKHTTP_HEAD_MAP = new HashMap<> ();
         OKHTTP_HEAD_MAP.put (WEATHER_HEAD_KEY, WEATHER_BASE_URL);
         OKHTTP_HEAD_MAP.put (OCR_HEAD_KEY, OCR_BASE_URL);
+        OKHTTP_HEAD_MAP.put (LOST_AND_FOUND_HEAD_KEY, LOST_AND_FOUND_BASE_URL);
     }
 
     /**
@@ -123,5 +137,16 @@ public class ApiService {
         @POST("rest/2.0/ocr/v1/accurate_basic")
         Observable<Words> queryOCRWords(@Query ("access_token") String accessToken,
                                         @Field("image") String image);
+
+        /**
+         * 分页获得失物招领服务器返回的found数据列表
+         * @param length 每页有多少个数据,目前写10
+         * @param page 页码,也就是第几页,从0开始
+         * @return 包含Found信息的bean
+         */
+        @Headers ({OKHTTP_HEAD_NAME + ":" + LOST_AND_FOUND_HEAD_KEY})
+        @GET("list_api.php")
+        Observable<Response<List<Found>>> queryFound(@Query("len") String length,
+                                                     @Query("page") String page);
     }
 }

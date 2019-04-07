@@ -35,7 +35,7 @@
                     android:text="@string/test"
                     android:layout_marginBottom="@dimen/componentMarginBottom"/>
                 <TextView
-                    android:id="@+id/fragment_d_a_a_publisher_time"
+                    android:id="@+id/fragment_d_a_a_publish_time"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="@dimen/text"
