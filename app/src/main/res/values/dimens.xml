@@ -16,7 +16,7 @@
     <dimen name="fragmentDEditTextHeight">280dp</dimen>
 
     <!-- 轮播图高度 -->
-    <dimen name="fragmentDAPictureHeight">250dp</dimen>
+    <dimen name="fragmentDAPictureHeight">180dp</dimen>
 
     <!-- 失物招领图标尺寸 -->
     <dimen name="fragmentDIconSize">56dp</dimen>

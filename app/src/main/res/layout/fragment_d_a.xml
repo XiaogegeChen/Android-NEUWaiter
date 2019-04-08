@@ -68,7 +68,7 @@
                     android:layout_marginStart="@dimen/componentMarginLeft"
                     android:gravity="center_vertical"
                     android:textColor="@color/colorTextWhite"
-                    android:textSize="@dimen/subTitle"
+                    android:textSize="@dimen/text"
                     android:text="@string/fragment_d_a_catalog"/>
                 <ImageView
                     android:layout_width="@dimen/iconSizeSmall"
@@ -97,6 +97,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
+                            android:textSize="@dimen/text"
                             android:textColor="@color/colorGrey"
                             android:gravity="center_vertical"
                             android:text="@string/fragment_d_a_search"/>
@@ -105,21 +106,20 @@
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="30dp"
+                android:layout_height="42dp"
                 android:orientation="horizontal"
                 android:layout_marginTop="@dimen/fragmentDAPictureHeight"
                 android:gravity="center_vertical" >
                 <View
                     android:layout_width="4dp"
                     android:layout_height="24dp"
-                    android:layout_marginStart="@dimen/componentMarginLeft"
-                    android:layout_marginEnd="@dimen/componentMarginRight"
+                    android:layout_margin="@dimen/componentSelfMargin"
                     android:background="@drawable/bg_fragment_d_a_view"/>
                 <TextView
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/mainTitle"
+                    android:textSize="@dimen/subTitle"
                     android:text="@string/fragment_d_a_new"
                     android:textColor="@color/colorTextNormal"/>
             </LinearLayout>
@@ -127,18 +127,18 @@
                 android:id="@+id/fragment_d_a_new_recycler_view"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/fragmentDAPictureHeight"
-                android:layout_marginTop="280dp"
+                android:layout_marginTop="222dp"
                 android:orientation="horizontal"
                 app:layout_collapseMode="none"/>
             <android.support.design.widget.TabLayout
                 android:id="@+id/fragment_d_a_tab"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/fragmentDTabLayoutHeight"
-                android:layout_marginTop="530dp"
+                android:layout_marginTop="402dp"
                 android:background="@drawable/bg_fragment_d_a_tab"
                 app:tabMode="fixed"
                 app:tabGravity="fill"
-                app:tabIndicatorFullWidth="false"
+                app:tabIndicatorFullWidth="true"
                 app:tabTextColor="@color/colorTabTextNormal"
                 app:tabSelectedTextColor="@color/colorTabTextSelected"
                 app:tabIndicatorColor="@color/colorTabTextSelected"

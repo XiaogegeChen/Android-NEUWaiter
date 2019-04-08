@@ -2,6 +2,7 @@ package com.neuwljs.wallsmalltwo.presenter;
 
 import android.content.Intent;
 
+import com.neuwljs.wallsmalltwo.model.submit.Property;
 import com.neuwljs.wallsmalltwo.view.ViewContract;
 
 /**
@@ -57,8 +58,17 @@ public class PresenterContract {
         void queryNext();
     }
 
-    public interface FragmentDBPresenter extends BasePresenter<ViewContract.FragmentDBView>{
+    public interface FragmentDABPresenter extends BasePresenter<ViewContract.FragmentDABView>{
+        /**
+         * 请求一页数据
+         * @param page 页码，第几页
+         */
+        void queryPage(String page);
 
+        /**
+         * 请求下一页
+         */
+        void queryNext();
     }
 
     /**
@@ -129,6 +139,12 @@ public class PresenterContract {
          * 从本地拿到Publisher的实例并显示
          */
         void loadPublisher();
+
+        /**
+         * 向服务器上传发布的这个信息
+         * @param property 物品实例
+         */
+        void upload(Property property);
     }
 
     /**

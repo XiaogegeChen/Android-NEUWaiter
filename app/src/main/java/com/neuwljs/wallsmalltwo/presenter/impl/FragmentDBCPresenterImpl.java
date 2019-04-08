@@ -10,6 +10,7 @@ import com.neuwljs.wallsmalltwo.model.base.Publisher;
 import com.neuwljs.wallsmalltwo.model.database.User;
 import com.neuwljs.wallsmalltwo.model.gson.AccessToken;
 import com.neuwljs.wallsmalltwo.model.gson.Words;
+import com.neuwljs.wallsmalltwo.model.submit.Property;
 import com.neuwljs.wallsmalltwo.presenter.PresenterContract;
 import com.neuwljs.wallsmalltwo.util.ImageUtil;
 import com.neuwljs.wallsmalltwo.util.XmlIOUtil;
@@ -29,11 +30,9 @@ import io.reactivex.Observable;
 import io.reactivex.ObservableEmitter;
 import io.reactivex.ObservableOnSubscribe;
 import io.reactivex.ObservableSource;
-import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
 import io.reactivex.functions.Function;
 import io.reactivex.functions.Predicate;
-import io.reactivex.schedulers.Schedulers;
 
 import static com.neuwljs.wallsmalltwo.model.Constant.PHOTO_FILE_NAME;
 
@@ -119,6 +118,8 @@ public class FragmentDBCPresenterImpl implements PresenterContract.FragmentDBCPr
                                             mFragmentDBCView.showErrorPage ();
                                         }
                                     });
+                        }else{
+                            mFragmentDBCView.showErrorPage ();
                         }
                     }
                 }, new Consumer<Throwable> () {
@@ -158,10 +159,20 @@ public class FragmentDBCPresenterImpl implements PresenterContract.FragmentDBCPr
         }
     }
 
+    @Override
+    public void upload(Property property) {
+
+    }
+
     // base64编码
     private String encodeImage(){
         // 拿到拍照获得的图片
         File file = new File (mContext.getExternalCacheDir (), PHOTO_FILE_NAME);
+
+        // 如果没有这个图，就代表没有拍，直接返回null
+        if(!file.exists ()){
+            return null;
+        }
 
         // 裁剪并保存
         File newFile = new File (mContext.getExternalCacheDir (), "1_" + PHOTO_FILE_NAME);

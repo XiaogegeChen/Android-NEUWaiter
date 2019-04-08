@@ -3,13 +3,17 @@ package com.neuwljs.wallsmalltwo.common;
 import com.neuwljs.wallsmalltwo.model.base.Response;
 import com.neuwljs.wallsmalltwo.model.gson.AccessToken;
 import com.neuwljs.wallsmalltwo.model.gson.Found;
+import com.neuwljs.wallsmalltwo.model.gson.Lost;
+import com.neuwljs.wallsmalltwo.model.gson.SubmitPropertyResult;
 import com.neuwljs.wallsmalltwo.model.gson.Words;
+import com.neuwljs.wallsmalltwo.model.submit.Property;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import io.reactivex.Observable;
+import retrofit2.http.Body;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
@@ -92,7 +96,12 @@ public class ApiService {
     /**
      * 失物招领服务器的baseUrl
      */
-    public static final String LOST_AND_FOUND_BASE_URL = "http://www.neuwljs.cn/";
+    public static final String LOST_AND_FOUND_BASE_URL = "https://www.neuwljs.cn/";
+
+    /**
+     * 请求lost列表时候api中的lost字段，目前无实际意义
+     */
+    public static final String LOST_FIELD_DEFAULT = "lost_field_default";
 
     /**
      * 请求头和baseUrl的映射集合
@@ -140,7 +149,7 @@ public class ApiService {
 
         /**
          * 分页获得失物招领服务器返回的found数据列表
-         * @param length 每页有多少个数据,目前写10
+         * @param length 每页有多少个数据
          * @param page 页码,也就是第几页,从0开始
          * @return 包含Found信息的bean
          */
@@ -148,5 +157,28 @@ public class ApiService {
         @GET("list_api.php")
         Observable<Response<List<Found>>> queryFound(@Query("len") String length,
                                                      @Query("page") String page);
+
+        /**
+         * 分页获得失物招领服务器返回的lost数据列表
+         * @param lost 标记字段，这个字段内容不限，如果有这个字段就是拿到lost数据列表，没有的话拿到found列表
+         *             目前赋值为{@link ApiService#LOST_FIELD_DEFAULT}
+         * @param length 每页有多少个数据
+         * @param page 码,也就是第几页,从0开始
+         * @return 包含Lost信息的bean
+         */
+        @Headers ({OKHTTP_HEAD_NAME + ":" + LOST_AND_FOUND_HEAD_KEY})
+        @GET("list_api.php")
+        Observable<Response<List<Lost>>> queryLost(@Query("lost") String lost,
+                                                   @Query("len") String length,
+                                                   @Query("page") String page);
+
+        /**
+         * 向失物招领服务器提交物品数据
+         * @param property 物品信息的bean
+         * @return SubmitPropertyResult实例，包含这条信息的数据库中的位置
+         */
+        @Headers ({OKHTTP_HEAD_NAME + ":" + LOST_AND_FOUND_HEAD_KEY})
+        @POST("upload.php")
+        Observable<Response<SubmitPropertyResult>> uploadProperty(@Body Property property);
     }
 }

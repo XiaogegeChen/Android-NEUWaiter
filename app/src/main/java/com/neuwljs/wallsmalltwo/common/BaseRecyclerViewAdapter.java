@@ -36,9 +36,20 @@ public abstract class BaseRecyclerViewAdapter<VH extends RecyclerView.ViewHolder
         mRecyclerView.addOnScrollListener (new MyOnScrollListener ());
     }
 
-    @Override
-    public int getItemCount() {
-        return mList.size ();
+    /**
+     * 从recyclerView的尾部开始增加一些数据
+     * @param list 要添加的数据
+     */
+    public void addToEnd(List<T> list){
+        if(list != null && list.size () > 0){
+            mList.addAll (list);
+            notifyItemRangeInserted (mList.size () - list.size (), list.size ());
+
+            // 定位到新数据的第一个
+            if(mRecyclerView != null){
+                mRecyclerView.scrollToPosition (mList.size () - list.size ());
+            }
+        }
     }
 
     private class MyOnScrollListener extends RecyclerView.OnScrollListener {
@@ -80,7 +91,7 @@ public abstract class BaseRecyclerViewAdapter<VH extends RecyclerView.ViewHolder
         void onScrollTop(RecyclerView recyclerView);
 
         /**
-         * 滑动底部
+         * 滑动到底部
          */
         void onScrollDown(RecyclerView recyclerView);
     }

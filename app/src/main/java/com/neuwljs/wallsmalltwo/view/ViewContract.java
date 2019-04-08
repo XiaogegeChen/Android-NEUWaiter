@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import com.neuwljs.wallsmalltwo.model.base.Owner;
 import com.neuwljs.wallsmalltwo.model.base.Publisher;
 import com.neuwljs.wallsmalltwo.model.gson.Found;
+import com.neuwljs.wallsmalltwo.model.gson.Lost;
 
 import java.util.List;
 
@@ -44,6 +45,22 @@ public class ViewContract {
          * @param foundList 数据源
          */
         void showRecyclerView(List<Found> foundList);
+
+        /**
+         * 全部加载完成
+         */
+        void showDone();
+    }
+
+    /**
+     * FragmentDAB的视图
+     */
+    public interface FragmentDABView extends BaseView{
+        /**
+         * 显示初始的recyclerView
+         * @param lostList 数据源
+         */
+        void showRecyclerView(List<Lost> lostList);
 
         /**
          * 全部加载完成

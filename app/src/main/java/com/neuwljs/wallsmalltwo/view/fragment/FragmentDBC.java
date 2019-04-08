@@ -241,6 +241,7 @@ public class FragmentDBC
             case R.id.fragment_d_b_c_submit:
                 if(mNoSlideViewPager != null){
                     // 提交数据,确认所有数据 TODO
+                    mFragmentDBCPresenter.upload (mProperty);
 
                     // 下一页
                     mNoSlideViewPager.setCurrentItem (3, true);

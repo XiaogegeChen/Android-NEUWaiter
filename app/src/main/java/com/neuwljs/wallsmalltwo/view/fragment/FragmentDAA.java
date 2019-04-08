@@ -74,6 +74,8 @@ public class FragmentDAA
         mRecyclerView.setLayoutManager (new LinearLayoutManager (obtainContext ()));
         mFoundList = new ArrayList<> ();
         mAdapter = new FoundRecyclerViewAdapter (mFoundList, obtainContext ());
+
+        // 设置滑动监听器
         mAdapter.setListener (this);
         mRecyclerView.setAdapter (mAdapter);
     }
@@ -94,13 +96,7 @@ public class FragmentDAA
 
     @Override
     public void showRecyclerView(List<Found> foundList) {
-
-        // 添加数据到尾部并刷新显示
-        if(foundList != null && foundList.size () > 0){
-            mFoundList.addAll (foundList);
-            mAdapter.notifyItemRangeInserted (mFoundList.size () - foundList.size (),
-                    foundList.size ());
-        }
+        mAdapter.addToEnd (foundList);
     }
 
     @Override
