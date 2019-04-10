@@ -52,11 +52,18 @@
     <dimen name="componentMarginBottom">8dp</dimen>
     <dimen name="componentSelfMargin">8dp</dimen>
 
+    <!-- dialog相关 -->
+    <dimen name="dialogMinSize">120dp</dimen>
+    <dimen name="dialogPadding">10dp</dimen>
+    <dimen name="dialogIconSize">64dp</dimen>
+    <dimen name="dialog_message_width">280dp</dimen>
+
     <!-- 字号 -->
     <dimen name="text">14sp</dimen>
     <dimen name="subTitle">16sp</dimen>
     <dimen name="appBar">20sp</dimen>
     <dimen name="mainTitle">20sp</dimen>
     <dimen name="superLarge">34sp</dimen>
+    <dimen name="dialog_line_size">1dp</dimen>
 
 </resources>

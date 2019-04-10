@@ -15,9 +15,14 @@ import android.widget.TextView;
 
 import com.neuwljs.wallsmalltwo.R;
 import com.neuwljs.wallsmalltwo.common.IndicatorFragment;
+import com.neuwljs.wallsmalltwo.model.gson.Found;
 import com.neuwljs.wallsmalltwo.presenter.impl.FragmentDBDPresenterImpl;
+import com.neuwljs.wallsmalltwo.util.LogUtil;
 import com.neuwljs.wallsmalltwo.view.ViewContract;
 import com.neuwljs.wallsmalltwo.view.widget.NoSlideViewPager;
+
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import androidx.annotation.NonNull;
 
@@ -30,7 +35,10 @@ public class FragmentDBD
         extends IndicatorFragment
         implements ViewContract.FragmentDBDView {
 
+    private static final String TAG = "FragmentDBD";
+
     private TextView mTextView;
+    private TextView mSerialNumberText;
 
     //fragmentD的ViewPager
     private ViewPager mOutViewPager;
@@ -40,6 +48,9 @@ public class FragmentDBD
 
     //业务逻辑实现的引用
     private FragmentDBDPresenterImpl mFragmentDBDPresenter;
+
+    // 要发送给FragmentDA的bean
+    private Found mFound;
 
     public void setOutViewPager(ViewPager viewPager){
         mOutViewPager = viewPager;
@@ -72,13 +83,14 @@ public class FragmentDBD
     @Override
     public void initView(View view) {
         mTextView = view.findViewById (R.id.fragment_d_b_d_clickable_text);
+        mSerialNumberText = view.findViewById (R.id.fragment_d_b_d_serial_number_text);
     }
 
     @Override
     public void initData() {
         mFragmentDBDPresenter = new FragmentDBDPresenterImpl ();
 
-        SpannableString spannableString = new SpannableString (getResources ().getString (R.string.fragment_d_b_d_clickable));
+        SpannableString spannableString = new SpannableString (obtainResources ().getString (R.string.fragment_d_b_d_clickable));
 
         //"去查看"的点击事件
         spannableString.setSpan (new Clickable (new View.OnClickListener () {
@@ -88,7 +100,7 @@ public class FragmentDBD
                 mOutViewPager.setCurrentItem (0,false);
 
                 //通知首页刷新
-                mFragmentDBDPresenter.notifyFragmentDARefresh ();
+                mFragmentDBDPresenter.notifyFragmentDAARefresh (mFound);
             }
         }), FRAGMENT_D_B_D_TEXT_1_START, FRAGMENT_D_B_D_TEXT_1_EDN, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
@@ -101,7 +113,7 @@ public class FragmentDBD
 
                 //通知页面刷新,通知首页刷新
                 mFragmentDBDPresenter.notifyFragmentDBRefresh ();
-                mFragmentDBDPresenter.notifyFragmentDARefresh ();
+                mFragmentDBDPresenter.notifyFragmentDAARefresh (mFound);
             }
         }), FRAGMENT_D_B_D_TEXT_2_START, FRAGMENT_D_B_D_TEXT_2_EDN, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
@@ -132,6 +144,58 @@ public class FragmentDBD
 
     @Override
     public void refresh() {
+
+        // 把mFound置空
+        mFound = null;
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onRefreshSerialNumberEvent(RefreshSerialNumberEvent event){
+        String serialNumber = event.getSerialNumber ();
+        if(serialNumber != null){
+
+            // 更新显示
+            String text = obtainResources ()
+                    .getString (R.string.fragment_d_b_d_thank).replace ("X", serialNumber);
+            mSerialNumberText.setText (text);
+        }
+
+        Found found = event.getFound ();
+        LogUtil.d (TAG, "found: "+found);
+        if(found != null){
+            mFound = found;
+        }
+    }
+
+    /**
+     * 通知该碎片刷新序列号的事件类
+     */
+    public static class RefreshSerialNumberEvent{
+        /**
+         * 序列号
+         */
+        private String SerialNumber;
+
+        /**
+         * 招领启事的bean
+         */
+        private Found mFound;
+
+        public Found getFound() {
+            return mFound;
+        }
+
+        public void setFound(Found found) {
+            mFound = found;
+        }
+
+        public String getSerialNumber() {
+            return SerialNumber;
+        }
+
+        public void setSerialNumber(String serialNumber) {
+            SerialNumber = serialNumber;
+        }
     }
 
     /**

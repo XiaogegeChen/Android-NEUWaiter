@@ -186,4 +186,5 @@ public class FragmentDA extends BaseFragment {
         public void onPageScrollStateChanged(int i) {
         }
     }
+
 }

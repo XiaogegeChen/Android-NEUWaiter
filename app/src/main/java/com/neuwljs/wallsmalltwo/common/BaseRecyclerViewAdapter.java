@@ -52,6 +52,22 @@ public abstract class BaseRecyclerViewAdapter<VH extends RecyclerView.ViewHolder
         }
     }
 
+    /**
+     * 在recyclerView的头部开始增加一些数据
+     * @param list 要添加的数据
+     */
+    public void addToBegin(List<T> list){
+        if(list != null && list.size () > 0){
+            mList.addAll (0,list);
+            notifyItemRangeInserted (0, list.size ());
+
+            //定位到新数据的第一个
+            if(mRecyclerView != null){
+                mRecyclerView.scrollToPosition (0);
+            }
+        }
+    }
+
     private class MyOnScrollListener extends RecyclerView.OnScrollListener {
         @Override
         public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {

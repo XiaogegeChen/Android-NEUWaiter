@@ -11,8 +11,8 @@ import com.bumptech.glide.Glide;
 import com.neuwljs.wallsmalltwo.R;
 import com.neuwljs.wallsmalltwo.common.LoadMoreRecyclerViewAdapter;
 import com.neuwljs.wallsmalltwo.model.gson.Found;
+import com.neuwljs.wallsmalltwo.util.LogUtil;
 import com.neuwljs.wallsmalltwo.util.StringUtil;
-import com.neuwljs.wallsmalltwo.util.ViewUtil;
 
 import java.util.List;
 
@@ -22,6 +22,8 @@ import static com.neuwljs.wallsmalltwo.model.Constant.PUBLISHER_NAME_DEFAULT;
 
 public class FoundRecyclerViewAdapter
         extends LoadMoreRecyclerViewAdapter<FoundRecyclerViewAdapter.ItemViewHolder, Found> {
+
+    private static final String TAG = "FoundRecyclerViewAdapter";
 
     private Context mContext;
     private List<Found> mFoundList;
@@ -49,16 +51,20 @@ public class FoundRecyclerViewAdapter
 
         Found found = mFoundList.get (position);
 
+        LogUtil.d (TAG, "position: "+position+" found: "+found);
+
         // 没名字就默认"墙小二"
         if(StringUtil.isEmpty (found.getPublisherName ())){
             itemHolder.mPublisherName.setText (PUBLISHER_NAME_DEFAULT);
         }
 
-        ViewUtil.handleView (itemHolder.mInformation, found.getInformation ());
-        ViewUtil.handleView (itemHolder.mPublishTime, found.getPublishTime ());
-        ViewUtil.handleView (itemHolder.mOwnerName, found.getOwnerName ());
-        ViewUtil.handleView (itemHolder.mOwnerId, found.getOwnerId ());
-        ViewUtil.handleView (itemHolder.mOwnerCollege, found.getOwnerCollege ());
+        String time = StringUtil.foramtTime (found.getPublishTime ());
+
+        itemHolder.mInformation.setText (found.getInformation ());
+        itemHolder.mPublishTime.setText (time);
+        itemHolder.mOwnerName.setText (found.getOwnerName ());
+        itemHolder.mOwnerId.setText (found.getOwnerId ());
+        itemHolder.mOwnerCollege.setText (found.getOwnerCollege ());
 
         // 头像
         String url = found.getPublisherHeadIamge ();

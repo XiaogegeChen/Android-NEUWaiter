@@ -15,7 +15,12 @@ import com.neuwljs.wallsmalltwo.common.BaseFragment;
 import com.neuwljs.wallsmalltwo.common.BaseRecyclerViewAdapter;
 import com.neuwljs.wallsmalltwo.model.gson.Found;
 import com.neuwljs.wallsmalltwo.presenter.impl.FragmentDAAPresenterImpl;
+import com.neuwljs.wallsmalltwo.util.LogUtil;
 import com.neuwljs.wallsmalltwo.view.ViewContract;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +32,8 @@ import static com.neuwljs.wallsmalltwo.adapter.recycler.FoundRecyclerViewAdapter
 public class FragmentDAA
         extends BaseFragment
         implements ViewContract.FragmentDAAView, BaseRecyclerViewAdapter.OnScrollingListener {
+
+    private static final String TAG = "FragmentDAA";
 
     private RecyclerView mRecyclerView;
 
@@ -44,6 +51,7 @@ public class FragmentDAA
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = super.onCreateView (inflater, container, savedInstanceState);
+        EventBus.getDefault ().register (this);
         mFragmentDAAPresenter.attach (this);
 
         mFragmentDAAPresenter.queryPage (String.valueOf (0));
@@ -54,6 +62,7 @@ public class FragmentDAA
     public void onDestroy() {
         super.onDestroy ();
         mFragmentDAAPresenter.detach ();
+        EventBus.getDefault ().unregister (this);
     }
 
     @Override
@@ -118,5 +127,37 @@ public class FragmentDAA
     @Override
     public void onScrollDown(RecyclerView recyclerView) {
         mFragmentDAAPresenter.queryNext ();
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onRefreshEvent(RefreshEvent event){
+
+        // 刷新recyclerView并将传递过来的found显示在
+        List<Found> foundList = new ArrayList<> ();
+        Found found = event.getFound ();
+
+        LogUtil.d (TAG, "found: "+found);
+
+        if(found != null){
+            foundList.add (found);
+            mAdapter.addToBegin (foundList);
+        }
+    }
+
+    /**
+     * 通知该碎片更新的事件类
+     */
+    public static class RefreshEvent{
+
+        // 传递的found实例
+        private Found mFound;
+
+        public Found getFound() {
+            return mFound;
+        }
+
+        public void setFound(Found found) {
+            mFound = found;
+        }
     }
 }

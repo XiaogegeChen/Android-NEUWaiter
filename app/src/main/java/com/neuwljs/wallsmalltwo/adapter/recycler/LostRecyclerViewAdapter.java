@@ -11,7 +11,6 @@ import com.neuwljs.wallsmalltwo.R;
 import com.neuwljs.wallsmalltwo.common.LoadMoreRecyclerViewAdapter;
 import com.neuwljs.wallsmalltwo.model.gson.Lost;
 import com.neuwljs.wallsmalltwo.util.StringUtil;
-import com.neuwljs.wallsmalltwo.util.ViewUtil;
 
 import java.util.List;
 
@@ -53,11 +52,13 @@ public class LostRecyclerViewAdapter
             itemHolder.mOwnerName.setText (PUBLISHER_NAME_DEFAULT);
         }
 
-        ViewUtil.handleView (itemHolder.mOwnerInformation, lost.getOwnerInfo ());
-        ViewUtil.handleView (itemHolder.mOwnerTime, lost.getOwnerPublishTime ());
-        ViewUtil.handleView (itemHolder.mOwnerNameCard, lost.getOwnerName ());
-        ViewUtil.handleView (itemHolder.mOwnerIdCard, lost.getOwnerId ());
-        ViewUtil.handleView (itemHolder.mOwnerCollegeCard, lost.getOwnerCollege ());
+        String time = StringUtil.foramtTime (lost.getOwnerPublishTime ());
+
+        itemHolder.mOwnerInformation.setText (lost.getOwnerInfo ());
+        itemHolder.mOwnerTime.setText (time);
+        itemHolder.mOwnerNameCard.setText (lost.getOwnerName ());
+        itemHolder.mOwnerIdCard.setText (lost.getOwnerId ());
+        itemHolder.mOwnerCollegeCard.setText (lost.getOwnerCollege ());
 
         // 头像
         String url = lost.getOwnerHeadImage ();

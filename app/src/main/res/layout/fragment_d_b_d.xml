@@ -19,6 +19,7 @@
             android:src="@drawable/ic_success"/>
     </FrameLayout>
     <TextView
+        android:id="@+id/fragment_d_b_d_serial_number_text"
         android:layout_margin="@dimen/componentSelfMargin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

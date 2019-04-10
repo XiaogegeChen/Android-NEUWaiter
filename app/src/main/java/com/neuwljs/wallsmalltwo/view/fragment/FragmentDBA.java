@@ -256,12 +256,14 @@ public class FragmentDBA
 
     @Override
     public void onRightClick() {
+
         // 通知fragmentDBC更改类型,跳转到下一页
-        mFragmentDBAPresenter.notifyPropertyRefresh (mLostPropertyType);
         if(mLostPropertyType == null){
             showToast (NO_TYPE_SELECTED);
+        }else{
+            mFragmentDBAPresenter.notifyPropertyRefresh (mLostPropertyType);
+            mNoSlideViewPager.setCurrentItem (1, true);
         }
-        mNoSlideViewPager.setCurrentItem (1, true);
     }
 
     /**

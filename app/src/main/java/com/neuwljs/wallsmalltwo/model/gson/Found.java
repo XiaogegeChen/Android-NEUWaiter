@@ -2,6 +2,8 @@ package com.neuwljs.wallsmalltwo.model.gson;
 
 import com.google.gson.annotations.SerializedName;
 
+import androidx.annotation.NonNull;
+
 /**
  * 招领的bean
  */
@@ -103,5 +105,11 @@ public class Found {
 
     public void setOwnerCollege(String ownerCollege) {
         this.ownerCollege = ownerCollege;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        return "publisherName: "+publisherName+" publishTime: "+publishTime+" information: "+information;
     }
 }

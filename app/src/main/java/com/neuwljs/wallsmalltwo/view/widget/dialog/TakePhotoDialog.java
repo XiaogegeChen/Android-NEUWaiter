@@ -32,7 +32,7 @@ public class TakePhotoDialog extends DialogFragment implements View.OnClickListe
         view.findViewById (R.id.fragment_d_b_b_album).setOnClickListener (this);
         view.findViewById (R.id.fragment_d_b_b_cancel).setOnClickListener (this);
 
-        AppCompatDialog appCompatDialog = new AppCompatDialog (getContext ());
+        AppCompatDialog appCompatDialog = new AppCompatDialog (getContext (), R.style.BaseDialogStyle);
 
         // 配置相关设置
         appCompatDialog.setContentView (view);

@@ -2,6 +2,8 @@ package com.neuwljs.wallsmalltwo.presenter;
 
 import android.content.Intent;
 
+import com.neuwljs.wallsmalltwo.model.base.Publisher;
+import com.neuwljs.wallsmalltwo.model.gson.Found;
 import com.neuwljs.wallsmalltwo.model.submit.Property;
 import com.neuwljs.wallsmalltwo.view.ViewContract;
 
@@ -138,13 +140,24 @@ public class PresenterContract {
         /**
          * 从本地拿到Publisher的实例并显示
          */
-        void loadPublisher();
+        Publisher loadPublisher();
 
         /**
          * 向服务器上传发布的这个信息
          * @param property 物品实例
          */
         void upload(Property property);
+
+        /**
+         * 重新上传信息
+         */
+        void retry();
+
+        /**
+         * 关闭对话框并保存之前填写的信息
+         * @param property
+         */
+        void cancelAndSave(Property property);
     }
 
     /**
@@ -155,7 +168,7 @@ public class PresenterContract {
         /**
          * 通知首页更新
          */
-        void notifyFragmentDARefresh();
+        void notifyFragmentDAARefresh(Found found);
 
         /**
          * 通知填写信息的第一页更新

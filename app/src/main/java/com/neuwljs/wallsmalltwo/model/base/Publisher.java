@@ -22,6 +22,32 @@ public class Publisher {
      */
     private long time;
 
+    /**
+     * 学号
+     */
+    private String id;
+
+    /**
+     * 学院
+     */
+    private String college;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getCollege() {
+        return college;
+    }
+
+    public void setCollege(String college) {
+        this.college = college;
+    }
+
     public Bitmap getHeadImage() {
         return headImage;
     }

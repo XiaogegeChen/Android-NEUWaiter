@@ -17,30 +17,43 @@ import android.widget.TextView;
 
 import com.neuwljs.wallsmalltwo.R;
 import com.neuwljs.wallsmalltwo.common.IndicatorFragment;
+import com.neuwljs.wallsmalltwo.model.base.LostOrFound;
 import com.neuwljs.wallsmalltwo.model.base.Owner;
 import com.neuwljs.wallsmalltwo.model.base.Publisher;
 import com.neuwljs.wallsmalltwo.model.submit.Property;
 import com.neuwljs.wallsmalltwo.presenter.impl.FragmentDBCPresenterImpl;
 import com.neuwljs.wallsmalltwo.util.LogUtil;
+import com.neuwljs.wallsmalltwo.util.StringUtil;
 import com.neuwljs.wallsmalltwo.util.ToastUtil;
 import com.neuwljs.wallsmalltwo.view.ViewContract;
 import com.neuwljs.wallsmalltwo.view.widget.NoSlideViewPager;
+import com.neuwljs.wallsmalltwo.view.widget.dialog.ProgressDialog;
+import com.neuwljs.wallsmalltwo.view.widget.dialog.UploadFailDialog;
 
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
+import static com.neuwljs.wallsmalltwo.model.Constant.COLLEGE_MAX_LENGTH;
+import static com.neuwljs.wallsmalltwo.model.Constant.ID_MAX_LENGTH;
+import static com.neuwljs.wallsmalltwo.model.Constant.NAME_MAX_LENGTH;
 import static com.neuwljs.wallsmalltwo.model.Constant.OWNER_COLLEGE_DEFAULT;
+import static com.neuwljs.wallsmalltwo.model.Constant.OWNER_COLLEGE_LIMITED;
 import static com.neuwljs.wallsmalltwo.model.Constant.OWNER_ID_DEFAULT;
+import static com.neuwljs.wallsmalltwo.model.Constant.OWNER_ID_LIMITED;
 import static com.neuwljs.wallsmalltwo.model.Constant.OWNER_NAME_DEFAULT;
+import static com.neuwljs.wallsmalltwo.model.Constant.OWNER_NAME_LIMITED;
 import static com.neuwljs.wallsmalltwo.model.Constant.PUBLISHER_NAME_DEFAULT;
 
 public class FragmentDBC
         extends IndicatorFragment
-        implements View.OnClickListener, ViewContract.FragmentDBCView, FragmentDB.OnArrowClickListener{
+        implements View.OnClickListener, ViewContract.FragmentDBCView,
+        FragmentDB.OnArrowClickListener, UploadFailDialog.OnClickListener {
 
     private static final String TAG = "FragmentDBC";
+    private static final String DIALOG_LOAD_TAG = "dialog_load_tag";
+    private static final String DIALOG_FAIL_TAG = "dialog_fail_tag";
 
     //控件
     private Button mSubmitButton;
@@ -56,6 +69,12 @@ public class FragmentDBC
     private EditText mOwnerNameEdit;
     private EditText mOwnerIdEdit;
     private EditText mOwnerCollegeEdit;
+
+    // 进度对话框
+    private ProgressDialog mProgressDialog;
+
+    // 上传失败对话框
+    private UploadFailDialog mUploadFailDialog;
 
     //当前的ViewPager实例
     private NoSlideViewPager mNoSlideViewPager;
@@ -121,24 +140,40 @@ public class FragmentDBC
         mOwnerNameEdit.addTextChangedListener (new MyTextWatcher () {
             @Override
             public void afterTextChanged(Editable s) {
-                // 更改mOwnerName
-                mOwnerName.setText (s);
+
+                if(s.length () <= NAME_MAX_LENGTH){
+
+                    // 更改mOwnerName
+                    mOwnerName.setText (s);
+                }
             }
         });
 
         mOwnerIdEdit.addTextChangedListener (new MyTextWatcher () {
             @Override
             public void afterTextChanged(Editable s) {
-                mOwnerId.setText (s);
+                if(StringUtil.isAllNumber (s.toString ()) && s.length () <= ID_MAX_LENGTH){
+
+                    // 更改mOwnerId
+                    mOwnerId.setText (s);
+                }
             }
         });
 
         mOwnerCollegeEdit.addTextChangedListener (new MyTextWatcher () {
             @Override
             public void afterTextChanged(Editable s) {
-                mOwnerCollege.setText (s);
+                if(s.length () <= COLLEGE_MAX_LENGTH){
+
+                    // 更改mOwnerCollege
+                    mOwnerCollege.setText (s);
+                }
             }
         });
+
+        mProgressDialog = new ProgressDialog ();
+        mUploadFailDialog = new UploadFailDialog ();
+        mUploadFailDialog.setListener (this);
 
         // 实例化mProperty
         mProperty = new Property ();
@@ -232,6 +267,33 @@ public class FragmentDBC
         mPublishTime.setText (DateFormat.format ("yyyy年MM月dd日HH:mm", publisher.getTime ()));
     }
 
+    @Override
+    public void showLoading() {
+        assert getFragmentManager () != null;
+        mProgressDialog.show (getFragmentManager (), DIALOG_LOAD_TAG);
+    }
+
+    @Override
+    public void dismissLoading() {
+        mProgressDialog.dismiss ();
+    }
+
+    @Override
+    public void showFailure() {
+        assert getFragmentManager () != null;
+        mUploadFailDialog.show (getFragmentManager (), DIALOG_FAIL_TAG);
+    }
+
+    @Override
+    public void dismissFailure() {
+        mUploadFailDialog.dismiss ();
+    }
+
+    @Override
+    public void goToNextPage() {
+        mNoSlideViewPager.setCurrentItem (3, true);
+    }
+
     /**
      * {@link View.OnClickListener}
      */
@@ -239,12 +301,14 @@ public class FragmentDBC
     public void onClick(View v) {
         switch (v.getId ()){
             case R.id.fragment_d_b_c_submit:
-                if(mNoSlideViewPager != null){
-                    // 提交数据,确认所有数据 TODO
-                    mFragmentDBCPresenter.upload (mProperty);
+                if(mProperty != null){
 
-                    // 下一页
-                    mNoSlideViewPager.setCurrentItem (3, true);
+                    mProperty.setOwnerId (mOwnerId.getText ().toString ());
+                    mProperty.setOwnerCollege (mOwnerCollege.getText ().toString ());
+                    mProperty.setOwnerName (mOwnerName.getText ().toString ());
+
+                    mProperty.setLostOrFound (LostOrFound.FOUND);
+                    mFragmentDBCPresenter.upload (mProperty);
                 }
                 break;
             default:
@@ -271,7 +335,12 @@ public class FragmentDBC
         //加载
         if(event.isBegin ()){
             mFragmentDBCPresenter.loadOwner ();
-            mFragmentDBCPresenter.loadPublisher ();
+            Publisher publisher = mFragmentDBCPresenter.loadPublisher ();
+
+            mProperty.setPublishTime (publisher.getTime () + "");
+            mProperty.setPublisherId (publisher.getId ());
+            mProperty.setPublisherCollege (publisher.getCollege ());
+            mProperty.setPublisherName (publisher.getName ());
         }
     }
 
@@ -300,6 +369,19 @@ public class FragmentDBC
         if(mProperty != null){
             mPublishInformation.setText (event.getInformation ());
         }
+    }
+
+    /**
+     * {@link com.neuwljs.wallsmalltwo.view.widget.dialog.UploadFailDialog.OnClickListener}
+     */
+    @Override
+    public void onCancelClick() {
+        mFragmentDBCPresenter.cancelAndSave (mProperty);
+    }
+
+    @Override
+    public void onRetryClick() {
+        mFragmentDBCPresenter.retry ();
     }
 
     /**

@@ -4,8 +4,8 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
-import static com.neuwljs.wallsmalltwo.model.Constant.XML_DEFAULT_VALUE_LONG;
-import static com.neuwljs.wallsmalltwo.model.Constant.XML_DEFAULT_VALUE_STRING;
+import static com.neuwljs.wallsmalltwo.model.Constant.XmlConstants.XML_DEFAULT_VALUE_LONG;
+import static com.neuwljs.wallsmalltwo.model.Constant.XmlConstants.XML_DEFAULT_VALUE_STRING;
 
 public class XmlIOUtil {
 

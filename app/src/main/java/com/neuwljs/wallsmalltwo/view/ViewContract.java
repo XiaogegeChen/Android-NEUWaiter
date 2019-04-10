@@ -116,6 +116,31 @@ public class ViewContract {
          * @param publisher 访问数据库拿到的Publisher实例
          */
         void showPublisher(Publisher publisher);
+
+        /**
+         * 显示上传对话框
+         */
+        void showLoading();
+
+        /**
+         * 关闭上传对话框
+         */
+        void dismissLoading();
+
+        /**
+         * 显示上传失败对话框
+         */
+        void showFailure();
+
+        /**
+         * 关闭上传失败对话框
+         */
+        void dismissFailure();
+
+        /**
+         * 跳转到最后一页
+         */
+        void goToNextPage();
     }
 
     public interface FragmentDBDView extends BaseView{

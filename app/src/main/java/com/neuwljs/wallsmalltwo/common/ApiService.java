@@ -7,6 +7,7 @@ import com.neuwljs.wallsmalltwo.model.gson.Lost;
 import com.neuwljs.wallsmalltwo.model.gson.SubmitPropertyResult;
 import com.neuwljs.wallsmalltwo.model.gson.Words;
 import com.neuwljs.wallsmalltwo.model.submit.Property;
+import com.neuwljs.wallsmalltwo.model.submit.SubmitProperty;
 
 import java.util.HashMap;
 import java.util.List;
@@ -174,11 +175,11 @@ public class ApiService {
 
         /**
          * 向失物招领服务器提交物品数据
-         * @param property 物品信息的bean
+         * @param submitProperty 物品信息的bean
          * @return SubmitPropertyResult实例，包含这条信息的数据库中的位置
          */
         @Headers ({OKHTTP_HEAD_NAME + ":" + LOST_AND_FOUND_HEAD_KEY})
         @POST("upload.php")
-        Observable<Response<SubmitPropertyResult>> uploadProperty(@Body Property property);
+        Observable<Response<List<SubmitPropertyResult>>> uploadProperty(@Body SubmitProperty submitProperty);
     }
 }

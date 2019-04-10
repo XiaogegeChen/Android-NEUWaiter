@@ -79,7 +79,7 @@ public class MainActivity extends BaseActivity
         LitePal.getDatabase ();
         User user = new User ();
         user.setCollege ("材料科学与工程学院");
-        user.setName ("haha哈哈");
+        user.setName ("charles");
         user.setPassword ("123456");
         user.setPhoneNumber ("18842507220");
         user.setRealName ("蔡徐坤");

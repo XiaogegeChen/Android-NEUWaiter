@@ -25,7 +25,7 @@ public class FragmentDBB
         implements ViewContract.FragmentDBBView, View.OnClickListener, TakePhotoDialog.OnClickListener {
 
     private static final String TAG = "FragmentDBB";
-    private static final String DIALOG_TAG = "dialog_tag";
+    private static final String DIALOG_TAG = "take_photo_dialog";
 
     private FrameLayout mTakePhotoFrameLayout;
     private ImageView mImageView;
