@@ -49,9 +49,6 @@ public class FragmentDBD
     //业务逻辑实现的引用
     private FragmentDBDPresenterImpl mFragmentDBDPresenter;
 
-    // 要发送给FragmentDA的bean
-    private Found mFound;
-
     public void setOutViewPager(ViewPager viewPager){
         mOutViewPager = viewPager;
     }
@@ -100,7 +97,7 @@ public class FragmentDBD
                 mOutViewPager.setCurrentItem (0,false);
 
                 //通知首页刷新
-                mFragmentDBDPresenter.notifyFragmentDAARefresh (mFound);
+                mFragmentDBDPresenter.notifyFragmentDAARefresh ();
             }
         }), FRAGMENT_D_B_D_TEXT_1_START, FRAGMENT_D_B_D_TEXT_1_EDN, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
@@ -113,7 +110,7 @@ public class FragmentDBD
 
                 //通知页面刷新,通知首页刷新
                 mFragmentDBDPresenter.notifyFragmentDBRefresh ();
-                mFragmentDBDPresenter.notifyFragmentDAARefresh (mFound);
+                mFragmentDBDPresenter.notifyFragmentDAARefresh ();
             }
         }), FRAGMENT_D_B_D_TEXT_2_START, FRAGMENT_D_B_D_TEXT_2_EDN, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
@@ -144,9 +141,7 @@ public class FragmentDBD
 
     @Override
     public void refresh() {
-
-        // 把mFound置空
-        mFound = null;
+        // 不处理，自己发起的
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
@@ -159,12 +154,6 @@ public class FragmentDBD
                     .getString (R.string.fragment_d_b_d_thank).replace ("X", serialNumber);
             mSerialNumberText.setText (text);
         }
-
-        Found found = event.getFound ();
-        LogUtil.d (TAG, "found: "+found);
-        if(found != null){
-            mFound = found;
-        }
     }
 
     /**
@@ -175,19 +164,6 @@ public class FragmentDBD
          * 序列号
          */
         private String SerialNumber;
-
-        /**
-         * 招领启事的bean
-         */
-        private Found mFound;
-
-        public Found getFound() {
-            return mFound;
-        }
-
-        public void setFound(Found found) {
-            mFound = found;
-        }
 
         public String getSerialNumber() {
             return SerialNumber;

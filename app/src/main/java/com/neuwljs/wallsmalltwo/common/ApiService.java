@@ -6,7 +6,6 @@ import com.neuwljs.wallsmalltwo.model.gson.Found;
 import com.neuwljs.wallsmalltwo.model.gson.Lost;
 import com.neuwljs.wallsmalltwo.model.gson.SubmitPropertyResult;
 import com.neuwljs.wallsmalltwo.model.gson.Words;
-import com.neuwljs.wallsmalltwo.model.submit.Property;
 import com.neuwljs.wallsmalltwo.model.submit.SubmitProperty;
 
 import java.util.HashMap;
@@ -62,17 +61,17 @@ public class ApiService {
     /**
      * 百度OCR请求头中的Content-Type的key
      */
-    public static final String CONTENT_TYPE_KEY = "Content-Type";
+    private static final String CONTENT_TYPE_KEY = "Content-Type";
 
     /**
      * 百度OCR请求头中的Content-Type的value
      */
-    public static final String CONTENT_TYPE_VALUE = "application/x-www-form-urlencoded";
+    private static final String CONTENT_TYPE_VALUE = "application/x-www-form-urlencoded";
 
     /**
      * 获取天气信息api的head的key
      */
-    public static final String WEATHER_HEAD_KEY="weather";
+    private static final String WEATHER_HEAD_KEY="weather";
 
     /**
      * 获取天气信息api的baseUrl
@@ -82,22 +81,22 @@ public class ApiService {
     /**
      * 百度OCR的head的key
      */
-    public static final String OCR_HEAD_KEY="ocr";
+    private static final String OCR_HEAD_KEY="ocr";
 
     /**
      * 百度OCR的baseUrl
      */
-    public static final String OCR_BASE_URL = "https://aip.baidubce.com/";
+    private static final String OCR_BASE_URL = "https://aip.baidubce.com/";
 
     /**
      * 失物招领服务器的head的key
      */
-    public static final String LOST_AND_FOUND_HEAD_KEY="lost_and_found";
+    private static final String LOST_AND_FOUND_HEAD_KEY="lost_and_found";
 
     /**
      * 失物招领服务器的baseUrl
      */
-    public static final String LOST_AND_FOUND_BASE_URL = "https://www.neuwljs.cn/";
+    private static final String LOST_AND_FOUND_BASE_URL = "https://www.neuwljs.cn/";
 
     /**
      * 请求lost列表时候api中的lost字段，目前无实际意义

@@ -58,6 +58,11 @@ public class PresenterContract {
          * 请求下一页
          */
         void queryNext();
+
+        /**
+         * 刷新，从第一页开始重新加载
+         */
+        void refresh();
     }
 
     public interface FragmentDABPresenter extends BasePresenter<ViewContract.FragmentDABView>{
@@ -71,6 +76,11 @@ public class PresenterContract {
          * 请求下一页
          */
         void queryNext();
+
+        /**
+         * 刷新，从第一页开始重新加载
+         */
+        void refresh();
     }
 
     /**
@@ -168,7 +178,7 @@ public class PresenterContract {
         /**
          * 通知首页更新
          */
-        void notifyFragmentDAARefresh(Found found);
+        void notifyFragmentDAARefresh();
 
         /**
          * 通知填写信息的第一页更新

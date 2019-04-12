@@ -90,6 +90,15 @@ public class FragmentDABPresenterImpl
         }
     }
 
+    @Override
+    public void refresh() {
+
+        // 从第一页开始重新加载
+        currentPage = 0;
+        hasNext = true;
+        queryPage (String.valueOf (currentPage));
+    }
+
     /**
      * {@link com.neuwljs.wallsmalltwo.util.network.MyErrorConsumer.OnErrorListener}
      */

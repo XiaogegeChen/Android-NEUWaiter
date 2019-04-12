@@ -7,4 +7,5 @@
         android:endColor="#ffffff"
         android:startColor="#ffffff"
         android:type="linear" />
+    <solid android:color="@color/windowBackground"/>
 </shape>

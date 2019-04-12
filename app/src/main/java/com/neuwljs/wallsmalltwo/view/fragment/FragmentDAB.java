@@ -15,6 +15,7 @@ import com.neuwljs.wallsmalltwo.common.BaseFragment;
 import com.neuwljs.wallsmalltwo.common.BaseRecyclerViewAdapter;
 import com.neuwljs.wallsmalltwo.model.gson.Lost;
 import com.neuwljs.wallsmalltwo.presenter.impl.FragmentDABPresenterImpl;
+import com.neuwljs.wallsmalltwo.util.LogUtil;
 import com.neuwljs.wallsmalltwo.view.ViewContract;
 
 import java.util.ArrayList;
@@ -26,7 +27,10 @@ import static com.neuwljs.wallsmalltwo.common.LoadMoreRecyclerViewAdapter.STATE_
 
 public class FragmentDAB
         extends BaseFragment
-        implements ViewContract.FragmentDABView, BaseRecyclerViewAdapter.OnScrollingListener {
+        implements ViewContract.FragmentDABView, BaseRecyclerViewAdapter.OnScrollingListener,
+        FragmentDA.OnFloatingActionButtonClickListener {
+
+    private static final String TAG = "FragmentDAB";
 
     // 业务逻辑的实例
     private FragmentDABPresenterImpl mFragmentDABPresenter;
@@ -39,6 +43,11 @@ public class FragmentDAB
 
     // recycler适配器
     private LostRecyclerViewAdapter mAdapter;
+
+    // 向fragmentDA提供floatingActionButton点击事件的具体实现
+    public FragmentDA.OnFloatingActionButtonClickListener getOnFloatingActionButtonClickListener(){
+        return this;
+    }
 
     @Nullable
     @Override
@@ -118,5 +127,18 @@ public class FragmentDAB
     @Override
     public void onScrollDown(RecyclerView recyclerView) {
         mFragmentDABPresenter.queryNext ();
+    }
+
+    /**
+     * {@link com.neuwljs.wallsmalltwo.view.fragment.FragmentDA.OnFloatingActionButtonClickListener}
+     */
+    @Override
+    public void onFloatingActionButtonClick() {
+
+        // 刷新列表
+        mLostList.clear ();
+        mAdapter.notifyDataSetChanged ();
+        mFragmentDABPresenter.refresh ();
+        LogUtil.d (TAG, TAG+" fresh");
     }
 }

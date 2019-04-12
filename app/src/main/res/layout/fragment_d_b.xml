@@ -1,70 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:layout_marginRight="@dimen/componentMarginRight"
-    android:layout_marginLeft="@dimen/componentMarginRight"
-    android:layout_marginTop="@dimen/componentMarginTop"
-    android:layout_marginBottom="@dimen/componentMarginBottom">
-    <com.badoualy.stepperindicator.StepperIndicator
-        android:id="@+id/fragment_d_b_stepper"
+    >
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/componentSelfMargin"
-        app:stpi_labels="@array/stepLabels"
-        app:stpi_indicatorColor="@color/colorAccent"
-        app:stpi_lineDoneColor="@color/colorAccent"/>
-    <com.neuwljs.wallsmalltwo.view.widget.NoSlideViewPager
-        android:id="@+id/fragment_d_b_view_pager"
-        android:layout_margin="@dimen/componentSelfMargin"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginRight="@dimen/componentMarginRight"
+        android:layout_marginLeft="@dimen/componentMarginRight"
         android:layout_marginTop="@dimen/componentMarginTop"
-        android:layout_marginBottom="@dimen/componentMarginBottom"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-        <LinearLayout
-            android:id="@+id/fragment_d_b_left"
-            android:layout_width="wrap_content"
+        android:layout_marginBottom="@dimen/componentMarginBottom">
+        <com.badoualy.stepperindicator.StepperIndicator
+            android:id="@+id/fragment_d_b_stepper"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_width="@dimen/iconSize"
-                android:layout_height="@dimen/iconSize"
-                android:src="@drawable/ic_left"
-                android:layout_margin="@dimen/componentSelfMargin"
-                android:layout_gravity="center_vertical"/>
-            <TextView
+            android:layout_margin="@dimen/componentSelfMargin"
+            app:stpi_labels="@array/stepLabels"
+            app:stpi_indicatorColor="@color/colorAccent"
+            app:stpi_lineDoneColor="@color/colorAccent"/>
+        <com.neuwljs.wallsmalltwo.view.widget.NoSlideViewPager
+            android:id="@+id/fragment_d_b_view_pager"
+            android:layout_margin="@dimen/componentSelfMargin"
+            android:layout_marginTop="@dimen/componentMarginTop"
+            android:layout_marginBottom="@dimen/componentMarginBottom"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"/>
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+            <LinearLayout
+                android:id="@+id/fragment_d_b_left"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:textSize="@dimen/subTitle"
-                android:textColor="@color/colorTextNormal"
-                android:text="@string/fragment_d_b_left"/>
-        </LinearLayout>
-        <LinearLayout
-            android:id="@+id/fragment_d_b_right"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_gravity="end">
-            <TextView
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="@dimen/iconSize"
+                    android:layout_height="@dimen/iconSize"
+                    android:src="@drawable/ic_left"
+                    android:layout_margin="@dimen/componentSelfMargin"
+                    android:layout_gravity="center_vertical"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="@dimen/subTitle"
+                    android:textColor="@color/colorTextNormal"
+                    android:text="@string/fragment_d_b_left"/>
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/fragment_d_b_right"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:textSize="@dimen/subTitle"
-                android:textColor="@color/colorTextNormal"
-                android:text="@string/fragment_d_b_right"/>
-            <ImageView
-                android:layout_width="@dimen/iconSize"
-                android:layout_height="@dimen/iconSize"
-                android:src="@drawable/ic_right"
-                android:layout_margin="@dimen/componentSelfMargin"
-                android:layout_gravity="center_vertical"/>
-        </LinearLayout>
-    </FrameLayout>
-</LinearLayout>
+                android:orientation="horizontal"
+                android:layout_gravity="end">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:textSize="@dimen/subTitle"
+                    android:textColor="@color/colorTextNormal"
+                    android:text="@string/fragment_d_b_right"/>
+                <ImageView
+                    android:layout_width="@dimen/iconSize"
+                    android:layout_height="@dimen/iconSize"
+                    android:src="@drawable/ic_right"
+                    android:layout_margin="@dimen/componentSelfMargin"
+                    android:layout_gravity="center_vertical"/>
+            </LinearLayout>
+        </FrameLayout>
+    </LinearLayout>
+</FrameLayout>

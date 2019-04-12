@@ -1,7 +1,6 @@
 package com.neuwljs.wallsmalltwo.presenter.impl;
 
 import com.neuwljs.wallsmalltwo.common.IndicatorFragment;
-import com.neuwljs.wallsmalltwo.model.gson.Found;
 import com.neuwljs.wallsmalltwo.presenter.PresenterContract;
 import com.neuwljs.wallsmalltwo.view.ViewContract;
 import com.neuwljs.wallsmalltwo.view.fragment.FragmentDAA;
@@ -23,9 +22,9 @@ public class FragmentDBDPresenterImpl implements PresenterContract.FragmentDBDPr
     }
 
     @Override
-    public void notifyFragmentDAARefresh(Found found) {
+    public void notifyFragmentDAARefresh() {
         FragmentDAA.RefreshEvent event = new FragmentDAA.RefreshEvent ();
-        event.setFound (found);
+        event.setBegin (true);
         EventBus.getDefault ().post (event);
     }
 

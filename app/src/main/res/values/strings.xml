@@ -101,5 +101,10 @@
     <string name="fragment_d_c_hint_msg_desc">最多100字</string>
     <string name="fragment_d_c_publish">点我发布</string>
 
+    <!-- 失物招领用户界面 -->
+    <string name="fragment_d_d_publish">我发布的</string>
+    <string name="fragment_d_d_lost">我丢失的</string>
+    <string name="fragment_d_d_drafts">草稿箱</string>
+    <string name="fragment_d_d_share">分享应用</string>
 
 </resources>

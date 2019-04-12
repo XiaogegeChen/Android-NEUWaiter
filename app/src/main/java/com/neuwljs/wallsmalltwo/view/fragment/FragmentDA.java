@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Handler;
 import android.os.Message;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.view.View;
@@ -13,6 +14,7 @@ import com.neuwljs.wallsmalltwo.R;
 import com.neuwljs.wallsmalltwo.adapter.viewpager.MyFragmentPagerAdapter;
 import com.neuwljs.wallsmalltwo.adapter.viewpager.MyPagerAdapter;
 import com.neuwljs.wallsmalltwo.common.BaseFragment;
+import com.neuwljs.wallsmalltwo.util.LogUtil;
 import com.neuwljs.wallsmalltwo.view.widget.BannerViewPager;
 
 import java.util.ArrayList;
@@ -23,13 +25,18 @@ import java.util.TimerTask;
 
 import static com.neuwljs.wallsmalltwo.model.Constant.BANNER_INTERVAL;
 
-public class FragmentDA extends BaseFragment {
+public class FragmentDA
+        extends BaseFragment
+        implements View.OnClickListener {
+
+    private static final String TAG = "FragmentDA";
 
     private static final int BANNER_MESSAGE_WHAT = 0;
 
     private BannerViewPager mBannerViewPager;
     private TabLayout mTabLayout;
     private ViewPager mPropertyViewPager;
+    private FloatingActionButton mFloatingActionButton;
 
     // 轮播图图集
     private List<Bitmap> mBitmapList;
@@ -39,6 +46,12 @@ public class FragmentDA extends BaseFragment {
 
     // 轮播图页面监听器
     private MyOnPageChangeListener mBannerPageChangeListener;
+
+    // 物品启示页面监听器
+    private MyOnPageChangeListener mPropertyPageChangeListener;
+
+    // mFloatingActionButton的监听器
+    private OnFloatingActionButtonClickListener mOnFloatingActionButtonClickListener;
 
     // 轮播图定时器和定时任务
     private Timer mBannerTimer;
@@ -81,6 +94,7 @@ public class FragmentDA extends BaseFragment {
         mBannerViewPager = view.findViewById (R.id.fragment_d_a_picture_view_pager);
         mTabLayout = view.findViewById (R.id.fragment_d_a_tab);
         mPropertyViewPager = view.findViewById (R.id.fragment_d_a_lost_and_found_view_pager);
+        mFloatingActionButton = view.findViewById (R.id.fragment_d_a_fab_refresh);
 
         // 轮播图指示器初始化
         mBannerPointList = new ArrayList<> ();
@@ -131,16 +145,16 @@ public class FragmentDA extends BaseFragment {
         };
         mBannerViewPager.addOnPageChangeListener (mBannerPageChangeListener);
 
+        // mPropertyViewPager添加fragment
+        mFragmentList = new ArrayList<> ();
+        mFragmentList.add (new FragmentDAA ());
+        mFragmentList.add (new FragmentDAB ());
+
         // tabLayout设置
         mTabLayoutTitles = obtainResources ().getStringArray (R.array.fragment_d_a_tab_titles);
         for(String title : mTabLayoutTitles){
             mTabLayout.addTab (mTabLayout.newTab ().setText (title));
         }
-
-        // mPropertyViewPager添加fragment
-        mFragmentList = new ArrayList<> ();
-        mFragmentList.add (new FragmentDAA ());
-        mFragmentList.add (new FragmentDAB ());
 
         // mPropertyViewPager设置适配器
         mPropertyViewPager.setAdapter (new MyFragmentPagerAdapter (getFragmentManager (), mFragmentList ) {
@@ -150,8 +164,53 @@ public class FragmentDA extends BaseFragment {
             }
         });
 
+        // mPropertyViewPager页面监听
+        mPropertyPageChangeListener = new MyOnPageChangeListener () {
+            @Override
+            public void onPageSelected(int i) {
+                switch (i){
+                    case 0:
+                        mOnFloatingActionButtonClickListener = ((FragmentDAA)(mFragmentList.get (0)))
+                                .getOnFloatingActionButtonClickListener ();
+                        LogUtil.d (TAG, "onPageSelected: " + "change listener to A");
+                        break;
+                    case 1:
+                        mOnFloatingActionButtonClickListener = ((FragmentDAB)(mFragmentList.get (1)))
+                                .getOnFloatingActionButtonClickListener ();
+                        LogUtil.d (TAG, "onPageSelected: " + "change listener to B");
+                        break;
+                    default:
+                        break;
+                }
+            }
+        };
+        mPropertyViewPager.addOnPageChangeListener (mPropertyPageChangeListener);
+
         // mPropertyViewPager绑定
         mTabLayout.setupWithViewPager (mPropertyViewPager);
+
+        // mFloatingActionButton监听器
+        mFloatingActionButton.setOnClickListener (this);
+
+        // 初始设置FloatingActionButton的监听器是第一页的
+        mOnFloatingActionButtonClickListener = ((FragmentDAA)(mFragmentList.get (0)))
+                .getOnFloatingActionButtonClickListener ();
+    }
+
+    /**
+     * {@link android.view.View.OnClickListener}
+     */
+    @Override
+    public void onClick(View v) {
+        switch (v.getId ()){
+            case R.id.fragment_d_a_fab_refresh:
+                if(mOnFloatingActionButtonClickListener != null){
+                    mOnFloatingActionButtonClickListener.onFloatingActionButtonClick ();
+                }
+                break;
+            default:
+                break;
+        }
     }
 
     /**
@@ -176,6 +235,9 @@ public class FragmentDA extends BaseFragment {
         mBannerTimer.schedule (mBannerTimerTask, BANNER_INTERVAL);
     }
 
+    /**
+     * 去掉viewPager的两个空实现
+     */
     public abstract class MyOnPageChangeListener implements ViewPager.OnPageChangeListener{
 
         @Override
@@ -187,4 +249,13 @@ public class FragmentDA extends BaseFragment {
         }
     }
 
+    /**
+     * floatingActionButton的监听器，具体由{@link #mFragmentList 的成员实现}
+     */
+    public interface OnFloatingActionButtonClickListener{
+        /**
+         * FloatingActionButton 的点击事件
+         */
+        void onFloatingActionButtonClick();
+    }
 }

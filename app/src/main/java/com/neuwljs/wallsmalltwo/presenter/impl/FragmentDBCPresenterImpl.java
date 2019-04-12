@@ -6,7 +6,6 @@ import android.graphics.Bitmap;
 
 import com.google.gson.Gson;
 import com.neuwljs.wallsmalltwo.common.ApiService;
-import com.neuwljs.wallsmalltwo.model.base.LostOrFound;
 import com.neuwljs.wallsmalltwo.model.base.LostPropertyType;
 import com.neuwljs.wallsmalltwo.model.base.Owner;
 import com.neuwljs.wallsmalltwo.model.base.Publisher;
@@ -49,8 +48,11 @@ import io.reactivex.functions.Predicate;
 
 import static com.neuwljs.wallsmalltwo.model.Constant.COLLEGE_MAX_LENGTH;
 import static com.neuwljs.wallsmalltwo.model.Constant.NAME_MAX_LENGTH;
+import static com.neuwljs.wallsmalltwo.model.Constant.OWNER_COLLEGE_DEFAULT;
 import static com.neuwljs.wallsmalltwo.model.Constant.OWNER_COLLEGE_LIMITED;
+import static com.neuwljs.wallsmalltwo.model.Constant.OWNER_ID_DEFAULT;
 import static com.neuwljs.wallsmalltwo.model.Constant.OWNER_ID_LIMITED;
+import static com.neuwljs.wallsmalltwo.model.Constant.OWNER_NAME_DEFAULT;
 import static com.neuwljs.wallsmalltwo.model.Constant.OWNER_NAME_LIMITED;
 import static com.neuwljs.wallsmalltwo.model.Constant.PHOTO_FILE_NAME;
 import static com.neuwljs.wallsmalltwo.model.Constant.PROPERTY_IS_ALREADY_SAVED;
@@ -356,43 +358,24 @@ public class FragmentDBCPresenterImpl
     }
 
     /**
-     * 把Property对象转化为Found对象，以便传递给最后一页使用
-     * @param property Property实例
-     * @return Found实例
-     */
-    private Found convertPublisher2Found(Property property){
-        Found found = new Found ();
-
-        found.setPublisherHeadIamge (mPublisherHeadImageUrl);
-        found.setPublisherName (property.getPublisherName ());
-        found.setPublishTime (property.getPublishTime ());
-        found.setInformation (property.getInformation ());
-        found.setOwnerName (property.getOwnerName ());
-        found.setOwnerId (property.getOwnerId ());
-        found.setOwnerCollege (property.getOwnerCollege ());
-
-        return found;
-    }
-
-    /**
      * 检查即将上传的数据的格式
      * @param property property
      * @return 格式正确就返回true，错误返回false
      */
     private boolean checkFormat(Property property){
-        if(StringUtil.isEmpty (property.getOwnerName ())){
+        if(StringUtil.isEmpty (property.getOwnerName ()) || OWNER_NAME_DEFAULT.equals (property.getOwnerName ())){
 
             // 名字是空的
             mFragmentDBCView.showToast (OWNER_NAME_LIMITED);
             return false;
         }
-        if(StringUtil.isEmpty (property.getOwnerId ())){
+        if(StringUtil.isEmpty (property.getOwnerId ()) || OWNER_ID_DEFAULT.equals (property.getOwnerId ())){
 
             // 学号是空的
             mFragmentDBCView.showToast (OWNER_ID_LIMITED);
             return false;
         }
-        if(StringUtil.isEmpty (property.getOwnerCollege ())){
+        if(StringUtil.isEmpty (property.getOwnerCollege ()) || OWNER_COLLEGE_DEFAULT.equals (property.getOwnerCollege ())){
 
             // 学院是空的
             mFragmentDBCView.showToast (OWNER_COLLEGE_LIMITED);
@@ -438,13 +421,12 @@ public class FragmentDBCPresenterImpl
         return owner;
     }
 
-    // 通知最后一页更新并把Found传递过去
+    // 通知最后一页更新
     private void notifyFragmentDBDRefresh(String serialNumber){
 
         // 发送事件
         FragmentDBD.RefreshSerialNumberEvent event = new FragmentDBD.RefreshSerialNumberEvent ();
         event.setSerialNumber (serialNumber);
-        event.setFound (convertPublisher2Found (mProperty));
         EventBus.getDefault ().post (event);
     }
 

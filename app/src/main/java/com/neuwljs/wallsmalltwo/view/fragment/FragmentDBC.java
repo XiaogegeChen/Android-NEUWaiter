@@ -39,11 +39,8 @@ import static com.neuwljs.wallsmalltwo.model.Constant.COLLEGE_MAX_LENGTH;
 import static com.neuwljs.wallsmalltwo.model.Constant.ID_MAX_LENGTH;
 import static com.neuwljs.wallsmalltwo.model.Constant.NAME_MAX_LENGTH;
 import static com.neuwljs.wallsmalltwo.model.Constant.OWNER_COLLEGE_DEFAULT;
-import static com.neuwljs.wallsmalltwo.model.Constant.OWNER_COLLEGE_LIMITED;
 import static com.neuwljs.wallsmalltwo.model.Constant.OWNER_ID_DEFAULT;
-import static com.neuwljs.wallsmalltwo.model.Constant.OWNER_ID_LIMITED;
 import static com.neuwljs.wallsmalltwo.model.Constant.OWNER_NAME_DEFAULT;
-import static com.neuwljs.wallsmalltwo.model.Constant.OWNER_NAME_LIMITED;
 import static com.neuwljs.wallsmalltwo.model.Constant.PUBLISHER_NAME_DEFAULT;
 
 public class FragmentDBC

@@ -31,7 +31,8 @@ import static com.neuwljs.wallsmalltwo.adapter.recycler.FoundRecyclerViewAdapter
 
 public class FragmentDAA
         extends BaseFragment
-        implements ViewContract.FragmentDAAView, BaseRecyclerViewAdapter.OnScrollingListener {
+        implements ViewContract.FragmentDAAView, BaseRecyclerViewAdapter.OnScrollingListener,
+        FragmentDA.OnFloatingActionButtonClickListener {
 
     private static final String TAG = "FragmentDAA";
 
@@ -45,6 +46,11 @@ public class FragmentDAA
 
     // recyclerView 数据源
     private List<Found> mFoundList;
+
+    // 向fragmentDA提供floatingActionButton点击事件的具体实现
+    public FragmentDA.OnFloatingActionButtonClickListener getOnFloatingActionButtonClickListener(){
+        return this;
+    }
 
     @Nullable
     @Override
@@ -131,17 +137,23 @@ public class FragmentDAA
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void onRefreshEvent(RefreshEvent event){
+        if(event.isBegin ()){
 
-        // 刷新recyclerView并将传递过来的found显示在
-        List<Found> foundList = new ArrayList<> ();
-        Found found = event.getFound ();
-
-        LogUtil.d (TAG, "found: "+found);
-
-        if(found != null){
-            foundList.add (found);
-            mAdapter.addToBegin (foundList);
+            // 刷新
+            onFloatingActionButtonClick ();
         }
+    }
+
+    /**
+     * {@link com.neuwljs.wallsmalltwo.view.fragment.FragmentDA.OnFloatingActionButtonClickListener}
+     */
+    @Override
+    public void onFloatingActionButtonClick() {
+
+        // 数据源清空，并刷新
+        mFoundList.clear ();
+        mAdapter.notifyDataSetChanged ();
+        mFragmentDAAPresenter.refresh ();
     }
 
     /**
@@ -149,15 +161,15 @@ public class FragmentDAA
      */
     public static class RefreshEvent{
 
-        // 传递的found实例
-        private Found mFound;
+        // 是否开始刷新
+        private boolean begin;
 
-        public Found getFound() {
-            return mFound;
+        public boolean isBegin() {
+            return begin;
         }
 
-        public void setFound(Found found) {
-            mFound = found;
+        public void setBegin(boolean begin) {
+            this.begin = begin;
         }
     }
 }
