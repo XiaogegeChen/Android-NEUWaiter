@@ -81,4 +81,22 @@ public class Constant {
          */
         public static final String XML_UNDONE_PROPERTY_KEY = "xml_undone_property_key";
     }
+
+    public static class IntentConstants{
+
+        /**
+         * 如果传递的是String的key
+         */
+        public static final String INTENT_PARAM_STRING_KEY = "intent_param_string_key";
+
+        /**
+         * 如果传递的是Parcelable的key
+         */
+        public static final String INTENT_PARAM_PARCELABLE_KEY = "intent_param_parcelable_key";
+
+        /**
+         * 从fragmentDD到settingActivity传递的值
+         */
+        public static final String INTENT_PARAM_FROM_FRAGMENTDD_TO_SETTINGACTIVITY = "intent_param_from_fragment_to_setting_activity";
+    }
 }

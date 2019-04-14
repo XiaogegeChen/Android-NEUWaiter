@@ -18,6 +18,9 @@ public class ViewContract {
     }
 
     public interface MainActivityView extends BaseView{
+    }
+
+    public interface LoginActivityDView extends BaseView{
 
     }
 

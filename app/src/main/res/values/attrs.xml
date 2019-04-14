@@ -13,4 +13,29 @@
         <attr name="icon" format="reference"/>
     </declare-styleable>
 
+    <!-- 定义editListLayout -->
+    <declare-styleable name="EditListLayout">
+        <attr name="hint" format="string"/>
+        <attr name="textColor" format="color"/>
+        <attr name="inputType">
+            <enum name="textNumber" value="2"/>
+            <enum name="textPassword" value="1"/>
+            <enum name="text" value="0"/>
+        </attr>
+        <attr name="editIcon" format="reference"/>
+    </declare-styleable>
+
+    <!-- 定义titleLayout -->
+    <declare-styleable name="TitleLayout">
+        <attr name="titleText" format="string"/>
+        <attr name="leftGone" format="boolean"/>
+        <attr name="rightGone" format="boolean"/>
+    </declare-styleable>
+
+    <!-- 定义settingBarLayout -->
+    <declare-styleable name="SettingBarLayout">
+        <attr name="setItemName" format="string"/>
+        <attr name="setItemContent" format="string"/>
+    </declare-styleable>
+
 </resources>

@@ -40,6 +40,8 @@
 
     <color name="colorGrey">#8a8a8a</color>
 
+    <color name="colorRegister">#f44336</color>
+
     <!-- TabLayout字体颜色 -->
     <color name="colorTabTextSelected">#FFFFFF</color>
     <color name="colorTabTextNormal">#C8C8C8</color>

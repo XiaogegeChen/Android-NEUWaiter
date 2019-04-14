@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
@@ -6,6 +6,8 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <!-- 允许开启转场动画 -->
+        <item name="android:windowContentTransitions" tools:targetApi="lollipop">true</item>
         <item name="android:windowBackground">@color/windowBackground</item>
     </style>
 
@@ -27,8 +29,8 @@
         <item name="android:foreground">@null</item>
     </style>
 
-    <!-- 解决启动页白屏的问题 -->
-    <style name="LauncherTheme" parent="AppTheme">
+    <!-- 透明背景 -->
+    <style name="TransparentTheme" parent="AppTheme">
         <item name="android:windowIsTranslucent">true</item>
         <item name="android:windowBackground">@android:color/transparent</item>
     </style>

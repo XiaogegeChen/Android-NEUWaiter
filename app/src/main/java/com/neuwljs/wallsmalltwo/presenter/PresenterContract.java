@@ -29,6 +29,18 @@ public class PresenterContract {
 
     }
 
+    /**
+     * LoginActivityD的业务逻辑接口
+     */
+    public interface LoginActivityDPresenter extends BasePresenter<ViewContract.LoginActivityDView>{
+        /**
+         * 用户登陆操作,在内部回调{@link com.neuwljs.wallsmalltwo.util.helper.LoginHelper#sLoginCallback}
+         * 登陆成功要给{@link com.neuwljs.wallsmalltwo.util.helper.LoginHelper#sUserMessage}赋值
+         * 回调并赋值之后要finish这个activity
+         */
+        void login();
+    }
+
     public interface FragmentAPresenter extends BasePresenter<ViewContract.FragmentAView>{
 
     }

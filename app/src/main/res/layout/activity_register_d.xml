@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.activity.RegisterActivityD">
+    <android.support.v7.widget.CardView
+        android:id="@+id/activity_register_d_card_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="@dimen/componentMarginLeft"
+        android:layout_marginEnd="@dimen/componentMarginRight"
+        app:cardCornerRadius="@dimen/cornerRadius"
+        app:cardElevation="3dp"
+        app:cardUseCompatPadding="true" >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorRegister"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/fragment_d_register"
+                android:textSize="@dimen/subTitle"
+                android:textColor="@color/colorTextNormal"
+                android:layout_marginTop="24dp"
+                android:gravity="center"/>
+            <com.neuwljs.wallsmalltwo.view.widget.custom.layout.EditListLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:editIcon="@drawable/ic_account"
+                app:hint="@string/fragment_d_register_name"
+                app:inputType="text"
+                app:textColor="@color/colorTextNormal" />
+            <com.neuwljs.wallsmalltwo.view.widget.custom.layout.EditListLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:editIcon="@drawable/ic_student_id"
+                app:hint="@string/fragment_d_register_id"
+                app:inputType="textNumber"
+                app:textColor="@color/colorTextNormal" />
+            <com.neuwljs.wallsmalltwo.view.widget.custom.layout.EditListLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:editIcon="@drawable/ic_password"
+                app:hint="@string/fragment_d_register_password"
+                app:inputType="textPassword"
+                app:textColor="@color/colorTextNormal" />
+            <com.neuwljs.wallsmalltwo.view.widget.custom.layout.EditListLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:editIcon="@drawable/ic_password"
+                app:hint="@string/fragment_d_register_password_confirm"
+                app:inputType="textPassword"
+                app:textColor="@color/colorTextNormal" />
+            <com.neuwljs.wallsmalltwo.view.widget.custom.layout.EditListLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:editIcon="@drawable/ic_college"
+                app:hint="学院"
+                app:inputType="text"
+                app:textColor="@color/colorTextNormal" />
+            <com.neuwljs.wallsmalltwo.view.widget.custom.layout.EditListLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:editIcon="@drawable/ic_phone"
+                app:hint="@string/fragment_d_register_college"
+                app:inputType="textNumber"
+                app:textColor="@color/colorTextNormal" />
+            <com.neuwljs.wallsmalltwo.view.widget.custom.layout.EditListLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:editIcon="@drawable/ic_token"
+                app:hint="@string/fragment_d_register_code_confirm"
+                app:inputType="textNumber"
+                app:textColor="@color/colorTextNormal" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/fragment_d_register_agreement"
+                android:layout_margin="@dimen/componentSelfMargin"
+                android:textSize="@dimen/text"
+                android:textColor="@color/colorTextClickable"
+                android:gravity="end"/>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/fragment_d_register_button"
+                android:textSize="@dimen/subTitle"
+                android:layout_margin="@dimen/componentSelfMargin"
+                />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/activity_register_d_fab"
+        android:transitionName="fab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_plus_x"
+        android:layout_centerInParent="true"
+        android:layout_alignTop="@id/activity_register_d_card_view"
+        android:layout_marginTop="-24dp"
+        android:backgroundTint="@color/colorRegister"
+        app:fabSize="normal"
+        tools:targetApi="lollipop" />
+</RelativeLayout>

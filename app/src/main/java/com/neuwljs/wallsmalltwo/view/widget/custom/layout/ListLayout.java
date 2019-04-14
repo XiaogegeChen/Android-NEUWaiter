@@ -13,7 +13,7 @@ import com.neuwljs.wallsmalltwo.R;
 import androidx.annotation.Nullable;
 
 /**
- * 自定义一个用于显示列表的layout
+ * 自定义一个用于显示列表的layout,包含一个图片和一个文本
  */
 public class ListLayout extends LinearLayout {
 
