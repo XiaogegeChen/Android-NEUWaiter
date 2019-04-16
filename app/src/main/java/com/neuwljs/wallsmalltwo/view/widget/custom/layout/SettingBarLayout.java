@@ -11,10 +11,12 @@ import com.neuwljs.wallsmalltwo.R;
 
 import androidx.annotation.Nullable;
 
+/**
+ * 自定义一个显示设置项的layout
+ */
 public class SettingBarLayout extends LinearLayout {
 
     private TextView mContent;
-    private TextView mName;
 
     public SettingBarLayout(Context context) {
         this (context, null);
@@ -31,7 +33,7 @@ public class SettingBarLayout extends LinearLayout {
         LayoutInflater.from (context).inflate (R.layout.setting_bar_layout, this);
 
         // 拿到控件
-        mName = findViewById (R.id.setting_bar_layout_item_name);
+        TextView mName = findViewById (R.id.setting_bar_layout_item_name);
         mContent = findViewById (R.id.setting_bar_layout_item_content);
 
         // 拿到资源和属性
@@ -51,10 +53,5 @@ public class SettingBarLayout extends LinearLayout {
     // 代码更改content的文本
     public void setContentText(String text){
         mContent.setText (text);
-    }
-
-    // 拿到mName 的文本
-    public String getLayoutName(){
-        return mName.getText ().toString ();
     }
 }

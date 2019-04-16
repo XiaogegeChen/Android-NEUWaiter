@@ -21,12 +21,22 @@ public class Constant {
     public static final String NO_TYPE_SELECTED = "未选择类型,请先选择类型";
 
     /**
+     * 在百度识别时相机打开失败的提示
+     */
+    public static final String TAKE_PHOTO_FAILED = "拍照失败";
+
+    /**
+     * 在百度识别时相册打开失败的提示
+     */
+    public static final String CHOOSE_PHOTO_FAILED = "选取照片失败";
+
+    /**
      * 失物类型未选择
      */
     public static final String PROPERTY_IS_ALREADY_SAVED = "已保存,可在 “我的” 中查看";
 
     /**
-     * 拍照之后图片存放位置的文件名
+     * 百度图像识别拍照之后图片存放位置的文件名
      * 具体位置为  sdcard/Android/data/com.neuwljs.wallsmalltwo/cache/fragment_d_b_b_image.jpg"
      */
     public static final String PHOTO_FILE_NAME = "fragment_d_b_b_image.jpg";
@@ -42,7 +52,7 @@ public class Constant {
     public static final String OWNER_NAME_LIMITED = "名字长度超出限制，不应超过4个字";
     public static final int ID_MAX_LENGTH = 8;
     public static final String OWNER_ID_LIMITED = "学号应该是8位纯数字";
-    public static final int COLLEGE_MAX_LENGTH = 8;
+    public static final int COLLEGE_MAX_LENGTH = 10;
     public static final String OWNER_COLLEGE_LIMITED = "学院长度超出限制，不应超过8个字";
 
     /**

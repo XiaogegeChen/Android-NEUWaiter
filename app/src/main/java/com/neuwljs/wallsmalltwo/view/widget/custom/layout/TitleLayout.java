@@ -18,7 +18,7 @@ import androidx.annotation.Nullable;
  */
 public class TitleLayout extends FrameLayout implements View.OnClickListener {
 
-    private OnClickListener mOnClickListener;
+    private OnArrowClickListener mOnArrowClickListener;
 
     public TitleLayout(Context context) {
         this (context, null);
@@ -66,8 +66,8 @@ public class TitleLayout extends FrameLayout implements View.OnClickListener {
         typedArray.recycle ();
     }
 
-    public void setOnClickListener(OnClickListener onClickListener) {
-        mOnClickListener = onClickListener;
+    public void setOnArrowClickListener(OnArrowClickListener onClickListener) {
+        mOnArrowClickListener = onClickListener;
     }
 
     /**
@@ -77,16 +77,16 @@ public class TitleLayout extends FrameLayout implements View.OnClickListener {
     public void onClick(View v) {
 
         // 如果没设置监听就直接返回
-        if(mOnClickListener == null){
+        if(mOnArrowClickListener == null){
             return;
         }
 
         switch (v.getId ()){
             case R.id.title_layout_left:
-                mOnClickListener.onLeftClick ();
+                mOnArrowClickListener.onLeftClick ();
                 break;
             case R.id.title_layout_right:
-                mOnClickListener.onRightClick ();
+                mOnArrowClickListener.onRightClick ();
                 break;
             default:
                 break;
@@ -96,7 +96,7 @@ public class TitleLayout extends FrameLayout implements View.OnClickListener {
     /**
      * 设置两个按钮的监听
      */
-    public interface OnClickListener{
+    public interface OnArrowClickListener{
         void onLeftClick();
         void onRightClick();
     }

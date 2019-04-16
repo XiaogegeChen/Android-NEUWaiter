@@ -1,7 +1,9 @@
 package com.neuwljs.wallsmalltwo.view.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.view.MenuItem;
@@ -41,6 +43,13 @@ public class MainActivity extends BaseActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate (savedInstanceState);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+
+        // 必须写
+        super.onActivityResult (requestCode, resultCode, data);
     }
 
     @Override

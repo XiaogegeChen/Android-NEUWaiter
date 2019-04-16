@@ -87,16 +87,6 @@ public class ViewContract {
      */
     public interface FragmentDBBView extends BaseView{
         /**
-         * 显示拍照的dialog
-         */
-        void showDialog();
-
-        /**
-         *关闭拍照的dialog
-         */
-        void dismissDialog();
-
-        /**
          * 显示拍照或者从相册拿到的图片
          * @param bitmap 拿到的图片
          */

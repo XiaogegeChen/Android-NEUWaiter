@@ -16,22 +16,25 @@ import com.neuwljs.wallsmalltwo.R;
 import com.neuwljs.wallsmalltwo.common.IndicatorFragment;
 import com.neuwljs.wallsmalltwo.presenter.impl.FragmentDBBPresenterImpl;
 import com.neuwljs.wallsmalltwo.util.LogUtil;
+import com.neuwljs.wallsmalltwo.util.helper.PhotoHelper;
 import com.neuwljs.wallsmalltwo.view.ViewContract;
 import com.neuwljs.wallsmalltwo.view.widget.NoSlideViewPager;
 import com.neuwljs.wallsmalltwo.view.widget.dialog.TakePhotoDialog;
 
+import static com.neuwljs.wallsmalltwo.model.Constant.CHOOSE_PHOTO_FAILED;
+import static com.neuwljs.wallsmalltwo.model.Constant.TAKE_PHOTO_FAILED;
+import static com.neuwljs.wallsmalltwo.util.helper.PhotoHelper.PHOTO_DIALOG_TAG;
+
 public class FragmentDBB
         extends IndicatorFragment
-        implements ViewContract.FragmentDBBView, View.OnClickListener, TakePhotoDialog.OnClickListener {
+        implements ViewContract.FragmentDBBView, View.OnClickListener, PhotoHelper.Callback {
 
     private static final String TAG = "FragmentDBB";
-    private static final String DIALOG_TAG = "take_photo_dialog";
 
     private FrameLayout mTakePhotoFrameLayout;
     private ImageView mImageView;
     private EditText mEditText;
 
-    private TakePhotoDialog mTakePhotoDialog;
 
     // 业务逻辑实现的引用
     private FragmentDBBPresenterImpl mFragmentDBBPresenter;
@@ -73,16 +76,15 @@ public class FragmentDBB
     @Override
     public void initData() {
         mFragmentDBBPresenter = new FragmentDBBPresenterImpl (this);
-
         mTakePhotoFrameLayout.setOnClickListener (this);
-
-        mTakePhotoDialog = new TakePhotoDialog ();
-        mTakePhotoDialog.setListener (this);
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        mFragmentDBBPresenter.handleActivityResult (requestCode, resultCode, data);
+        assert getFragmentManager () != null;
+        TakePhotoDialog fragment = (TakePhotoDialog) getFragmentManager ().findFragmentByTag (PHOTO_DIALOG_TAG);
+        assert fragment != null;
+        fragment.onActivityResult (requestCode, resultCode, data);
     }
 
     /**
@@ -92,30 +94,12 @@ public class FragmentDBB
     public void onClick(View v) {
         switch (v.getId ()){
             case R.id.fragment_d_b_b_take_photo:
-                showDialog ();
+                PhotoHelper.getPhoto (getFragmentManager (), this);
                 break;
             default:
                 break;
 
         }
-    }
-
-    /**
-     * {@link TakePhotoDialog.OnClickListener}
-     */
-    @Override
-    public void onCancelClick() {
-        mFragmentDBBPresenter.cancel ();
-    }
-
-    @Override
-    public void onCameraClick() {
-        mFragmentDBBPresenter.takePhoto ();
-    }
-
-    @Override
-    public void onAlbumClick() {
-        mFragmentDBBPresenter.selectPhoto ();
     }
 
     /**
@@ -131,17 +115,6 @@ public class FragmentDBB
 
     @Override
     public void showToast(String message) {
-    }
-
-    @Override
-    public void showDialog() {
-        assert getFragmentManager () != null;
-        mTakePhotoDialog.show (getFragmentManager (), DIALOG_TAG);
-    }
-
-    @Override
-    public void dismissDialog() {
-        mTakePhotoDialog.dismiss ();
     }
 
     @Override
@@ -186,5 +159,32 @@ public class FragmentDBB
             mImageView.setVisibility (View.INVISIBLE);
         }
         mEditText.setText (null);
+    }
+
+    /**
+     * {@link com.neuwljs.wallsmalltwo.util.helper.PhotoHelper.Callback}
+     */
+    @Override
+    public void onCancel() {
+    }
+
+    @Override
+    public void onTakePhotoSuccess(Bitmap bitmap) {
+        mFragmentDBBPresenter.saveAndShow (bitmap);
+    }
+
+    @Override
+    public void onTakePhotoFailure() {
+        showToast (TAKE_PHOTO_FAILED);
+    }
+
+    @Override
+    public void onChoosePhotoSuccess(Bitmap bitmap) {
+        mFragmentDBBPresenter.saveAndShow (bitmap);
+    }
+
+    @Override
+    public void onChoosePhotoFailure() {
+        showToast (CHOOSE_PHOTO_FAILED);
     }
 }

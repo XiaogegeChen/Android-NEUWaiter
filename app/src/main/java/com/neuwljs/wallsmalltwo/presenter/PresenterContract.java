@@ -1,6 +1,7 @@
 package com.neuwljs.wallsmalltwo.presenter;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 
 import com.neuwljs.wallsmalltwo.model.base.Publisher;
 import com.neuwljs.wallsmalltwo.model.gson.Found;
@@ -110,20 +111,6 @@ public class PresenterContract {
      * FragmentDBB的业务逻辑接口
      */
     public interface FragmentDBBPresenter extends BasePresenter<ViewContract.FragmentDBBView>{
-        /**
-         * 取消按钮点击时候的逻辑
-         */
-        void cancel();
-
-        /**
-         * 打开相机并且拿到返回的图片
-         */
-        void takePhoto();
-
-        /**
-         * 从相册中选择图片
-         */
-        void selectPhoto();
 
         /**
          * 通知第三页的Property对象更新  详细信息
@@ -142,12 +129,10 @@ public class PresenterContract {
         void notifyFragmentDBCRefreshUI(String information);
 
         /**
-         * 开启相机或者开启相册之后onActivityResult()方法的实现
-         * @param requestCode 请求码
-         * @param resultCode 结果码
-         * @param intent intent
+         * 将图片保存并显示在ui上
+         * @param bitmap 图片
          */
-        void handleActivityResult(int requestCode, int resultCode, Intent intent);
+        void saveAndShow(Bitmap bitmap);
     }
 
     /**
