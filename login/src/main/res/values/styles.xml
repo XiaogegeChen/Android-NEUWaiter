@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="login_app_theme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/login_primary_color</item>
+        <item name="colorPrimaryDark">@color/login_primary_dark_color</item>
+        <item name="colorAccent">@color/login_accent_color</item>
+        <!-- 允许开启转场动画 -->
+        <item name="android:windowContentTransitions" tools:targetApi="lollipop">true</item>
+        <item name="android:windowBackground">@color/login_window_bg_color</item>
+    </style>
+
+    <!-- 透明背景 -->
+    <style name="login_transparent_theme" parent="login_app_theme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+</resources>

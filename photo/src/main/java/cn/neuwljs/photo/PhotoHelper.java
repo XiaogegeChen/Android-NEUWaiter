@@ -8,7 +8,7 @@ import android.support.v4.app.FragmentManager;
  * 拍照和选择图片功能的帮助类封装
  * 使用方法:
  * 1.调用静态方法{@link #getPhoto(FragmentManager, Callback)}
- * 2.在activity中重写activity的{@link android.app.Activity#onActivityResult(int, int, Intent)}
+ * 2.在activity中重写activity的{@link android.app.Activity}的onActivityResult(int, int, Intent)
  *    并一定要继承父类的onActivityResult()
  * 3.通过{@link FragmentManager#findFragmentByTag(String)}方法并传入{@link #sTag}
  *   参数找到对话框fragment并调用这个fragment的{@link android.support.v4.app.Fragment#onActivityResult(int, int, Intent)}

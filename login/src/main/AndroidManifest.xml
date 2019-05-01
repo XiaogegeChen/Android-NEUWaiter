@@ -1,0 +1,8 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="cn.neuwljs.login">
+    <application>
+        <activity android:name=".LoginActivity"/>
+        <activity android:name=".RegisterActivity"
+            android:theme="@style/login_transparent_theme"/>
+    </application>
+</manifest>

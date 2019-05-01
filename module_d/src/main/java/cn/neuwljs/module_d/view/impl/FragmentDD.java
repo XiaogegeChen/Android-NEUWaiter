@@ -1,13 +1,20 @@
 package cn.neuwljs.module_d.view.impl;
 
+import android.content.Intent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import cn.neuwljs.common.base.BaseFragment;
+import cn.neuwljs.common.util.ToastUtil;
+import cn.neuwljs.login.Callback;
+import cn.neuwljs.login.Login;
+import cn.neuwljs.login.User;
 import cn.neuwljs.module_d.R;
 import cn.neuwljs.widget.layout.Widget_ListLayout;
 import de.hdodenhof.circleimageview.CircleImageView;
+
+import static cn.neuwljs.module_d.Constants.LOGIN_FAILED;
 
 public class FragmentDD
         extends BaseFragment
@@ -59,6 +66,71 @@ public class FragmentDD
      */
     @Override
     public void onClick(View v) {
-        // TODO
+        int id = v.getId ();
+        if(id == R.id.module_d_fragment_d_d_set){
+            Intent intent = new Intent (obtainActivity (), SettingActivity.class);
+            startActivity (intent);
+        }else if(id == R.id.module_d_fragment_d_d_publish){
+            Login.checkLogin (new Callback () {
+                @Override
+                public void onSuccess(User user) {
+
+                }
+
+                @Override
+                public void onFailure() {
+                    ToastUtil.showToast (obtainContext (), LOGIN_FAILED);
+                }
+            });
+        }else if(id == R.id.module_d_fragment_d_d_lost){
+            Login.checkLogin (new Callback () {
+                @Override
+                public void onSuccess(User user) {
+
+                }
+
+                @Override
+                public void onFailure() {
+                    ToastUtil.showToast (obtainContext (), LOGIN_FAILED);
+                }
+            });
+        }else if(id == R.id.module_d_fragment_d_d_my_card){
+            Login.checkLogin (new Callback () {
+                @Override
+                public void onSuccess(User user) {
+
+                }
+
+                @Override
+                public void onFailure() {
+                    ToastUtil.showToast (obtainContext (), LOGIN_FAILED);
+                }
+            });
+        }else if(id == R.id.module_d_fragment_d_d_drafts){
+            Login.checkLogin (new Callback () {
+                @Override
+                public void onSuccess(User user) {
+
+                }
+
+                @Override
+                public void onFailure() {
+                    ToastUtil.showToast (obtainContext (), LOGIN_FAILED);
+                }
+            });
+        }else if(id == R.id.module_d_fragment_d_d_share){
+            Login.checkLogin (new Callback () {
+                @Override
+                public void onSuccess(User user) {
+
+                }
+
+                @Override
+                public void onFailure() {
+                    ToastUtil.showToast (obtainContext (), LOGIN_FAILED);
+                }
+            });
+        }
     }
+
 }

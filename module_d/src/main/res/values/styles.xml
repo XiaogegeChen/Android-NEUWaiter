@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- Base application theme. -->
+    <style name="module_d_app_theme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/module_d_accent_color</item>
+        <item name="colorPrimaryDark">@color/module_d_accent_color</item>
+        <item name="colorAccent">@color/module_d_accent_color</item>
+
+    </style>
+
     <!-- 默认圆角按钮样式 -->
     <style name="module_d_button_style" parent="Widget.AppCompat.Button.Borderless">
         <item name="android:paddingLeft">@dimen/module_d_margin_left</item>

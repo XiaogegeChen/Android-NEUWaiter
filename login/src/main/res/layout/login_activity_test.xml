@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="debug.TestActivity">
+    <Button
+        android:id="@+id/login_test_goto_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="跳转到登陆页面"/>
+    <Button
+        android:id="@+id/login_test_goto_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="跳转到注册页面"/>
+    <Button
+        android:id="@+id/login_test_judge"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="判断是否登陆"/>
+    <Button
+        android:id="@+id/login_test_goto_mine"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="跳转到我的页面"/>
+</LinearLayout>

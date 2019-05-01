@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest package="cn.neuwljs.module_d"
     xmlns:android="http://schemas.android.com/apk/res/android">
-    <uses-permission android:name="android.permission.INTERNET "/>
+
+    <application>
+        <activity android:name=".view.impl.SettingActivity"/>
+    </application>
 </manifest>

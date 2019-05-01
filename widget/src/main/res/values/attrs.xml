@@ -51,4 +51,13 @@
         <attr name="widget_progress_description" format="string"/>
     </declare-styleable>
 
+    <!-- 定义MessageLayout -->
+    <declare-styleable name="Widget_MessageLayout">
+        <attr name="widget_message_layout_name" format="string"/>
+    </declare-styleable>
+
+    <!-- 定义ChooseLayout -->
+    <declare-styleable name="Widget_ChooseLayout">
+        <attr name="widget_choose_layout_name" format="string"/>
+    </declare-styleable>
 </resources>

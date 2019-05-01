@@ -33,7 +33,6 @@ public class Constants {
 
     /**
      * 百度图像识别拍照之后图片存放位置的文件名
-     * 具体位置为  sdcard/Android/data/com.neuwljs.wallsmalltwo/cache/fragment_d_b_b_image.jpg"
      */
     public static final String PHOTO_FILE_NAME = "fragment_d_b_b_image.jpg";
 
@@ -66,6 +65,8 @@ public class Constants {
      */
     public static final String PROPERTY_IS_ALREADY_SAVED = "已保存,可在 “我的” 中查看";
 
+    public static final String LOGIN_FAILED = "登陆失败,部分功能不可用";
+
     /**
      * 请求头和baseUrl的映射集合
      * 每个key对应一个baseUrl,动态更改的时候使用
@@ -77,41 +78,6 @@ public class Constants {
      * 这个是全局常量
      */
     public static final String OKHTTP_HEAD_NAME = NETWORK_BASE_UR_HEAD_KEY;
-
-    /**
-     * 百度OCR的AK
-     */
-    public static final String OCR_AK = "Fww20HZOlhRhNuvQET6jDSQt";
-
-    /**
-     * 百度OCR的SK
-     */
-    public static final String OCR_SK = "ylXMmGC4VMC90zwsBwDpQ68EmzbjulUE";
-
-    /**
-     * 百度OCR的GRANT_TYPE
-     */
-    public static final String GRANT_TYPE = "client_credentials";
-
-    /**
-     * 百度OCR请求头中的Content-Type的key
-     */
-    public static final String CONTENT_TYPE_KEY = "Content-Type";
-
-    /**
-     * 百度OCR请求头中的Content-Type的value
-     */
-    public static final String CONTENT_TYPE_VALUE = "application/x-www-form-urlencoded";
-
-    /**
-     * 百度OCR的head的key
-     */
-    public static final String OCR_HEAD_KEY="ocr";
-
-    /**
-     * 百度OCR的baseUrl
-     */
-    public static final String OCR_BASE_URL = "https://aip.baidubce.com/";
 
     /**
      * 失物招领服务器的head的key
@@ -131,7 +97,6 @@ public class Constants {
 
     static {
         OKHTTP_HEAD_MAP = new HashMap<> ();
-        OKHTTP_HEAD_MAP.put (OCR_HEAD_KEY, OCR_BASE_URL);
         OKHTTP_HEAD_MAP.put (LOST_AND_FOUND_HEAD_KEY, LOST_AND_FOUND_BASE_URL);
     }
 }

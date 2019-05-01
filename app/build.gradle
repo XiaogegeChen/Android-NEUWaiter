@@ -10,23 +10,26 @@ android {
 }
 
 dependencies {
-    if(!isMainDebug.toBoolean()){
-        implementation project(':main')
-    }
-    if(!isModuleADebug.toBoolean()){
-        implementation project(':module_a')
-    }
-    if(!isModuleBDebug.toBoolean()){
-        implementation project(':module_b')
-    }
-    if(!isModuleCDebug.toBoolean()){
-        implementation project(':module_c')
-    }
-    if(!isModuleDDebug.toBoolean()){
-        implementation project(':module_d')
-    }
-    if(!isModuleEDebug.toBoolean()){
-        implementation project(':module_e')
+
+    if(!isAppDebug.toBoolean()){
+        if(!isMainDebug.toBoolean()){
+            implementation project(':main')
+        }
+        if(!isModuleADebug.toBoolean()){
+            implementation project(':module_a')
+        }
+        if(!isModuleBDebug.toBoolean()){
+            implementation project(':module_b')
+        }
+        if(!isModuleCDebug.toBoolean()){
+            implementation project(':module_c')
+        }
+        if(!isModuleDDebug.toBoolean()){
+            implementation project(':module_d')
+        }
+        if(!isModuleEDebug.toBoolean()){
+            implementation project(':module_e')
+        }
     }
     implementation 'com.android.support.constraint:constraint-layout:1.1.3'
 }

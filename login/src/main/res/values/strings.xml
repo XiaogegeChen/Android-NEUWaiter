@@ -1,0 +1,23 @@
+<resources>
+    <string name="login_app_name">login</string>
+
+    <!-- 失物招领用户登陆界面 -->
+    <string name="login_login">登陆</string>
+    <string name="login_accent_hint">手机号或者学号</string>
+    <string name="login_password_hint">密码</string>
+    <string name="login_forget">忘记密码？</string>
+    <string name="login_login_button">登 陆</string>
+
+    <!-- 失物招领用户注册界面 -->
+    <string name="login_register">注册</string>
+    <string name="login_register_name">姓名</string>
+    <string name="login_register_id">学号</string>
+    <string name="login_register_password">密码</string>
+    <string name="login_register_password_confirm">确认密码</string>
+    <string name="login_register_college">学院</string>
+    <string name="login_register_phone">手机号</string>
+    <string name="login_register_send_code_confirm">发送验证码</string>
+    <string name="login_register_code_confirm">验证码</string>
+    <string name="login_register_button">注 册</string>
+    <string name="login_register_agreement">注册即代表同意《用户协议》</string>
+</resources>
