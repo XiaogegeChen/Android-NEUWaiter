@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 定义的带圆弧的view -->
+    <declare-styleable name="Widget_MyArcView">
+        <attr name="widget_arcHeight" format="dimension"/>
+        <attr name="widget_bgColor" format="color"/>
+    </declare-styleable>
+
+    <!-- 定义titleLayout -->
+    <declare-styleable name="Widget_TitleLayout">
+        <attr name="widget_titleText" format="string"/>
+        <attr name="widget_leftGone" format="boolean"/>
+        <attr name="widget_rightGone" format="boolean"/>
+    </declare-styleable>
+
+    <!-- 定义settingBarLayout -->
+    <declare-styleable name="Widget_SettingBarLayout">
+        <attr name="widget_setItemName" format="string"/>
+        <attr name="widget_setItemContent" format="string"/>
+    </declare-styleable>
+
+    <!-- 定义editLayout -->
+    <declare-styleable name="Widget_EditLayout">
+        <attr name="widget_hint" format="string"/>
+        <attr name="widget_textColor" format="color"/>
+        <attr name="widget_inputType">
+            <enum name="widget_textNumber" value="2"/>
+            <enum name="widget_textPassword" value="1"/>
+            <enum name="widget_text" value="0"/>
+        </attr>
+        <attr name="widget_editIcon" format="reference"/>
+    </declare-styleable>
+
+    <!-- 定义listLayout -->
+    <declare-styleable name="Widget_ListLayout">
+        <attr name="widget_text" format="string"/>
+        <attr name="widget_icon" format="reference"/>
+    </declare-styleable>
+
+    <!-- 定义messageDialog -->
+    <declare-styleable name="Widget_MessageDialog">
+        <attr name="widget_message_title" format="string"/>
+        <attr name="widget_message_content" format="string"/>
+        <attr name="widget_message_confirm" format="string"/>
+        <attr name="widget_message_cancel" format="string"/>
+    </declare-styleable>
+
+    <!-- 定义progressDialog -->
+    <declare-styleable name="Widget_ProgressDialog">
+        <attr name="widget_progress_description" format="string"/>
+    </declare-styleable>
+
+</resources>

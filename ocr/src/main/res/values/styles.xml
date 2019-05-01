@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="ocr_app_theme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/ocr_color_primary</item>
+        <item name="colorPrimaryDark">@color/ocr_color_primaryDark</item>
+        <item name="colorAccent">@color/ocr_color_accent</item>
+    </style>
+
+</resources>

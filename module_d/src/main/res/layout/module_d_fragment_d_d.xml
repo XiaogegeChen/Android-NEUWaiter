@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_bg_color" >
+    <cn.neuwljs.widget.view.Widget_MyArcView
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        app:widget_arcHeight="180dp"
+        app:widget_bgColor="@color/module_d_accent_color" />
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp">
+        <ImageView
+            android:id="@+id/module_d_fragment_d_d_set"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/module_d_set"
+            android:layout_gravity="end|center_vertical"
+            android:layout_margin="@dimen/module_d_margin_self"/>
+    </FrameLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:orientation="vertical">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/module_d_fragment_d_d_user_head_image"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:src="@drawable/module_d_test_1"
+            android:layout_gravity="center_horizontal" />
+        <TextView
+            android:id="@+id/module_d_fragment_d_d_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/module_d_test"
+            android:layout_marginTop="@dimen/module_d_margin_top"
+            android:layout_gravity="center_horizontal"
+            android:textSize="@dimen/module_d_sub_title"
+            android:textColor="@color/module_d_text_normal_color"/>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:background="#ffffff">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <cn.neuwljs.widget.layout.Widget_ListLayout
+                    android:id="@+id/module_d_fragment_d_d_publish"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:widget_icon="@drawable/module_d_list_publish"
+                    app:widget_text="@string/module_d_fragment_d_d_publish" />
+                <cn.neuwljs.widget.layout.Widget_ListLayout
+                    android:id="@+id/module_d_fragment_d_d_lost"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:widget_icon="@drawable/module_d_list_lost"
+                    app:widget_text="@string/module_d_fragment_d_d_lost" />
+                <cn.neuwljs.widget.layout.Widget_ListLayout
+                    android:id="@+id/module_d_fragment_d_d_my_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:widget_icon="@drawable/module_d_my_card"
+                    app:widget_text="@string/module_d_fragment_d_d_my_card" />
+                <cn.neuwljs.widget.layout.Widget_ListLayout
+                    android:id="@+id/module_d_fragment_d_d_drafts"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:widget_icon="@drawable/module_d_list_drafts"
+                    app:widget_text="@string/module_d_fragment_d_d_drafts" />
+                <cn.neuwljs.widget.layout.Widget_ListLayout
+                    android:id="@+id/module_d_fragment_d_d_share"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:widget_icon="@drawable/module_d_list_share"
+                    app:widget_text="@string/module_d_fragment_d_d_share" />
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+</FrameLayout>

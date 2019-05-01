@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_bg_color" >
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <EditText
+                android:id="@+id/module_d_fragment_d_b_b_edit_text"
+                android:layout_width="match_parent"
+                android:layout_height="280dp"
+                android:textSize="@dimen/module_d_text"
+                android:hint="@string/module_d_fragment_d_b_b_hint_msg"
+                android:layout_margin="@dimen/module_d_margin_self"
+                android:background="@null"
+                android:gravity="top"
+                android:minLines="6" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/module_d_margin_self"
+                android:text="@string/module_d_fragment_d_b_b_hint_msg_desc"
+                android:layout_gravity="end|center_horizontal"
+                android:textSize="@dimen/module_d_text" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="@dimen/module_d_margin_bottom">
+                <FrameLayout
+                    android:id="@+id/module_d_fragment_d_b_b_take_photo"
+                    android:layout_margin="@dimen/module_d_margin_self"
+                    android:layout_width="112dp"
+                    android:layout_height="112dp"
+                    android:background="#DDDDDD">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:gravity="center">
+                        <ImageView
+                            android:layout_margin="@dimen/module_d_margin_self"
+                            android:layout_width="56dp"
+                            android:layout_height="56dp"
+                            android:src="@drawable/module_d_camera_icon"/>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/module_d_fragment_d_b_b_take_photo"
+                            android:textSize="@dimen/module_d_text"
+                            android:textColor="@color/module_d_text_normal_color"/>
+                    </LinearLayout>
+                </FrameLayout>
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="112dp"
+                    android:layout_margin="@dimen/module_d_margin_self" >
+                    <ImageView
+                        android:id="@+id/module_d_fragment_d_b_b_image"
+                        android:layout_gravity="center"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_margin="@dimen/module_d_margin_self"
+                        android:adjustViewBounds="true"
+                        android:visibility="invisible" />
+                </FrameLayout>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/module_d_margin_bottom"/>
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

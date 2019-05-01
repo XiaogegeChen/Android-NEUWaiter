@@ -1,0 +1,5 @@
+<resources>
+    <string name="photo_take_photo_cancel">取消</string>
+    <string name="photo_take_photo_camera">相机</string>
+    <string name="photo_take_photo_album">本地相册</string>
+</resources>

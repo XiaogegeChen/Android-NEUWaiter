@@ -1,0 +1,61 @@
+<resources>
+
+    <string name="module_d_test">测试</string>
+
+    <!-- 失物招领tabLayout的标题 -->
+    <string-array name="module_d_fragment_d_tab_titles">
+        <item>首页</item>
+        <item>拾到证件</item>
+        <item>一键丢失</item>
+        <item>个人信息</item>
+    </string-array>
+
+    <!-- 失物招领首页 -->
+    <string name="module_d_fragment_d_a_catalog">类型</string>
+    <string name="module_d_fragment_d_a_search">搜索</string>
+    <string name="module_d_fragment_d_a_new">最新动态</string>
+
+    <!-- 失物招领tabLayout的标题 -->
+    <string-array name="module_d_fragment_d_a_tab_titles">
+        <item>寻物启事</item>
+        <item>招领启事</item>
+    </string-array>
+
+    <!-- 失物招领登陆捡到物品步骤描述 -->
+    <string-array name="module_d_step_labels">
+        <item>物品类型</item>
+        <item>详细信息</item>
+        <item>预览发布</item>
+    </string-array>
+
+    <!-- 失物招领登陆捡到物品 -->
+    <string name="module_d_fragment_d_b_right">下一步</string>
+    <string name="module_d_fragment_d_b_left">上一步</string>
+
+    <string name="module_d_fragment_d_b_a_student_card">校园卡</string>
+    <string name="module_d_fragment_d_b_a_bank_card">银行卡</string>
+    <string name="module_d_fragment_d_b_a_id_card">身份证</string>
+    <string name="module_d_fragment_d_b_a_else">其它</string>
+
+    <string name="module_d_fragment_d_b_b_hint_msg">简单描述一下经过吧(失主个人信息可通过拍照识别呦!)</string>
+    <string name="module_d_fragment_d_b_b_hint_msg_desc">最多100字</string>
+    <string name="module_d_fragment_d_b_b_take_photo">照片</string>
+
+    <string name="module_d_fragment_d_b_c_hint_name">姓名</string>
+    <string name="module_d_fragment_d_b_c_hint_id">学号</string>
+    <string name="module_d_fragment_d_b_c_hint_collage">学院</string>
+    <string name="module_d_fragment_d_b_c_fix">信息有误?在这里键入正确信息修改</string>
+    <string name="module_d_fragment_d_b_c_commit">点 我 发 布</string>
+
+    <string name="module_d_fragment_d_b_d_thank">这是已发布的第X条招领启事,感谢您的支持</string>
+    <string name="module_d_fragment_d_b_d_clickable">您还可以 去查看 | 继续发布</string>
+
+    <!-- 失物招领用户界面 -->
+    <string name="module_d_fragment_d_d_publish">我发布的</string>
+    <string name="module_d_fragment_d_d_lost">我丢失的</string>
+    <string name="module_d_fragment_d_d_my_card">我的校卡</string>
+    <string name="module_d_fragment_d_d_drafts">草稿箱</string>
+    <string name="module_d_fragment_d_d_share">分享应用</string>
+
+
+</resources>

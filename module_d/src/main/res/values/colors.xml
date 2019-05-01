@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="module_d_accent_color">#2EA9DF</color>
+    <color name="module_d_text_clickable_color">#4B97F3</color>
+
+    <color name="module_d_tab_color">#2EA9DF</color>
+
+    <color name="module_d_tab_text_color_selected">#FFFFFF</color>
+    <color name="module_d_tab_text_color_normal">#C8C8C8</color>
+
+    <!-- 按钮按压时的颜色 -->
+    <color name="module_d_color_button_pressed">#32A3D5</color>
+    <!-- 按钮禁用时的颜色 -->
+    <color name="module_d_color_button_disable">#DDDDDD</color>
+    <color name="module_d_color_button_default">#2EA9DF</color>
+
+    <!-- 字体默认颜色 -->
+    <color name="module_d_text_normal_color">#000000</color>
+    <color name="module_d_text_white_color">#ffffff</color>
+    <color name="module_d_text_grey_color">#8a8a8a</color>
+</resources>

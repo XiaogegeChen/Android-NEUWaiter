@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center" >
+    <cn.neuwljs.widget.dialog.Widget_MessageDialog
+        android:id="@+id/common_upload_fail_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:widget_message_title="@string/common_fail_dialog_title"
+        app:widget_message_cancel="@string/common_fail_dialog_exit"
+        app:widget_message_confirm="@string/common_fail_dialog_retry"
+        app:widget_message_content="@string/common_fail_dialog_content"/>
+</FrameLayout>

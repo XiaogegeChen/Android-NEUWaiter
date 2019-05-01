@@ -1,0 +1,13 @@
+<resources>
+    <!-- 加载失败 -->
+    <string name="common_load_error">加载失败，点击可重新加载</string>
+    <string name="common_load_done">没有更多了</string>
+
+    <string name="common_fail_dialog_title">上传失败</string>
+    <string name="common_fail_dialog_content">上传失败,您可以尝试重新上传或者取消并保存信息</string>
+    <string name="common_fail_dialog_exit">取消并保存</string>
+    <string name="common_fail_dialog_retry">重新上传</string>
+
+    <string name="common_upload_progress_desc">正在上传…</string>
+
+</resources>

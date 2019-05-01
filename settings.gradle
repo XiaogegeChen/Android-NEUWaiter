@@ -1,0 +1,11 @@
+include ':app', ':ocr',
+        ':main',
+        ':module_d',
+        ':common',
+        ':widget',
+        ':module_a',
+        ':module_b',
+        ':module_c',
+        ':module_e',
+        ':network',
+        ':photo'

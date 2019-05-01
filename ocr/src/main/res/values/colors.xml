@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ocr_color_primary">#008577</color>
+    <color name="ocr_color_primaryDark">#00574B</color>
+    <color name="ocr_color_accent">#D81B60</color>
+</resources>

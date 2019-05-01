@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/common_bg_color" >
+    <FrameLayout
+        android:id="@+id/module_d_fragment_d_b_d_student_card_layout"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_margin="@dimen/module_d_margin_self"
+        android:background="@drawable/module_d_bg_fragment_d_b_a_card_pre">
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:src="@drawable/module_d_success"/>
+    </FrameLayout>
+    <TextView
+        android:id="@+id/module_d_fragment_d_b_d_serial_number_text"
+        android:layout_margin="@dimen/module_d_margin_self"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/module_d_fragment_d_b_d_thank"
+        android:textColor="@color/module_d_text_normal_color"
+        android:textSize="@dimen/module_d_main_title"/>
+    <TextView
+        android:id="@+id/module_d_fragment_d_b_d_clickable_text"
+        android:layout_margin="@dimen/module_d_margin_self"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:text="@string/module_d_fragment_d_b_d_clickable"
+        android:textColor="@color/module_d_text_normal_color"
+        android:textSize="@dimen/module_d_text"/>
+</LinearLayout>

@@ -1,0 +1,19 @@
+<resources>
+    <string name="main_app_name">main</string>
+
+    <string name="main_menu_first">新闻</string>
+    <string name="main_menu_second">读书</string>
+    <string name="main_menu_third">@null</string>
+    <string name="main_menu_fourth">失物招领</string>
+    <string name="main_menu_fifth">我的</string>
+
+    <string name="main_nav_left_head">墙小二</string>
+
+    <string name="main_menu_left_first">应用简介</string>
+    <string name="main_menu_left_second">点个赞</string>
+    <string name="main_menu_left_third">联系我们</string>
+    <string name="main_menu_left_fourth">分享应用</string>
+    <string name="main_menu_left_fifth">版权声明</string>
+    <string name="main_menu_left_sixth">开源项目</string>
+
+</resources>

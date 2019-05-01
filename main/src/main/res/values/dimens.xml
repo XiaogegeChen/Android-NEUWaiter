@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="main_bnv_height">56dp</dimen>
+    <dimen name="main_fab_bg_size">64dp</dimen>
+    <dimen name="main_fab_margin">16dp</dimen>
+</resources>

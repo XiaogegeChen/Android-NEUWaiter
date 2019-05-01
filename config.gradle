@@ -1,0 +1,89 @@
+project.ext {
+
+    //设置App配置
+    setAppDefaultConfig = {
+        extension->
+            extension.apply plugin: 'com.android.application'
+            extension.description "app"
+            setAppAndroidConfig extension.android
+            setDependencies extension.dependencies
+    }
+
+    //设置Lib配置
+    setLibDefaultConfig = {
+        extension ->
+            extension.apply plugin: 'com.android.library'
+            extension.description "lib"
+            setLibAndroidConfig extension.android
+            setDependencies extension.dependencies
+    }
+
+    //设置App的Android配置
+    setAppAndroidConfig ={
+        extension->
+            extension.compileSdkVersion 28
+            extension.defaultConfig {
+                applicationId applicationId + "." + extension.project.getName()
+                targetSdkVersion 28
+                minSdkVersion 21
+                testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+                javaCompileOptions {
+                    annotationProcessorOptions {
+                        arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
+                    }
+                }
+            }
+            extension.compileOptions {
+                sourceCompatibility JavaVersion.VERSION_1_8
+                targetCompatibility JavaVersion.VERSION_1_8
+            }
+            extension.sourceSets {
+                main {
+                    manifest.srcFile 'src/main/debug/AndroidManifest.xml'
+                }
+            }
+    }
+
+    //设置lib的Android配置
+    setLibAndroidConfig ={
+        extension->
+            extension.compileSdkVersion 28
+            extension.defaultConfig {
+                targetSdkVersion 28
+                minSdkVersion 21
+                testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+                javaCompileOptions {
+                    annotationProcessorOptions {
+                        arguments = [AROUTER_MODULE_NAME: extension.project.getName(), AROUTER_GENERATE_DOC: "enable"]
+                    }
+                }
+            }
+            extension.compileOptions {
+                sourceCompatibility JavaVersion.VERSION_1_8
+                targetCompatibility JavaVersion.VERSION_1_8
+            }
+            extension.sourceSets {
+                main {
+                    manifest.srcFile 'src/main/AndroidManifest.xml'
+                    java {
+                        exclude 'debug/**'
+                    }
+                }
+            }
+    }
+
+    //设置依赖
+    setDependencies = {
+        extension->
+            extension.implementation 'com.android.support:appcompat-v7:28.0.0'
+            extension.implementation ('com.alibaba:arouter-api:1.4.1') {
+                exclude group: 'com.android.support'
+            }
+            extension.annotationProcessor 'com.alibaba:arouter-compiler:1.2.2'
+
+            extension.implementation fileTree(dir: 'libs', include: ['*.jar'])
+            extension.testImplementation 'junit:junit:4.12'
+            extension.androidTestImplementation 'com.android.support.test:runner:1.0.2'
+            extension.androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    }
+}

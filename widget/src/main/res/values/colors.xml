@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="widget_title_layout_bg">#2EA9DF</color>
+
+    <!-- 分割线的颜色 -->
+    <color name="widget_line">#ECECEC</color>
+
+    <color name="widget_edit_layout_cursor">#2EA9DF</color>
+
+    <!-- dialog相关颜色 -->
+    <color name="widget_dialog_bg">#ffffff</color>
+    <color name="widget_dialog_bg_press">#f0f0f0</color>
+    <color name="widget_dialog_confirm">#007aff</color>
+    <color name="widget_dialog_cancel">#f44336</color>
+    <color name="widget_dialog_line">#2c000000</color>
+
+    <!-- 字体默认颜色 -->
+    <color name="widget_text_normal_color">#000000</color>
+    <color name="widget_text_white_color">#ffffff</color>
+    <color name="widget_text_grey_color">#8a8a8a</color>
+</resources>

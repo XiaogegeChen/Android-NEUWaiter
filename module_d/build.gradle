@@ -1,0 +1,41 @@
+if(isModuleDDebug.toBoolean()){
+    apply from: "${rootProject.rootDir}/config.gradle"
+    project.ext.setAppDefaultConfig project
+}else{
+    apply from: "${rootProject.rootDir}/config.gradle"
+    project.ext.setLibDefaultConfig project
+}
+
+android {
+
+    defaultConfig {
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    resourcePrefix "module_d_"
+
+}
+
+dependencies {
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    if(!isCommonDebug.toBoolean()){
+        implementation project(':common')
+    }
+    if(!isWidgetDebug.toBoolean()){
+        api project(':widget')
+    }
+    if(!isPhototDebug.toBoolean()){
+        api project(':photo')
+    }
+    if(!isOcrDebug.toBoolean()){
+        api project(':ocr')
+    }
+}

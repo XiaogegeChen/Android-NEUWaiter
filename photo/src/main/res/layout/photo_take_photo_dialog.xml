@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:orientation="vertical"
+    android:background="@drawable/photo_bg_take_photo_button" >
+    <TextView
+        android:id="@+id/photo_take_photo_camera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:padding="8dp"
+        android:textColor="@color/photo_confirm"
+        android:text="@string/photo_take_photo_camera"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="@drawable/photo_take_photo_dialog_button_selector"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/photo_line"/>
+    <TextView
+        android:id="@+id/photo_take_photo_album"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:padding="8dp"
+        android:textColor="@color/photo_confirm"
+        android:text="@string/photo_take_photo_album"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="@drawable/photo_take_photo_dialog_button_selector" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/photo_line"/>
+    <TextView
+        android:id="@+id/photo_take_photo_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:padding="8dp"
+        android:textColor="@color/photo_cancel"
+        android:text="@string/photo_take_photo_cancel"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="@drawable/photo_take_photo_dialog_button_selector" />
+</LinearLayout>
