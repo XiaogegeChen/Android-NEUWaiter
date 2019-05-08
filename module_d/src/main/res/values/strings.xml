@@ -60,18 +60,31 @@
     <string name="module_d_fragment_d_c_hint">校园卡丢失?试试点我一键发布吧!</string>
     <string name="module_d_fragment_d_c_my_lost">遗 失 物 品 信 息</string>
     <string name="module_d_fragment_d_c_my_lost_type">物品类型</string>
+    <string name="module_d_fragment_d_c_my_lost_date">丢失日期</string>
     <string name="module_d_fragment_d_c_my_lost_time">丢失时间</string>
     <string name="module_d_fragment_d_c_my_lost_place">丢失地点</string>
     <string name="module_d_fragment_d_c_my_lost_hint">简单描述一下经过吧</string>
     <string name="module_d_fragment_d_c_my_lost_hint_desc">最多100字</string>
     <string name="module_d_fragment_d_c_my_lost_commit">点 我 发 布</string>
 
-    <!-- 失物招领用户界面 -->
+    <!-- 失物招领登陆捡到物品步骤描述 -->
+    <string-array name="module_d_fragment_d_c_lost_property">
+        <item>校园卡</item>
+        <item>身份证</item>
+        <item>银行卡</item>
+        <item>其它</item>
+    </string-array>
+
+    <!-- 失物招领用户界面fragment -->
     <string name="module_d_fragment_d_d_publish">我发布的</string>
     <string name="module_d_fragment_d_d_lost">我丢失的</string>
     <string name="module_d_fragment_d_d_my_card">我的校卡</string>
     <string name="module_d_fragment_d_d_drafts">草稿箱</string>
     <string name="module_d_fragment_d_d_share">分享应用</string>
+
+    <!-- 失物招领用户界面activity -->
+    <string name="module_d_activity_user_lost">寻物启事 X</string>
+    <string name="module_d_activity_user_found">招领启事 X</string>
 
     <!-- 失物招领用户设置 -->
     <string name="module_d_setting_title">设置</string>
@@ -81,5 +94,11 @@
     <string name="module_d_setting_phone_number">手机号</string>
     <string name="module_d_setting_password">修改密码</string>
     <string name="module_d_setting_quit">退 出 登 录</string>
+
+    <!-- 失物招领tabLayout的标题 -->
+    <string-array name="module_d_user_activity_submit_tab_titles">
+        <item>寻物启事</item>
+        <item>招领启事</item>
+    </string-array>
 
 </resources>

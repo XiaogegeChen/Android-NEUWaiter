@@ -29,7 +29,6 @@ public interface IFragmentDBCPresenter extends IBasePresenter<IFragmentDBCView> 
 
     /**
      * 关闭对话框并保存之前填写的信息
-     * @param property
      */
     void cancelAndSave(Property property);
 }

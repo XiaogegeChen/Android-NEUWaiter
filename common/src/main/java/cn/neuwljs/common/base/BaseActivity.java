@@ -36,8 +36,10 @@ public abstract class BaseActivity extends AppCompatActivity {
     }
 
     private void changeStatusBarColor(){
-        if(Build.VERSION.SDK_INT >= 21){
-            getWindow ().setStatusBarColor (getStatusBarColor ());
+        if(getStatusBarColor () != -1){
+            if(Build.VERSION.SDK_INT >= 21){
+                getWindow ().setStatusBarColor (getStatusBarColor ());
+            }
         }
     }
 

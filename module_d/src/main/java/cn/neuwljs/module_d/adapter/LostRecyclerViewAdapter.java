@@ -6,11 +6,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-
 import java.util.List;
 
 import cn.neuwljs.common.adapter.LoadMoreRecyclerViewAdapter;
+import cn.neuwljs.common.util.ImageUtil;
 import cn.neuwljs.common.util.StringUtil;
 import cn.neuwljs.module_d.R;
 import cn.neuwljs.module_d.model.gson.Lost;
@@ -66,10 +65,11 @@ public class LostRecyclerViewAdapter
             itemHolder.mOwnerHeadImage.setImageDrawable (
                     mContext.getResources ().getDrawable (R.drawable.module_d_head_image_default));
         }else{
-            Glide.with (mContext)
-                    .load (url)
-                    .error (mContext.getResources ().getDrawable (R.drawable.module_d_head_image_default))
-                    .into (itemHolder.mOwnerHeadImage);
+            ImageUtil.displayImage (mContext,
+                    url,
+                    mContext.getResources ().getDrawable (R.drawable.module_d_head_image_default),
+                    itemHolder.mOwnerHeadImage
+            );
         }
     }
 

@@ -1,5 +1,8 @@
 package cn.neuwljs.module_d.model.submit;
 
+/**
+ * 最终发布的bean
+ */
 public class SubmitProperty {
     private String type;
     private String pub_name;

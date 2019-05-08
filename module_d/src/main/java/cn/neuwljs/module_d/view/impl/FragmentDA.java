@@ -3,12 +3,17 @@ package cn.neuwljs.module_d.view.impl;
 import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -61,19 +66,13 @@ public class FragmentDA
     private Handler mBannerHandler = new Handler (){
         @Override
         public void handleMessage(Message msg) {
-            switch (msg.what){
-                case BANNER_MESSAGE_WHAT:
-
-                    // 滑动到下一页
-                    int currentItem = mBannerViewPager.getCurrentItem ();
-                    if(currentItem < mBitmapList.size () - 1){
-                        mBannerViewPager.setCurrentItem (currentItem + 1, true);
-                    }else{
-                        mBannerViewPager.setCurrentItem (0, true);
-                    }
-                    break;
-                default:
-                    break;
+            if (msg.what == BANNER_MESSAGE_WHAT) {// 滑动到下一页
+                int currentItem = mBannerViewPager.getCurrentItem ();
+                if (currentItem < mBitmapList.size () - 1) {
+                    mBannerViewPager.setCurrentItem (currentItem + 1, true);
+                } else {
+                    mBannerViewPager.setCurrentItem (0, true);
+                }
             }
         }
     };
@@ -83,6 +82,14 @@ public class FragmentDA
 
     // mPropertyViewPager的fragment集合
     private List<BaseFragment> mFragmentList;
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = super.onCreateView (inflater, container, savedInstanceState);
+        LogUtil.d (TAG, "FragmentDA: onCreateView");
+        return view;
+    }
 
     @Override
     public int getLayoutId() {

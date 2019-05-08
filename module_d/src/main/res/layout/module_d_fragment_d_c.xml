@@ -22,26 +22,32 @@
                 android:layout_margin="@dimen/login_margin_self"
                 android:textSize="@dimen/login_sub_title"
                 android:textColor="@color/login_text_normal_color"/>
-            <cn.neuwljs.widget.layout.Widget_MessageLayout
-                android:id="@+id/module_d_fragment_d_c_my_name"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:widget_message_layout_name="@string/module_d_fragment_d_c_my_name"/>
-            <cn.neuwljs.widget.layout.Widget_MessageLayout
-                android:id="@+id/module_d_fragment_d_c_my_id"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:widget_message_layout_name="@string/module_d_fragment_d_c_my_id"/>
-            <cn.neuwljs.widget.layout.Widget_MessageLayout
-                android:id="@+id/module_d_fragment_d_c_my_college"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:widget_message_layout_name="@string/module_d_fragment_d_c_my_college"/>
-            <cn.neuwljs.widget.layout.Widget_MessageLayout
-                android:id="@+id/module_d_fragment_d_c_my_phone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:widget_message_layout_name="@string/module_d_fragment_d_c_my_phone"/>
+                android:orientation="vertical"
+                android:background="#ffffff">
+                <cn.neuwljs.widget.layout.Widget_MessageLayout
+                    android:id="@+id/module_d_fragment_d_c_my_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:widget_message_layout_name="@string/module_d_fragment_d_c_my_name"/>
+                <cn.neuwljs.widget.layout.Widget_MessageLayout
+                    android:id="@+id/module_d_fragment_d_c_my_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:widget_message_layout_name="@string/module_d_fragment_d_c_my_id"/>
+                <cn.neuwljs.widget.layout.Widget_MessageLayout
+                    android:id="@+id/module_d_fragment_d_c_my_college"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:widget_message_layout_name="@string/module_d_fragment_d_c_my_college"/>
+                <cn.neuwljs.widget.layout.Widget_MessageLayout
+                    android:id="@+id/module_d_fragment_d_c_my_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:widget_message_layout_name="@string/module_d_fragment_d_c_my_phone"/>
+            </LinearLayout>
             <TextView
                 android:id="@+id/module_d_fragment_d_c_hint"
                 android:layout_width="match_parent"
@@ -59,21 +65,32 @@
                 android:layout_margin="@dimen/login_margin_self"
                 android:textSize="@dimen/login_sub_title"
                 android:textColor="@color/login_text_normal_color"/>
-            <cn.neuwljs.widget.layout.Widget_ChooseLayout
-                android:id="@+id/module_d_fragment_d_c_my_lost_type"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:widget_choose_layout_name="@string/module_d_fragment_d_c_my_lost_type"/>
-            <cn.neuwljs.widget.layout.Widget_ChooseLayout
-                android:id="@+id/module_d_fragment_d_c_my_lost_time"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:widget_choose_layout_name="@string/module_d_fragment_d_c_my_lost_time"/>
-            <cn.neuwljs.widget.layout.Widget_ChooseLayout
-                android:id="@+id/module_d_fragment_d_c_my_lost_place"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:widget_choose_layout_name="@string/module_d_fragment_d_c_my_lost_place"/>
+                android:orientation="vertical"
+                android:background="#ffffff" >
+                <cn.neuwljs.widget.layout.Widget_ChooseLayout
+                    android:id="@+id/module_d_fragment_d_c_my_lost_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:widget_choose_layout_name="@string/module_d_fragment_d_c_my_lost_type"/>
+                <cn.neuwljs.widget.layout.Widget_ChooseLayout
+                    android:id="@+id/module_d_fragment_d_c_my_lost_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:widget_choose_layout_name="@string/module_d_fragment_d_c_my_lost_date"/>
+                <cn.neuwljs.widget.layout.Widget_ChooseLayout
+                    android:id="@+id/module_d_fragment_d_c_my_lost_time"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:widget_choose_layout_name="@string/module_d_fragment_d_c_my_lost_time"/>
+                <cn.neuwljs.widget.layout.Widget_ChooseLayout
+                    android:id="@+id/module_d_fragment_d_c_my_lost_place"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:widget_choose_layout_name="@string/module_d_fragment_d_c_my_lost_place"/>
+            </LinearLayout>
             <EditText
                 android:id="@+id/module_d_fragment_d_c_my_lost_info"
                 android:layout_width="match_parent"
@@ -81,7 +98,7 @@
                 android:textSize="@dimen/module_d_text"
                 android:hint="@string/module_d_fragment_d_c_my_lost_hint"
                 android:layout_margin="@dimen/module_d_margin_self"
-                android:background="@null"
+                android:background="@drawable/module_d_bg_edit_text"
                 android:gravity="top"
                 android:minLines="6" />
             <TextView

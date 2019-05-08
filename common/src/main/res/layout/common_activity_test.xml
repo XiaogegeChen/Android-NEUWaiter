@@ -14,4 +14,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="弹出UploadProgressDialog"/>
+    <Button
+        android:id="@+id/common_test_time_dialog_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="弹出时间选择对话框"/>
+    <Button
+        android:id="@+id/common_test_date_dialog_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="弹出日期选择对话框"/>
 </LinearLayout>

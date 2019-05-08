@@ -4,5 +4,7 @@
 
     <application>
         <activity android:name=".view.impl.SettingActivity"/>
+        <activity android:name=".view.impl.UserActivity"/>
+        <activity android:name=".view.impl.UserSubmitActivity"/>
     </application>
 </manifest>

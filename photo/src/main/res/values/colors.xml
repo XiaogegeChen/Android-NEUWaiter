@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- dialog相关颜色 -->
     <color name="photo_dialog_bg">#ffffff</color>
     <color name="photo_bg_press">#f0f0f0</color>
     <color name="photo_confirm">#007aff</color>

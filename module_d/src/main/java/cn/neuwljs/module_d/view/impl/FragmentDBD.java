@@ -19,6 +19,7 @@ import org.greenrobot.eventbus.ThreadMode;
 import androidx.annotation.NonNull;
 import cn.neuwljs.module_d.IndicatorFragment;
 import cn.neuwljs.module_d.R;
+import cn.neuwljs.module_d.model.event.NotifyFragmentDBDRefreshSerialNumberEvent;
 import cn.neuwljs.module_d.presenter.impl.FragmentDBDPresenterImpl;
 import cn.neuwljs.module_d.view.IFragmentDBDView;
 import cn.neuwljs.widget.NoSlideViewPager;
@@ -130,7 +131,7 @@ public class FragmentDBD
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onRefreshSerialNumberEvent(RefreshSerialNumberEvent event){
+    public void onRefreshSerialNumberEvent(NotifyFragmentDBDRefreshSerialNumberEvent event){
         String serialNumber = event.getSerialNumber ();
         if(serialNumber != null){
 
@@ -138,24 +139,6 @@ public class FragmentDBD
             String text = obtainResources ()
                     .getString (R.string.module_d_fragment_d_b_d_thank).replace ("X", serialNumber);
             mSerialNumberText.setText (text);
-        }
-    }
-
-    /**
-     * 通知该碎片刷新序列号的事件类
-     */
-    public static class RefreshSerialNumberEvent{
-        /**
-         * 序列号
-         */
-        private String SerialNumber;
-
-        public String getSerialNumber() {
-            return SerialNumber;
-        }
-
-        public void setSerialNumber(String serialNumber) {
-            SerialNumber = serialNumber;
         }
     }
 

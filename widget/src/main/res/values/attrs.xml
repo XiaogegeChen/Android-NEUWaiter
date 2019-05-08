@@ -60,4 +60,9 @@
     <declare-styleable name="Widget_ChooseLayout">
         <attr name="widget_choose_layout_name" format="string"/>
     </declare-styleable>
+
+    <declare-styleable name="Widget_MessageListDialog">
+        <attr name="widget_message_list" format="reference"/>
+    </declare-styleable>
+
 </resources>

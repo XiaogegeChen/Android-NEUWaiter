@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="#ffffff">
+    <TimePicker
+        android:id="@+id/common_time_picker_dialog_time_picker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:timePickerMode="clock"/>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp">
+        <TextView
+            android:id="@+id/common_time_picker_dialog_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/common_time_picker_dialog_cancel"
+            android:textSize="16sp"
+            android:textColor="#4B97F3"/>
+        <TextView
+            android:id="@+id/common_time_picker_dialog_confirm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/common_time_picker_dialog_confirm"
+            android:layout_gravity="end"
+            android:textSize="16sp"
+            android:textColor="#4B97F3"/>
+    </FrameLayout>
+</LinearLayout>

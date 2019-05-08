@@ -4,9 +4,9 @@
     <!-- Base application theme. -->
     <style name="common_app_theme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/common_test_color_primary</item>
-        <item name="colorPrimaryDark">@color/common_test_color_primaryDark</item>
-        <item name="colorAccent">@color/common_test_color_accent</item>
+        <item name="colorPrimary">@color/common_color_primary</item>
+        <item name="colorPrimaryDark">@color/common_color_primaryDark</item>
+        <item name="colorAccent">@color/common_color_accent</item>
     </style>
 
     <!-- dialog基本样式 -->

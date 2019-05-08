@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <cn.neuwljs.widget.dialog.Widget_MessageListDialog
+        android:id="@+id/module_d_fragment_d_c_lost_property_dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:widget_message_list="@array/module_d_fragment_d_c_lost_property"/>
+</FrameLayout>

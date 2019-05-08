@@ -4,7 +4,7 @@ import cn.neuwljs.module_d.model.base.LostOrFound;
 import cn.neuwljs.module_d.model.base.LostPropertyType;
 
 /**
- * 提交的物品信息
+ * 待提交的物品信息
  */
 public class Property {
 

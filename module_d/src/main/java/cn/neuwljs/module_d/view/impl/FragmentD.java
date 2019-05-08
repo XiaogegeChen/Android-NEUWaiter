@@ -17,6 +17,7 @@ import java.util.List;
 
 import cn.neuwljs.common.adapter.MyFragmentPagerAdapter;
 import cn.neuwljs.common.base.BaseFragment;
+import cn.neuwljs.common.util.LogUtil;
 import cn.neuwljs.module_d.R;
 
 import static cn.neuwljs.common.route.RouterMap.MODULE_D_FRAGMENT_D_PATH;
@@ -24,6 +25,8 @@ import static cn.neuwljs.common.route.RouterMap.MODULE_D_FRAGMENT_D_PATH;
 @Route (path = MODULE_D_FRAGMENT_D_PATH)
 public class FragmentD extends BaseFragment {
 
+    private static final String TAG = "FragmentD";
+    
     private String[] mTabLayoutText;
 
     private TabLayout mTabLayout;
@@ -37,7 +40,14 @@ public class FragmentD extends BaseFragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         View view = super.onCreateView (inflater, container, savedInstanceState);
+        LogUtil.d (TAG, "onCreateView: ");
         return view;
+    }
+
+    @Override
+    public void onHiddenChanged(boolean hidden) {
+        super.onHiddenChanged (hidden);
+        LogUtil.d (TAG, "onHiddenChanged: " + hidden);
     }
 
     @Override

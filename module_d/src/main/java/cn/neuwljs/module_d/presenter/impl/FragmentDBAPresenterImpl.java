@@ -2,6 +2,7 @@ package cn.neuwljs.module_d.presenter.impl;
 
 import org.greenrobot.eventbus.EventBus;
 
+import cn.neuwljs.module_d.model.event.NotifyFragmentDBCRefreshPropertyTypeEvent;
 import cn.neuwljs.module_d.presenter.IFragmentDBAPresenter;
 import cn.neuwljs.module_d.view.IFragmentDBAView;
 import cn.neuwljs.module_d.view.impl.FragmentDBC;
@@ -22,7 +23,7 @@ public class FragmentDBAPresenterImpl implements IFragmentDBAPresenter {
 
     @Override
     public void notifyPropertyRefresh(String propertyType) {
-        FragmentDBC.RefreshPropertyTypeEvent event = new FragmentDBC.RefreshPropertyTypeEvent ();
+        NotifyFragmentDBCRefreshPropertyTypeEvent event = new NotifyFragmentDBCRefreshPropertyTypeEvent ();
         event.setPropertyType (propertyType);
         EventBus.getDefault ().post (event);
     }

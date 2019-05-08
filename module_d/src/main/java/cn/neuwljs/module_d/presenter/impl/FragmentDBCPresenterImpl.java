@@ -23,6 +23,7 @@ import cn.neuwljs.module_d.Api;
 import cn.neuwljs.module_d.model.base.LostPropertyType;
 import cn.neuwljs.module_d.model.base.Owner;
 import cn.neuwljs.module_d.model.base.Publisher;
+import cn.neuwljs.module_d.model.event.NotifyFragmentDBDRefreshSerialNumberEvent;
 import cn.neuwljs.module_d.model.gson.SubmitPropertyResult;
 import cn.neuwljs.module_d.model.submit.Property;
 import cn.neuwljs.module_d.model.submit.SubmitProperty;
@@ -340,7 +341,7 @@ public class FragmentDBCPresenterImpl
     private void notifyFragmentDBDRefresh(String serialNumber){
 
         // 发送事件
-        FragmentDBD.RefreshSerialNumberEvent event = new FragmentDBD.RefreshSerialNumberEvent ();
+        NotifyFragmentDBDRefreshSerialNumberEvent event = new NotifyFragmentDBDRefreshSerialNumberEvent ();
         event.setSerialNumber (serialNumber);
         EventBus.getDefault ().post (event);
     }

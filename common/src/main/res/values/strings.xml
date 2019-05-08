@@ -8,6 +8,19 @@
     <string name="common_fail_dialog_exit">取消并保存</string>
     <string name="common_fail_dialog_retry">重新上传</string>
 
+    <string name="common_success_dialog_title">上传成功</string>
+    <string name="common_success_dialog_content">上传成功,感谢您的支持</string>
+    <string name="common_success_dialog_ok">退出</string>
+    <string name="common_success_dialog_go">去查看</string>
+
+    <string name="common_login_dialog_title">登陆提示</string>
+    <string name="common_login_dialog_content">您目前尚未登陆,部分功能不可用,是否登陆?</string>
+    <string name="common_login_dialog_exit">暂不登陆</string>
+    <string name="common_login_dialog_go">去登陆</string>
+
     <string name="common_upload_progress_desc">正在上传…</string>
+
+    <string name="common_time_picker_dialog_confirm">确定</string>
+    <string name="common_time_picker_dialog_cancel">取消</string>
 
 </resources>

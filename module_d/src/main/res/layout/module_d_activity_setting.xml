@@ -10,45 +10,50 @@
         android:id="@+id/module_d_fragment_setting_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/module_d_margin_bottom"
         app:widget_titleText="@string/module_d_setting_title"
         app:widget_rightGone="true"
         app:widget_leftGone="false" />
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#ffffff">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <cn.neuwljs.widget.layout.Widget_SettingBarLayout
+                android:id="@+id/module_d_fragment_setting_head"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:widget_setItemName="@string/module_d_setting_head_image" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/module_d_fragment_setting_head_image"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_gravity="center_vertical|end"
+                android:layout_marginEnd="32dp"/>
+        </FrameLayout>
         <cn.neuwljs.widget.layout.Widget_SettingBarLayout
-            android:id="@+id/module_d_fragment_setting_head"
+            android:id="@+id/module_d_fragment_setting_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:widget_setItemName="@string/module_d_setting_head_image" />
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/module_d_fragment_setting_head_image"
-            android:layout_width="38dp"
-            android:layout_height="38dp"
-            android:layout_gravity="center_vertical|end"
-            android:layout_marginEnd="32dp"/>
-    </FrameLayout>
-    <cn.neuwljs.widget.layout.Widget_SettingBarLayout
-        android:id="@+id/module_d_fragment_setting_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:widget_setItemName="@string/module_d_setting_name" />
-    <cn.neuwljs.widget.layout.Widget_SettingBarLayout
-        android:id="@+id/module_d_fragment_setting_college"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:widget_setItemName="@string/module_d_setting_college"/>
-    <cn.neuwljs.widget.layout.Widget_SettingBarLayout
-        android:id="@+id/module_d_fragment_setting_phone_number"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:widget_setItemName="@string/module_d_setting_phone_number"/>
-    <cn.neuwljs.widget.layout.Widget_SettingBarLayout
-        android:id="@+id/module_d_fragment_setting_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:widget_setItemName="@string/module_d_setting_password" />
+            app:widget_setItemName="@string/module_d_setting_name" />
+        <cn.neuwljs.widget.layout.Widget_SettingBarLayout
+            android:id="@+id/module_d_fragment_setting_college"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:widget_setItemName="@string/module_d_setting_college"/>
+        <cn.neuwljs.widget.layout.Widget_SettingBarLayout
+            android:id="@+id/module_d_fragment_setting_phone_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:widget_setItemName="@string/module_d_setting_phone_number"/>
+        <cn.neuwljs.widget.layout.Widget_SettingBarLayout
+            android:id="@+id/module_d_fragment_setting_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:widget_setItemName="@string/module_d_setting_password" />
+    </LinearLayout>
     <Button
         android:id="@+id/module_d_fragment_setting_quit"
         style="@style/module_d_button_style"

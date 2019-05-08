@@ -12,6 +12,7 @@ import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
 import cn.neuwljs.common.base.BaseFragment;
+import cn.neuwljs.module_d.model.event.NotifyFragmentDBRefreshEvent;
 import cn.neuwljs.module_d.view.impl.FragmentDB;
 
 /**
@@ -49,24 +50,7 @@ public abstract class IndicatorFragment extends BaseFragment {
      * @param event 刷新事件
      */
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onRefreshEvent(RefreshEvent event){
-        if(event.isBegin ()){
-            refresh ();
-        }
-    }
-
-    /**
-     * 通知碎片刷新的事件
-     */
-    public static class RefreshEvent{
-        private boolean begin;
-
-        public boolean isBegin() {
-            return begin;
-        }
-
-        public void setBegin(boolean begin) {
-            this.begin = begin;
-        }
+    public void onRefreshEvent(NotifyFragmentDBRefreshEvent event){
+        refresh ();
     }
 }

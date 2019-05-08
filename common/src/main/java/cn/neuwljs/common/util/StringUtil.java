@@ -1,6 +1,13 @@
 package cn.neuwljs.common.util;
 
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.TextPaint;
 import android.text.format.DateFormat;
+import android.text.style.ClickableSpan;
+import android.view.View;
+
+import androidx.annotation.NonNull;
 
 public class StringUtil {
     /**
@@ -52,5 +59,40 @@ public class StringUtil {
             currentTime = Long.parseLong (s);
         }
         return (String) DateFormat.format ("yyyy年MM月dd日HH:mm", currentTime);
+    }
+
+    /**
+     * 部分区域可点击的字符串的点击事件
+     * @param text 文本
+     * @param startPosition 开始位置
+     * @param endPosition 结束为位置
+     * @param clickable 点击事件
+     */
+    public static void clickOnSomeAreas(String text, int startPosition, int endPosition, Clickable clickable){
+        SpannableString spannableString = new SpannableString (text);
+        spannableString.setSpan (clickable, startPosition, endPosition, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+    }
+
+    public static class Clickable extends ClickableSpan{
+
+        private View.OnClickListener mOnClickListener;
+
+        public Clickable(View.OnClickListener listener){
+            mOnClickListener = listener;
+        }
+
+        @Override
+        public void onClick(@NonNull View widget) {
+            mOnClickListener.onClick (widget);
+        }
+
+        @Override
+        public void updateDrawState(@NonNull TextPaint ds) {
+            super.updateDrawState (ds);
+
+            //去掉下划线,改变颜色
+            ds.setUnderlineText (false);
+            ds.setColor (0x4B97F3);
+        }
     }
 }

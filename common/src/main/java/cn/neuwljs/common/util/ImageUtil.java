@@ -7,12 +7,19 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.graphics.Matrix;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.media.ExifInterface;
 import android.net.Uri;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
 import android.util.Base64;
+import android.widget.ImageView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
@@ -22,6 +29,8 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+
+import jp.wasabeef.glide.transformations.BlurTransformation;
 
 public class ImageUtil {
 
@@ -253,6 +262,67 @@ public class ImageUtil {
         String imagePath = getImagePath (context, uri,null);
 
         return BitmapFactory.decodeFile (imagePath);
+    }
+
+    public static void displayImage(Context context, String url, ImageView imageView){
+        Glide.with (context)
+                .load (url)
+                .into (imageView);
+    }
+
+    /**
+     * TODO 占位图片的使用
+     * @param context
+     * @param url
+     * @param errorImage
+     * @param imageView
+     */
+    public static void displayImage(Context context, String url, Bitmap errorImage, ImageView imageView){
+        Glide.with (context)
+                .load (url)
+                .into (imageView);
+    }
+
+    /**
+     * TODO 占位图片的使用
+     * @param context
+     * @param url
+     * @param drawable
+     * @param imageView
+     */
+    public static void displayImage(Context context, String url, Drawable drawable, ImageView imageView){
+        Glide.with (context)
+                .load (url)
+                .into (imageView);
+    }
+
+    /**
+     * 显示一张图片的模糊图
+     * @param context 上下文
+     * @param url url
+     * @param imageView imageView
+     * @param radius 模糊半径
+     */
+    public static void displayImage(Context context, String url, ImageView imageView, int radius){
+        Glide.with (context)
+                .load (url)
+                .apply (RequestOptions.bitmapTransform (new BlurTransformation (radius)))
+                .into (imageView);
+    }
+
+    /**
+     * TODO 占位图片的使用
+     * @param context
+     * @param url
+     * @param drawable
+     * @param imageView
+     * @param radius
+     */
+    public static void displayImage(Context context, String url, Drawable drawable, ImageView imageView, int radius){
+        Glide.with (context)
+                .load (url)
+                .apply (RequestOptions.bitmapTransform (new BlurTransformation (radius)))
+                .into (imageView);
     }
 
     private static String getImagePath(Context context, Uri uri,String selection){

@@ -19,7 +19,7 @@
                 android:textSize="@dimen/module_d_text"
                 android:hint="@string/module_d_fragment_d_b_b_hint_msg"
                 android:layout_margin="@dimen/module_d_margin_self"
-                android:background="@null"
+                android:background="@drawable/module_d_bg_edit_text"
                 android:gravity="top"
                 android:minLines="6" />
             <TextView

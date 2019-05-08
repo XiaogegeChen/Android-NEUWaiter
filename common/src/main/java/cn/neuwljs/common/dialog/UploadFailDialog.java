@@ -17,10 +17,10 @@ import cn.neuwljs.widget.dialog.Widget_MessageDialog;
 
 public class UploadFailDialog extends DialogFragment {
 
-    private Widget_MessageDialog.OnClickListener mOnClickListener;
+    private OnButtonClickListener mOnButtonClickListener;
 
-    public void setListener(Widget_MessageDialog.OnClickListener onClickListener) {
-        mOnClickListener = onClickListener;
+    public void setOnButtonClickListener(OnButtonClickListener onButtonClickListener) {
+        mOnButtonClickListener = onButtonClickListener;
     }
 
     @NonNull
@@ -31,8 +31,18 @@ public class UploadFailDialog extends DialogFragment {
 
         Widget_MessageDialog messageDialog = view.findViewById (R.id.common_upload_fail_dialog);
 
-        if(mOnClickListener != null){
-            messageDialog.setListener (mOnClickListener);
+        if(mOnButtonClickListener != null){
+            messageDialog.setListener (new Widget_MessageDialog.OnClickListener () {
+                @Override
+                public void onCancel() {
+                    mOnButtonClickListener.cancelAndSave ();
+                }
+
+                @Override
+                public void onConfirm() {
+                    mOnButtonClickListener.retry ();
+                }
+            });
         }
 
         AppCompatDialog dialog = new AppCompatDialog (getContext (), R.style.common_base_dialog_style);
@@ -48,5 +58,13 @@ public class UploadFailDialog extends DialogFragment {
         dialog.getWindow ().setAttributes (params);
 
         return dialog;
+    }
+
+    /**
+     * 按钮点击监听
+     */
+    public interface OnButtonClickListener{
+        void retry();
+        void cancelAndSave();
     }
 }

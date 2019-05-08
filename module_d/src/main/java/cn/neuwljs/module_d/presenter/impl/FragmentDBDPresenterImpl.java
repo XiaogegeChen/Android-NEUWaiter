@@ -3,6 +3,8 @@ package cn.neuwljs.module_d.presenter.impl;
 import org.greenrobot.eventbus.EventBus;
 
 import cn.neuwljs.module_d.IndicatorFragment;
+import cn.neuwljs.module_d.model.event.NotifyFragmentDAARefreshEvent;
+import cn.neuwljs.module_d.model.event.NotifyFragmentDBRefreshEvent;
 import cn.neuwljs.module_d.presenter.IFragmentDBDPresenter;
 import cn.neuwljs.module_d.view.IFragmentDBDView;
 import cn.neuwljs.module_d.view.impl.FragmentDAA;
@@ -23,16 +25,15 @@ public class FragmentDBDPresenterImpl implements IFragmentDBDPresenter {
 
     @Override
     public void notifyFragmentDAARefresh() {
-        FragmentDAA.RefreshEvent event = new FragmentDAA.RefreshEvent ();
-        event.setBegin (true);
+        NotifyFragmentDAARefreshEvent event = new NotifyFragmentDAARefreshEvent ();
         EventBus.getDefault ().post (event);
     }
 
     @Override
     public void notifyFragmentDBRefresh() {
+
         // 前三个页面刷新
-        IndicatorFragment.RefreshEvent event = new IndicatorFragment.RefreshEvent ();
-        event.setBegin (true);
+        NotifyFragmentDBRefreshEvent event = new NotifyFragmentDBRefreshEvent ();
         EventBus.getDefault ().post (event);
     }
 }

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/widget_message_list_dialog_button_selector">
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/widget_message_list_dialog_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/widget_message_list_dialog_cancel_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:padding="8dp"
+        android:textColor="@color/widget_dialog_cancel"
+        android:text="@string/widget_cancel"
+        android:clickable="true"
+        android:focusable="true"/>
+</LinearLayout>

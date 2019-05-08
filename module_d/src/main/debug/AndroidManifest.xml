@@ -4,20 +4,21 @@
 
     <application
         android:name="debug.DebugApplication"
-        android:theme="@style/module_d_app_theme"
         android:allowBackup="true"
         android:label="@string/module_d_app_name"
-        android:supportsRtl="true">
-
-        <activity android:name=".view.impl.SettingActivity"/>
+        android:supportsRtl="true"
+        android:theme="@style/module_d_app_theme">
+        <activity android:name=".view.impl.UserSubmitActivity"></activity>
+        <activity android:name=".view.impl.UserActivity" />
+        <activity android:name=".view.impl.SettingActivity" />
         <activity android:name="debug.TestActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

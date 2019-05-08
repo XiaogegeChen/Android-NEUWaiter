@@ -1,7 +1,12 @@
 package cn.neuwljs.module_d.view.impl;
 
 import android.content.Intent;
+import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -11,6 +16,8 @@ import cn.neuwljs.login.Callback;
 import cn.neuwljs.login.Login;
 import cn.neuwljs.login.User;
 import cn.neuwljs.module_d.R;
+import cn.neuwljs.module_d.presenter.impl.FragmentDDPresenterImpl;
+import cn.neuwljs.module_d.view.IFragmentDDView;
 import cn.neuwljs.widget.layout.Widget_ListLayout;
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -18,7 +25,7 @@ import static cn.neuwljs.module_d.Constants.LOGIN_FAILED;
 
 public class FragmentDD
         extends BaseFragment
-        implements View.OnClickListener{
+        implements IFragmentDDView, View.OnClickListener{
 
     private static final String TAG = "FragmentDD";
 
@@ -30,6 +37,22 @@ public class FragmentDD
     private Widget_ListLayout mMyCard;
     private Widget_ListLayout mDraftsLayout;
     private Widget_ListLayout mShareLayout;
+
+    private FragmentDDPresenterImpl mFragmentDDPresenter;
+
+    @Nullable
+    @Override
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = super.onCreateView (inflater, container, savedInstanceState);
+        mFragmentDDPresenter.attach (this);
+        return view;
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy ();
+        mFragmentDDPresenter.detach ();
+    }
 
     @Override
     public int getLayoutId() {
@@ -50,6 +73,7 @@ public class FragmentDD
 
     @Override
     public void initData() {
+        mFragmentDDPresenter = new FragmentDDPresenterImpl ();
 
         // 设置监听器
         mUserHeadImage.setOnClickListener (this);
@@ -130,7 +154,26 @@ public class FragmentDD
                     ToastUtil.showToast (obtainContext (), LOGIN_FAILED);
                 }
             });
+        }else if(id == R.id.module_d_fragment_d_d_user_head_image || id == R.id.module_d_fragment_d_d_user_name){
+            mFragmentDDPresenter.gotoUserActivity ();
         }
     }
 
+    /**
+     * {@link IFragmentDDView}
+     */
+    @Override
+    public void showProgressPage() {
+
+    }
+
+    @Override
+    public void showErrorPage() {
+
+    }
+
+    @Override
+    public void showToast(String message) {
+        ToastUtil.showToast (obtainContext (), message);
+    }
 }

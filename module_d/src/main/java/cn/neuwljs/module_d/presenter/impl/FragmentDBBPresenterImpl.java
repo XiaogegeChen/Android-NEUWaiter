@@ -9,10 +9,12 @@ import java.io.File;
 import java.io.IOException;
 
 import cn.neuwljs.common.util.ImageUtil;
+import cn.neuwljs.module_d.model.event.NotifyFragmentDBCDisplayInformationEvent;
+import cn.neuwljs.module_d.model.event.NotifyFragmentDBCLoadOwnerAndPublisherEvent;
+import cn.neuwljs.module_d.model.event.NotifyFragmentDBCRefreshPropertyInformationEvent;
 import cn.neuwljs.module_d.presenter.IFragmentDBBPresenter;
 import cn.neuwljs.module_d.view.IFragmentDBBView;
 import cn.neuwljs.module_d.view.impl.FragmentDBB;
-import cn.neuwljs.module_d.view.impl.FragmentDBC;
 
 import static cn.neuwljs.module_d.Constants.PHOTO_FILE_NAME;
 
@@ -40,21 +42,20 @@ public class FragmentDBBPresenterImpl
 
     @Override
     public void notifyPropertyRefresh(String information) {
-        FragmentDBC.RefreshPropertyInformationEvent event = new FragmentDBC.RefreshPropertyInformationEvent ();
+        NotifyFragmentDBCRefreshPropertyInformationEvent event = new NotifyFragmentDBCRefreshPropertyInformationEvent ();
         event.setInformation (information);
         EventBus.getDefault ().post (event);
     }
 
     @Override
     public void notifyFragmentDBCLoad() {
-        FragmentDBC.LoadEvent event = new FragmentDBC.LoadEvent ();
-        event.setBegin (true);
+        NotifyFragmentDBCLoadOwnerAndPublisherEvent event = new NotifyFragmentDBCLoadOwnerAndPublisherEvent ();
         EventBus.getDefault ().post (event);
     }
 
     @Override
     public void notifyFragmentDBCRefreshUI(String information) {
-        FragmentDBC.DisplayInformationEvent event = new FragmentDBC.DisplayInformationEvent ();
+        NotifyFragmentDBCDisplayInformationEvent event = new NotifyFragmentDBCDisplayInformationEvent ();
         event.setInformation (information);
         EventBus.getDefault ().post (event);
     }

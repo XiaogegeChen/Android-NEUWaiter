@@ -21,6 +21,7 @@ import cn.neuwljs.common.adapter.LoadMoreRecyclerViewAdapter;
 import cn.neuwljs.common.base.BaseFragment;
 import cn.neuwljs.module_d.R;
 import cn.neuwljs.module_d.adapter.FoundRecyclerViewAdapter;
+import cn.neuwljs.module_d.model.event.NotifyFragmentDAARefreshEvent;
 import cn.neuwljs.module_d.model.gson.Found;
 import cn.neuwljs.module_d.presenter.impl.FragmentDAAPresenterImpl;
 import cn.neuwljs.module_d.view.IFragmentDAAView;
@@ -130,12 +131,10 @@ public class FragmentDAA
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onRefreshEvent(RefreshEvent event){
-        if(event.isBegin ()){
+    public void onRefreshEvent(NotifyFragmentDAARefreshEvent event){
 
-            // 刷新
-            onFloatingActionButtonClick ();
-        }
+        // 刷新
+        onFloatingActionButtonClick ();
     }
 
     /**
@@ -150,20 +149,4 @@ public class FragmentDAA
         mFragmentDAAPresenter.refresh ();
     }
 
-    /**
-     * 通知该碎片更新的事件类
-     */
-    public static class RefreshEvent{
-
-        // 是否开始刷新
-        private boolean begin;
-
-        public boolean isBegin() {
-            return begin;
-        }
-
-        public void setBegin(boolean begin) {
-            this.begin = begin;
-        }
-    }
 }

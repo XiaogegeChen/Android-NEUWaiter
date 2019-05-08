@@ -28,11 +28,14 @@ import cn.neuwljs.module_d.R;
 import cn.neuwljs.module_d.model.base.LostOrFound;
 import cn.neuwljs.module_d.model.base.Owner;
 import cn.neuwljs.module_d.model.base.Publisher;
+import cn.neuwljs.module_d.model.event.NotifyFragmentDBCDisplayInformationEvent;
+import cn.neuwljs.module_d.model.event.NotifyFragmentDBCLoadOwnerAndPublisherEvent;
+import cn.neuwljs.module_d.model.event.NotifyFragmentDBCRefreshPropertyInformationEvent;
+import cn.neuwljs.module_d.model.event.NotifyFragmentDBCRefreshPropertyTypeEvent;
 import cn.neuwljs.module_d.model.submit.Property;
 import cn.neuwljs.module_d.presenter.impl.FragmentDBCPresenterImpl;
 import cn.neuwljs.module_d.view.IFragmentDBCView;
 import cn.neuwljs.widget.NoSlideViewPager;
-import cn.neuwljs.widget.dialog.Widget_MessageDialog;
 import de.hdodenhof.circleimageview.CircleImageView;
 
 import static cn.neuwljs.module_d.Constants.COLLEGE_MAX_LENGTH;
@@ -46,7 +49,7 @@ import static cn.neuwljs.module_d.Constants.PUBLISHER_NAME_DEFAULT;
 public class FragmentDBC
         extends IndicatorFragment
         implements View.OnClickListener, IFragmentDBCView,
-        FragmentDB.OnArrowClickListener, Widget_MessageDialog.OnClickListener {
+        FragmentDB.OnArrowClickListener, UploadFailDialog.OnButtonClickListener {
 
     private static final String TAG = "FragmentDBC";
     private static final String DIALOG_LOAD_TAG = "dialog_load_tag";
@@ -170,7 +173,7 @@ public class FragmentDBC
 
         mProgressDialog = new UploadProgressDialog ();
         mUploadFailDialog = new UploadFailDialog ();
-        mUploadFailDialog.setListener (this);
+        mUploadFailDialog.setOnButtonClickListener (this);
 
         // 实例化mProperty
         mProperty = new Property ();
@@ -323,23 +326,34 @@ public class FragmentDBC
     public void onRightClick() {
     }
 
+    /**
+     * {@link cn.neuwljs.common.dialog.UploadFailDialog.OnButtonClickListener}
+     */
+    @Override
+    public void retry() {
+        mFragmentDBCPresenter.retry ();
+    }
+
+    @Override
+    public void cancelAndSave() {
+        mFragmentDBCPresenter.cancelAndSave (mProperty);
+    }
+
     @Subscribe
-    public void onLoadEvent(LoadEvent event){
+    public void onLoadEvent(NotifyFragmentDBCLoadOwnerAndPublisherEvent event){
 
         //加载
-        if(event.isBegin ()){
-            mFragmentDBCPresenter.loadOwner ();
-            Publisher publisher = mFragmentDBCPresenter.loadPublisher ();
+        mFragmentDBCPresenter.loadOwner ();
+        Publisher publisher = mFragmentDBCPresenter.loadPublisher ();
 
-            mProperty.setPublishTime (publisher.getTime () + "");
-            mProperty.setPublisherId (publisher.getId ());
-            mProperty.setPublisherCollege (publisher.getCollege ());
-            mProperty.setPublisherName (publisher.getName ());
-        }
+        mProperty.setPublishTime (publisher.getTime () + "");
+        mProperty.setPublisherId (publisher.getId ());
+        mProperty.setPublisherCollege (publisher.getCollege ());
+        mProperty.setPublisherName (publisher.getName ());
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onRefreshPropertyTypeEvent(RefreshPropertyTypeEvent event){
+    public void onRefreshPropertyTypeEvent(NotifyFragmentDBCRefreshPropertyTypeEvent event){
 
         // 设置失物类型
         if(mProperty != null){
@@ -348,7 +362,7 @@ public class FragmentDBC
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onRefreshPropertyInformationEvent(RefreshPropertyInformationEvent event){
+    public void onRefreshPropertyInformationEvent(NotifyFragmentDBCRefreshPropertyInformationEvent event){
 
         // 设置失物详细信息
         if(mProperty != null){
@@ -357,99 +371,11 @@ public class FragmentDBC
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onDisplayInformationEvent(DisplayInformationEvent event){
+    public void onDisplayInformationEvent(NotifyFragmentDBCDisplayInformationEvent event){
 
         // 显示详细内容
         if(mProperty != null){
             mPublishInformation.setText (event.getInformation ());
-        }
-    }
-
-    /**
-     * {@link cn.neuwljs.widget.dialog.Widget_MessageDialog.OnClickListener}
-     */
-    @Override
-    public void onCancel() {
-        mFragmentDBCPresenter.cancelAndSave (mProperty);
-    }
-
-    @Override
-    public void onConfirm() {
-        mFragmentDBCPresenter.retry ();
-    }
-
-    /**
-     * 通知该碎片进行加载Owner和Publisher的事件类
-     */
-    public static class LoadEvent{
-        /**
-         * 是否开始加载Owner和Publisher
-         */
-        private boolean begin;
-
-        public boolean isBegin() {
-            return begin;
-        }
-
-        public void setBegin(boolean begin) {
-            this.begin = begin;
-        }
-    }
-
-    /**
-     * 通知该碎片刷新失物类型的事件类
-     */
-    public static class RefreshPropertyTypeEvent{
-
-        /**
-         * 失物类型
-         */
-        private String propertyType;
-
-        public String getPropertyType() {
-            return propertyType;
-        }
-
-        public void setPropertyType(String propertyType) {
-            this.propertyType = propertyType;
-        }
-    }
-
-    /**
-     * 通知该碎片刷新失物描述的事件类
-     */
-    public static class RefreshPropertyInformationEvent{
-
-        /**
-         * 失物的详细描述
-         */
-        private String information;
-
-        public String getInformation() {
-            return information;
-        }
-
-        public void setInformation(String information) {
-            this.information = information;
-        }
-    }
-
-    /**
-     * 通知该碎片显示详细信息的事件类
-     */
-    public static class DisplayInformationEvent{
-
-        /**
-         * 失物的详细描述
-         */
-        private String information;
-
-        public String getInformation() {
-            return information;
-        }
-
-        public void setInformation(String information) {
-            this.information = information;
         }
     }
 
